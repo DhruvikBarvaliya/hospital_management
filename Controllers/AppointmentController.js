@@ -1,25 +1,25 @@
 const db = require('../Config/Sequelize')
-const Appointmen = db.AppointmenModel
+const Appointment = db.AppointmentModel
 
 module.exports = {
 
-    addAppointmen: (req, res) => {
+    addAppointment: (req, res) => {
         if (!req.body.name) {
-            res.status(400).send({ message: "Appointmen Name Can not be Emapty" })
+            res.status(400).send({ message: "Appointment Name Can not be Emapty" })
             return;
         }
         const data = req.body;
-        Appointmen.create(data).then(data => {
+        Appointment.create(data).then(data => {
             res.send(data);
         }).catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while creating the Appointmen."
+                    err.message || "Some error occurred while creating the Appointment."
             });
         });
     },
-    getAllAppointmen: (req, res) => {
-        Appointmen.findAll().then(result => {
+    getAllAppointment: (req, res) => {
+        Appointment.findAll().then(result => {
             if (result) {
                 res.json({
                     success: 1,
@@ -34,9 +34,9 @@ module.exports = {
             }
         })
     },
-    getAppointmenById: (req, res) => {
+    getAppointmentById: (req, res) => {
         let id = req.query.id
-        Appointmen.findByPk(id).then(result => {
+        Appointment.findByPk(id).then(result => {
             if (result) {
                 res.json({
                     success: 1,
@@ -51,10 +51,10 @@ module.exports = {
             }
         })
     },
-    updateAppointmen: (req, res) => {
+    updateAppointment: (req, res) => {
         let id = req.query.id
         let data = req.body;
-        Appointmen.update(data, {
+        Appointment.update(data, {
             where: { id: id }
         }).then(result => {
             if (result) {
@@ -71,10 +71,10 @@ module.exports = {
             }
         })
     },
-    updateAppointmenStatus: (req, res) => {
+    updateAppointmentStatus: (req, res) => {
         let id = req.query.id
         let status = req.params;
-        Appointmen.update({ status: status }, {
+        Appointment.update({ status: status }, {
             where: { id: id }
         }).then(result => {
             if (result) {
@@ -91,9 +91,9 @@ module.exports = {
             }
         })
     },
-    deleteAppointmenById: (req, res) => {
+    deleteAppointmentById: (req, res) => {
         let id = req.query.id
-        Appointmen.destroy({ where: { id: id } }).then(result => {
+        Appointment.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({
                     success: 1,

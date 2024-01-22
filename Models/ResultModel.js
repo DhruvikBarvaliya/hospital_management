@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const DepartmentModel = sequelize.define('Department', {
+    const Result = sequelize.define('Result', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         name: { type: Sequelize.STRING },
         email: { type: Sequelize.STRING },
@@ -17,5 +17,5 @@ module.exports = (sequelize, Sequelize) => {
         freezeTableName: true,
         timestamps: true
     })
-    return DepartmentModel;
+    return Result;
 }

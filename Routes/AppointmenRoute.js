@@ -1,18 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const AppointmenController = require('../Controllers/AppointmenController')
+const AppointmentController = require('../Controllers/AppointmentController')
 const authorize = require('../Middleware/auth');
 const Role = require("../Helpers/role");
 
 router.get('/', (req, res) => {
-    res.send("Inside Appointmen Router");
+    res.send("Inside Appointment Router");
 })
 
-router.post('/appointmen', authorize([Role.ADMIN, Role.SUPER_ADMIN]), AppointmenController.addAppointmen)
-router.get('/appointmen', AppointmenController.getAllAppointmen)
-router.get('/appointmen?:id', AppointmenController.getAppointmenById)
-router.put('/appointmen?:id', AppointmenController.updateAppointmen)
-router.patch('/appointmen/:id/:status', AppointmenController.updateAppointmenStatus)
-router.delete('/appointmen?:id', AppointmenController.deleteAppointmenById)
+router.post('/appointment', authorize([Role.ADMIN, Role.SUPER_ADMIN]), AppointmentController.addAppointment)
+router.get('/appointment', AppointmentController.getAllAppointment)
+router.get('/appointment?:id', AppointmentController.getAppointmentById)
+router.put('/appointment?:id', AppointmentController.updateAppointment)
+router.patch('/appointment/:id/:status', AppointmentController.updateAppointmentStatus)
+router.delete('/appointment?:id', AppointmentController.deleteAppointmentById)
 
 module.exports = router;  

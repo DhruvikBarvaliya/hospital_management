@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const PrescriptionModel = sequelize.define('Prescription', {
+    const Appointmen = sequelize.define('Appointmen', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         name: { type: Sequelize.STRING },
         email: { type: Sequelize.STRING },
@@ -17,5 +17,5 @@ module.exports = (sequelize, Sequelize) => {
         freezeTableName: true,
         timestamps: true
     })
-    return PrescriptionModel;
+    return Appointmen;
 }

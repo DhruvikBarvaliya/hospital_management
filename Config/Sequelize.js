@@ -12,8 +12,7 @@ const sequelize = new Sequelize(Database.DB, Database.USER, Database.PASSWORD, {
         acquire: Database.pool.acquire,
         idle: Database.pool.idle
     },
-    // logging: console.log,
-    logging: logger.debug.bind(logger)
+    logging: console.log,
 });
 
 const db = {};
@@ -22,25 +21,25 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 
-db.AddressModel = require("../Models/AddressModelModel")(sequelize, Sequelize);
-db.AdmissionModel = require("../Models/AdmissionModelModel")(sequelize, Sequelize);
-db.AppointmenModel = require("../Models/AppointmenModelModel")(sequelize, Sequelize);
+db.AddressModel = require("../Models/AddressModel")(sequelize, Sequelize);
+db.AdmissionModel = require("../Models/AdmissionModel")(sequelize, Sequelize);
+db.AppointmentModel = require("../Models/AppointmenModel")(sequelize, Sequelize);
 db.BillingModel = require("../Models/BillingModel")(sequelize, Sequelize);
-db.DepartmentModel = require("../Models/DepartmentModelModel")(sequelize, Sequelize);
-db.DoctorModel = require("../Models/DoctorModelModel")(sequelize, Sequelize);
-db.HospitalModel = require("../Models/HospitalModelModel")(sequelize, Sequelize);
-db.InventoryModel = require("../Models/InventoryModelModel")(sequelize, Sequelize);
-db.InvoiceModel = require("../Models/InvoiceModelModel")(sequelize, Sequelize);
-db.MedicalModel = require("../Models/MedicalModelModel")(sequelize, Sequelize);
-db.PatientModel = require("../Models/PatientModelModel")(sequelize, Sequelize);
-db.PharmacyModel = require("../Models/PharmacyModelModel")(sequelize, Sequelize);
-db.PrescriptionModel = require("../Models/PrescriptionModelModel")(sequelize, Sequelize);
-db.RecordModel = require("../Models/RecordModelModel")(sequelize, Sequelize);
-db.ResultModel = require("../Models/ResultModelModel")(sequelize, Sequelize);
-db.RoleModel = require("../Models/RoleModelModel")(sequelize, Sequelize);
-db.StaffModel = require("../Models/StaffModelModel")(sequelize, Sequelize);
-db.TestModel = require("../Models/TestModelModel")(sequelize, Sequelize);
-db.WordModel = require("../Models/WordModelModel")(sequelize, Sequelize);
+db.DepartmentModel = require("../Models/DepartmentModel")(sequelize, Sequelize);
+db.DoctorModel = require("../Models/DoctorModel")(sequelize, Sequelize);
+db.HospitalModel = require("../Models/HospitalModel")(sequelize, Sequelize);
+db.InventoryModel = require("../Models/InventoryModel")(sequelize, Sequelize);
+db.InvoiceModel = require("../Models/InvoiceModel")(sequelize, Sequelize);
+db.MedicalModel = require("../Models/MedicalModel")(sequelize, Sequelize);
+db.PatientModel = require("../Models/PatientModel")(sequelize, Sequelize);
+db.PharmacyModel = require("../Models/PharmacyModel")(sequelize, Sequelize);
+db.PrescriptionModel = require("../Models/PrescriptionModel")(sequelize, Sequelize);
+db.RecordModel = require("../Models/RecordModel")(sequelize, Sequelize);
+db.ResultModel = require("../Models/ResultModel")(sequelize, Sequelize);
+db.RoleModel = require("../Models/RoleModel")(sequelize, Sequelize);
+db.StaffModel = require("../Models/StaffModel")(sequelize, Sequelize);
+db.TestModel = require("../Models/TestModel")(sequelize, Sequelize);
+db.WordModel = require("../Models/WordModel")(sequelize, Sequelize);
 
 
 module.exports = db;

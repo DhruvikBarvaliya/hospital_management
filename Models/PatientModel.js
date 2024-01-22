@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const RoleModel = sequelize.define('Role', {
+    const Patient = sequelize.define('Patient', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         name: { type: Sequelize.STRING },
         email: { type: Sequelize.STRING },
@@ -17,5 +17,5 @@ module.exports = (sequelize, Sequelize) => {
         freezeTableName: true,
         timestamps: true
     })
-    return RoleModel;
+    return Patient;
 }

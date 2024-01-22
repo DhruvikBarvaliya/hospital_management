@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const author = sequelize.define('author', {
+    const Medical = sequelize.define('Medical', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         name: { type: Sequelize.STRING },
         email: { type: Sequelize.STRING },
@@ -17,5 +17,5 @@ module.exports = (sequelize, Sequelize) => {
         freezeTableName: true,
         timestamps: true
     })
-    return author;
+    return Medical;
 }
