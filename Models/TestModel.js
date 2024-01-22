@@ -4,7 +4,6 @@ module.exports = (sequelize, Sequelize) => {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         test_name: { type: Sequelize.STRING },
         description: { type: Sequelize.STRING },
- 
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {
@@ -22,9 +21,9 @@ module.exports = (sequelize, Sequelize) => {
             }
         },
     },
-    {
-        freezeTableName: true,
-        timestamps: true
-    })
+        {
+            freezeTableName: true,
+            timestamps: true
+        })
     return Test;
 }

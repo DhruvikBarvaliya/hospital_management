@@ -30,7 +30,6 @@ module.exports = (sequelize, Sequelize) => {
             }
         },
         qualification: { type: Sequelize.STRING },
-
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {

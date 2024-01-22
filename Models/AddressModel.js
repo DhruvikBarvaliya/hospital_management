@@ -8,7 +8,6 @@ module.exports = (sequelize, Sequelize) => {
         state: { type: Sequelize.STRING },
         city: { type: Sequelize.STRING },
         zip_code: { type: Sequelize.INTEGER },
-        
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {

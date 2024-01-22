@@ -12,7 +12,6 @@ module.exports = (sequelize, Sequelize) => {
         service_description: { type: Sequelize.STRING },
         cost: { type: Sequelize.FLOAT },
         total: { type: Sequelize.FLOAT },
-
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {

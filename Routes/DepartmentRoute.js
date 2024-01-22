@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const DepartmentController = require('../Controllers/DepartmentController')
 const authorize = require('../Middleware/auth');
-const Role = require("../Helpers/role");
+const Role = require("../Helpers/Role");
 
 router.get('/', (req, res) => {
     res.send("Inside Department Router");

@@ -29,7 +29,6 @@ module.exports = (sequelize, Sequelize) => {
         notes: { type: Sequelize.STRING },
         problem: { type: Sequelize.STRING },
         date_of_examination: { type: Sequelize.DATEONLY },
-
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {

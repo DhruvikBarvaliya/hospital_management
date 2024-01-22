@@ -18,7 +18,6 @@ module.exports = (sequelize, Sequelize) => {
         },
         date: { type: Sequelize.DATEONLY },
         time: { type: Sequelize.DATE },
-
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {

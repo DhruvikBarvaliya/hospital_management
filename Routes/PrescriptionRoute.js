@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const PrescriptionController = require('../Controllers/PrescriptionController')
 const authorize = require('../Middleware/auth');
-const Role = require("../Helpers/role");
+const Role = require("../Helpers/Role");
 
 router.get('/', (req, res) => {
     res.send("Inside Prescription Router");

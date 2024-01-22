@@ -11,7 +11,6 @@ module.exports = (sequelize, Sequelize) => {
             }
         },
         pharmacy_phone_number: { type: Sequelize.STRING },
-
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {

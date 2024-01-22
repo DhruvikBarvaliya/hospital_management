@@ -19,7 +19,6 @@ module.exports = (sequelize, Sequelize) => {
         admission_date: { type: Sequelize.DATEONLY },
         discharge_date: { type: Sequelize.DATEONLY },
         reason: { type: Sequelize.STRING },
-
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {

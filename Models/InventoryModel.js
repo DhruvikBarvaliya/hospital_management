@@ -6,7 +6,6 @@ module.exports = (sequelize, Sequelize) => {
         item_name: { type: Sequelize.STRING },
         quantity_available: { type: Sequelize.INTEGER },
         unit_price: { type: Sequelize.FLOAT },
-
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {

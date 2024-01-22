@@ -28,7 +28,6 @@ module.exports = (sequelize, Sequelize) => {
                 key: 'id'
             }
         },
-
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {

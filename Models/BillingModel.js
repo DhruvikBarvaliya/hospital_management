@@ -26,7 +26,6 @@ module.exports = (sequelize, Sequelize) => {
         bill_date: { type: Sequelize.DATEONLY },
         total_amount: { type: Sequelize.BIGINT },
         payment_status: { type: Sequelize.STRING },
-
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.ENUM("pending", "cancelled", "paid") },
         created_by: {

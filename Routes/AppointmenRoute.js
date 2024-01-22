@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const AppointmentController = require('../Controllers/AppointmentController')
 const authorize = require('../Middleware/auth');
-const Role = require("../Helpers/role");
+const Role = require("../Helpers/Role");
 
 router.get('/', (req, res) => {
     res.send("Inside Appointment Router");
