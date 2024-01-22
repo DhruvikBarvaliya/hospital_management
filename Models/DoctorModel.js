@@ -5,27 +5,27 @@ module.exports = (sequelize, Sequelize) => {
         doctor_first_name: { type: Sequelize.STRING },
         doctore_last_name: { type: Sequelize.STRING },
         department_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Department,
+                model: "Department",
                 key: 'id'
             }
         },
         doctore_phone_number: { type: Sequelize.STRING },
-        specialization: { type: Sequelize.STRING },
+        specialization: { type: Sequelize.ENUM("Dermatology", "Diabetology", "Emergency"), defaultValue: "Dermatology" },
         email: { type: Sequelize.STRING },
         doctor_address: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Address,
+                model: "Address",
                 key: 'id'
             }
         },
         salary: { type: Sequelize.BIGINT },
         hospital_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Hospital,
+                model: "Hospital",
                 key: 'id'
             }
         },
@@ -34,16 +34,16 @@ module.exports = (sequelize, Sequelize) => {
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },
         updated_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },

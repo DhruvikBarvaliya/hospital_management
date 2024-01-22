@@ -3,9 +3,9 @@ module.exports = (sequelize, Sequelize) => {
     const Prescription = sequelize.define('Prescription', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         patient_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Patient,
+                model: "Patient",
                 key: 'id'
             }
         },
@@ -13,16 +13,16 @@ module.exports = (sequelize, Sequelize) => {
         prescription_date: { type: Sequelize.DATEONLY },
         prescription_cost: { type: Sequelize.FLOAT },
         doctor_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },
         medication_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: MedicalRecord,
+                model: "MedicalRecord",
                 key: 'id'
             }
         },
@@ -30,16 +30,16 @@ module.exports = (sequelize, Sequelize) => {
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },
         updated_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },

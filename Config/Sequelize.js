@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const Database= require("../Config/Config");
+const Database = require("../Config/Config");
 
 const sequelize = new Sequelize(Database.DB, Database.USER, Database.PASSWORD, {
     host: Database.HOST,
@@ -39,6 +39,11 @@ db.RoleModel = require("../Models/RoleModel")(sequelize, Sequelize);
 db.StaffModel = require("../Models/StaffModel")(sequelize, Sequelize);
 db.TestModel = require("../Models/TestModel")(sequelize, Sequelize);
 db.WordModel = require("../Models/WordModel")(sequelize, Sequelize);
+
+
+db.DoctorModel.hasOne(db.AddressModel, { foreignKey: 'id' });
+// Foo.hasOne(Bar, { foreignKey: 'myFooId' });
+// Bar.belongsTo(Foo);
 
 
 module.exports = db;

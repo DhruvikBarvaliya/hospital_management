@@ -3,18 +3,18 @@ module.exports = (sequelize, Sequelize) => {
     const Staff = sequelize.define('Staff', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         department_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Department,
+                model: "Department",
                 key: 'id'
             }
         },
         staff_first_name: { type: Sequelize.STRING },
         staff_last_name: { type: Sequelize.DATEONLY },
         staff_address: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Address,
+                model: "Address",
                 key: 'id'
             }
         },
@@ -22,9 +22,9 @@ module.exports = (sequelize, Sequelize) => {
         email: { type: Sequelize.STRING },
         position: { type: Sequelize.STRING },
         role: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Role,
+                model: "Role",
                 key: 'id'
             }
         },
@@ -32,16 +32,16 @@ module.exports = (sequelize, Sequelize) => {
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },
         updated_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },

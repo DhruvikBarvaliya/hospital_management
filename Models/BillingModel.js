@@ -3,23 +3,23 @@ module.exports = (sequelize, Sequelize) => {
     const Billing = sequelize.define('Billing', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         patient_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Patient,
+                model: "Patient",
                 key: 'id'
             }
         },
         doctore_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },
         admission_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Admission,
+                model: "Admission",
                 key: 'id'
             }
         },
@@ -28,18 +28,18 @@ module.exports = (sequelize, Sequelize) => {
         payment_status: { type: Sequelize.STRING },
 
         is_active: { type: Sequelize.BOOLEAN },
-        status: { type: Sequelize.BOOLEAN },
+        status: { type: Sequelize.ENUM("pending", "cancelled", "paid") },
         created_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },
         updated_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },

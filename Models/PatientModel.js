@@ -5,26 +5,26 @@ module.exports = (sequelize, Sequelize) => {
         patient_first_name: { type: Sequelize.STRING },
         patient_last_name: { type: Sequelize.STRING },
         patient_address: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Address,
+                model: "Address",
                 key: 'id'
             }
         },
         patient_phone_number: { type: Sequelize.STRING },
         pharmacy_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Pharmacy,
+                model: "Pharmacy",
                 key: 'id'
             }
         },
         date_of_birth: { type: Sequelize.DATEONLY },
         gender: { type: Sequelize.STRING },
         hospital_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Hospital,
+                model: "Hospital",
                 key: 'id'
             }
         },
@@ -33,16 +33,16 @@ module.exports = (sequelize, Sequelize) => {
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },
         updated_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },

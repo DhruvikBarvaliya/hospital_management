@@ -4,9 +4,9 @@ module.exports = (sequelize, Sequelize) => {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         pharmacy_name: { type: Sequelize.STRING },
         pharmacy_address: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Address,
+                model: "Address",
                 key: 'id'
             }
         },
@@ -15,16 +15,16 @@ module.exports = (sequelize, Sequelize) => {
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },
         updated_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },

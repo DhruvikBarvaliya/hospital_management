@@ -3,16 +3,16 @@ module.exports = (sequelize, Sequelize) => {
     const Room = sequelize.define('Room', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         patient_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Patient,
+                model: "Patient",
                 key: 'id'
             }
         },
         staff_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Staff,
+                model: "Staff",
                 key: 'id'
             }
         },
@@ -21,16 +21,16 @@ module.exports = (sequelize, Sequelize) => {
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },
         updated_by: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             references: {
-                model: Doctor,
+                model: "Doctor",
                 key: 'id'
             }
         },
