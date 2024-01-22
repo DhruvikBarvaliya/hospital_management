@@ -1,15 +1,23 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const Invoice = sequelize.define('Invoice', {
+    const TestResult = sequelize.define('TestResult', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-        patient_id: {             type: DataTypes.INTEGER,
+        patient_id: {
+            type: DataTypes.INTEGER,
             references: {
                 model: Patient,
                 key: 'id'
-            } },
-        service_description: { type: Sequelize.STRING },
-        cost: { type: Sequelize.FLOAT },
-        total: { type: Sequelize.FLOAT },
+            }
+        },
+        test_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Test,
+                key: 'id'
+            }
+        },
+        result_details: { type: Sequelize.STRING },
+        test_date: { type: Sequelize.DATEONLY },
 
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
@@ -28,9 +36,9 @@ module.exports = (sequelize, Sequelize) => {
             }
         },
     },
-    {
-        freezeTableName: true,
-        timestamps: true
-    })
-    return Invoice;
+        {
+            freezeTableName: true,
+            timestamps: true
+        })
+    return TestResult;
 }

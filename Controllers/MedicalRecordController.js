@@ -1,25 +1,25 @@
 const db = require('../Config/Sequelize')
-const Medical = db.MedicalModel
+const MedicalRecord = db.MedicalRecordRecordModel
 
 module.exports = {
 
-    addMedical: (req, res) => {
+    addMedicalRecord: (req, res) => {
         if (!req.body.name) {
-            res.status(400).send({ message: "Medical Name Can not be Emapty" })
+            res.status(400).send({ message: "MedicalRecord Name Can not be Emapty" })
             return;
         }
         const data = req.body;
-        Medical.create(data).then(data => {
+        MedicalRecord.create(data).then(data => {
             res.send(data);
         }).catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while creating the Medical."
+                    err.message || "Some error occurred while creating the MedicalRecord."
             });
         });
     },
-    getAllMedical: (req, res) => {
-        Medical.findAll().then(result => {
+    getAllMedicalRecord: (req, res) => {
+        MedicalRecord.findAll().then(result => {
             if (result) {
                 res.json({
                     success: 1,
@@ -34,9 +34,9 @@ module.exports = {
             }
         })
     },
-    getMedicalById: (req, res) => {
+    getMedicalRecordById: (req, res) => {
         let id = req.query.id
-        Medical.findByPk(id).then(result => {
+        MedicalRecord.findByPk(id).then(result => {
             if (result) {
                 res.json({
                     success: 1,
@@ -51,10 +51,10 @@ module.exports = {
             }
         })
     },
-    updateMedical: (req, res) => {
+    updateMedicalRecord: (req, res) => {
         let id = req.query.id
         let data = req.body;
-        Medical.update(data, {
+        MedicalRecord.update(data, {
             where: { id: id }
         }).then(result => {
             if (result) {
@@ -71,10 +71,10 @@ module.exports = {
             }
         })
     },
-    updateMedicalStatus: (req, res) => {
+    updateMedicalRecordStatus: (req, res) => {
         let id = req.query.id
         let status = req.params;
-        Medical.update({ status: status }, {
+        MedicalRecord.update({ status: status }, {
             where: { id: id }
         }).then(result => {
             if (result) {
@@ -91,9 +91,9 @@ module.exports = {
             }
         })
     },
-    deleteMedicalById: (req, res) => {
+    deleteMedicalRecordById: (req, res) => {
         let id = req.query.id
-        Medical.destroy({ where: { id: id } }).then(result => {
+        MedicalRecord.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({
                     success: 1,

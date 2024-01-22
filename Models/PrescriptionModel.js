@@ -2,20 +2,51 @@
 module.exports = (sequelize, Sequelize) => {
     const Prescription = sequelize.define('Prescription', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-        name: { type: Sequelize.STRING },
-        email: { type: Sequelize.STRING },
-        date_of_birth: { type: Sequelize.DATEONLY },
-        sex: { type: Sequelize.STRING },
-        address: { type: Sequelize.STRING },
-        city: { type: Sequelize.STRING },
-        zip_code: { type: Sequelize.INTEGER },
-        state: { type: Sequelize.STRING },
-        country: { type: Sequelize.STRING },
+        patient_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Patient,
+                key: 'id'
+            }
+        },
+        medication_name: { type: Sequelize.STRING },
+        prescription_date: { type: Sequelize.DATEONLY },
+        prescription_cost: { type: Sequelize.FLOAT },
+        doctor_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Doctor,
+                key: 'id'
+            }
+        },
+        medication_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: MedicalRecord,
+                key: 'id'
+            }
+        },
+
+        is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
+        created_by: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Doctor,
+                key: 'id'
+            }
+        },
+        updated_by: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Doctor,
+                key: 'id'
+            }
+        },
     },
-    {
-        freezeTableName: true,
-        timestamps: true
-    })
+        {
+            freezeTableName: true,
+            timestamps: true
+        })
     return Prescription;
 }

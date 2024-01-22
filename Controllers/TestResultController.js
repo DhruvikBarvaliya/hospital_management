@@ -1,25 +1,25 @@
 const db = require('../Config/Sequelize')
-const Result = db.ResultModel
+const TestResult = db.TestResultModel
 
 module.exports = {
 
-    addResult: (req, res) => {
+    addTestResult: (req, res) => {
         if (!req.body.name) {
-            res.status(400).send({ message: "Result Name Can not be Emapty" })
+            res.status(400).send({ message: "TestResult Name Can not be Emapty" })
             return;
         }
         const data = req.body;
-        Result.create(data).then(data => {
+        TestResult.create(data).then(data => {
             res.send(data);
         }).catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while creating the Result."
+                    err.message || "Some error occurred while creating the TestResult."
             });
         });
     },
-    getAllResult: (req, res) => {
-        Result.findAll().then(result => {
+    getAllTestResult: (req, res) => {
+        TestResult.findAll().then(result => {
             if (result) {
                 res.json({
                     success: 1,
@@ -34,9 +34,9 @@ module.exports = {
             }
         })
     },
-    getResultById: (req, res) => {
+    getTestResultById: (req, res) => {
         let id = req.query.id
-        Result.findByPk(id).then(result => {
+        TestResult.findByPk(id).then(result => {
             if (result) {
                 res.json({
                     success: 1,
@@ -51,10 +51,10 @@ module.exports = {
             }
         })
     },
-    updateResult: (req, res) => {
+    updateTestResult: (req, res) => {
         let id = req.query.id
         let data = req.body;
-        Result.update(data, {
+        TestResult.update(data, {
             where: { id: id }
         }).then(result => {
             if (result) {
@@ -71,10 +71,10 @@ module.exports = {
             }
         })
     },
-    updateResultStatus: (req, res) => {
+    updateTestResultStatus: (req, res) => {
         let id = req.query.id
         let status = req.params;
-        Result.update({ status: status }, {
+        TestResult.update({ status: status }, {
             where: { id: id }
         }).then(result => {
             if (result) {
@@ -91,9 +91,9 @@ module.exports = {
             }
         })
     },
-    deleteResultById: (req, res) => {
+    deleteTestResultById: (req, res) => {
         let id = req.query.id
-        Result.destroy({ where: { id: id } }).then(result => {
+        TestResult.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({
                     success: 1,

@@ -1,35 +1,34 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const Doctor = sequelize.define('Doctor', {
+    const MedicalRecord = sequelize.define('MedicalRecord', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-        doctor_first_name: { type: Sequelize.STRING },
-        doctore_last_name: { type: Sequelize.STRING },
-        department_id: {
+        patient_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: Department,
+                model: Patient,
                 key: 'id'
             }
         },
-        doctore_phone_number: { type: Sequelize.STRING },
-        specialization: { type: Sequelize.STRING },
-        email: { type: Sequelize.STRING },
-        doctor_address: {
+        doctor_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: Address,
+                model: Doctor,
                 key: 'id'
             }
         },
-        salary: { type: Sequelize.BIGINT },
-        hospital_id: {
+        record_date: { type: Sequelize.DATEONLY },
+        diagnosis: { type: Sequelize.STRING },
+        prescription: { type: Sequelize.STRING },
+        test_result: {
             type: DataTypes.INTEGER,
             references: {
-                model: Hospital,
+                model: TestResult,
                 key: 'id'
             }
         },
-        qualification: { type: Sequelize.STRING },
+        notes: { type: Sequelize.STRING },
+        problem: { type: Sequelize.STRING },
+        date_of_examination: { type: Sequelize.DATEONLY },
 
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
@@ -52,5 +51,5 @@ module.exports = (sequelize, Sequelize) => {
             freezeTableName: true,
             timestamps: true
         })
-    return Doctor;
+    return MedicalRecord;
 }

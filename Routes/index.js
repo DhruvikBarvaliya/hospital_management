@@ -9,12 +9,11 @@ const DoctorRoute = require('./DoctorRoute');
 const HospitalRoute = require('./HospitalRoute');
 const InventoryRoute = require('./InventoryRoute');
 const InvoiceRoute = require('./InvoiceRoute');
-const MedicalRoute = require('./MedicalRoute');
+const MedicalRecordRoute = require('./MedicalRecordRoute');
 const PatientRoute = require('./PatientRoute');
 const PharmacyRoute = require('./PharmacyRoute');
 const PrescriptionRoute = require('./PrescriptionRoute');
-const RecordRoute = require('./RecordRoute');
-const ResultRoute = require('./ResultRoute');
+const TestResultRoute = require('./TestResultRoute');
 const RoleRoute = require('./RoleRoute');
 const RoomRoute = require('./RoomRoute');
 const StaffRoute = require('./StaffRoute');
@@ -35,12 +34,11 @@ DoctorRoute,
 HospitalRoute,
 InventoryRoute,
 InvoiceRoute,
-MedicalRoute,
+MedicalRecordRoute,
 PatientRoute,
 PharmacyRoute,
 PrescriptionRoute,
-RecordRoute,
-ResultRoute,
+TestResultRoute,
 RoleRoute,
 RoomRoute,
 StaffRoute,
