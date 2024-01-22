@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const Admission = sequelize.define('author', {
+    const Admission = sequelize.define('Admission', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         name: { type: Sequelize.STRING },
         email: { type: Sequelize.STRING },

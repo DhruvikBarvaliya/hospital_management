@@ -6,12 +6,13 @@ const indexRouter = require("./Routes/index")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
-app.use("/api", indexRouter)
 
-app.get('/test', function (req, res) {
-    console.log("Got a POST request for the homepage");
-    res.send('Hello Test');
+app.get('/', function (req, res) {
+    console.log("Welcome To Hospital Management System");
+    res.send('Welcome To Hospital Management System');
 })
+
+app.use("/api", indexRouter)
 
 db.sequelize.sync({ force: false }).then(() => {
     console.log("Drop and re-sync db.");

@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     res.send("Inside Index Router")
 })
 
-router.use('/api',
+router.use('/v1',
 AddressRoute,
 AdmissionRoute,
 AuthRoute,

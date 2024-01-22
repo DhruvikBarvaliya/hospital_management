@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const Address = sequelize.define('author', {
+    const Address = sequelize.define('Address', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         name: { type: Sequelize.STRING },
         email: { type: Sequelize.STRING },
