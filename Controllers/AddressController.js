@@ -4,10 +4,6 @@ const Address = db.AddressModel
 module.exports = {
 
     addAddress: (req, res) => {
-        if (!req.body.name) {
-            res.status(400).send({ message: "Address Name Can not be Emapty" })
-            return;
-        }
         const data = req.body;
         Address.create(data).then(data => {
             res.send(data);
