@@ -4,10 +4,6 @@ const Billing = db.BillingModel
 module.exports = {
 
     addBilling: (req, res) => {
-        if (!req.body.name) {
-            res.status(400).send({ message: "Billing Name Can not be Emapty" })
-            return;
-        }
         const data = req.body;
         Billing.create(data).then(data => {
             res.send(data);

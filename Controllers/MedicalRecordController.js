@@ -1,11 +1,11 @@
 const db = require('../Config/Sequelize')
-const MedicalRecord = db.MedicalRecordRecordModel
+const MedicalRecord = db.MedicalRecordModel
 
 module.exports = {
 
     addMedicalRecord: (req, res) => {
-        if (!req.body.name) {
-            res.status(400).send({ message: "MedicalRecord Name Can not be Emapty" })
+        if (!req.body.patient_id) {
+            res.status(400).send({ message: "Patient Id Can not be Emapty" })
             return;
         }
         const data = req.body;

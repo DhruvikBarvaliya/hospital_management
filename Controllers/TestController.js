@@ -4,7 +4,7 @@ const Test = db.TestModel
 module.exports = {
 
     addTest: (req, res) => {
-        if (!req.body.name) {
+        if (!req.body.test_name) {
             res.status(400).send({ message: "Test Name Can not be Emapty" })
             return;
         }

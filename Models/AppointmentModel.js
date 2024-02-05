@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const Appointmen = sequelize.define('Appointmen', {
+    const Appointment = sequelize.define('Appointment', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
         patient_id: {
             type: Sequelize.INTEGER,
@@ -39,5 +39,5 @@ module.exports = (sequelize, Sequelize) => {
             freezeTableName: true,
             timestamps: true
         })
-    return Appointmen;
+    return Appointment;
 }

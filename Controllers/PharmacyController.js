@@ -4,7 +4,7 @@ const Pharmacy = db.PharmacyModel
 module.exports = {
 
     addPharmacy: (req, res) => {
-        if (!req.body.name) {
+        if (!req.body.pharmacy_name) {
             res.status(400).send({ message: "Pharmacy Name Can not be Emapty" })
             return;
         }

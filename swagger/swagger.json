@@ -1,0 +1,361 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Folder Management API",
+        "description": "The Folder Management API enables developers to manage folders.",
+        "version": "Beta"
+    },
+    "externalDocs": {
+        "description": "See official Bloomreach documentation",
+        "url": "https://documentation.bloomreach.com/content/reference/folder-management-api"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api/v1"
+        }
+    ],
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Address",
+            "externalDocs": {
+                "description": "Address Model"
+            }
+        },
+        {
+            "name": "Admission",
+            "externalDocs": {
+                "description": "Admission Model"
+            }
+        }
+    ],
+    "paths": {
+        "/address": {
+            "post": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Get Address Model",
+                "description": "Get the details of a Address",
+                "operationId": "post Folder",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Address"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A list of Address"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Get Address Model",
+                "description": "Get the details of a Address",
+                "operationId": "get Folder",
+                "responses": {
+                    "200": {
+                        "description": "A list of Address"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Create or update a Addess",
+                "description": "Create a new folder that doesn't yet exist. Or if the folder exists, update its information.",
+                "operationId": "put Folder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Address"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The updated user",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Delete user by ID",
+                "description": "Delete a folder. It's only possible to delete folders that doesn't have published content inside, and that doesn't have nested folders. Note that this behavior is slightly different than the same operation in the UI, where the folder has to be completely empty to be removed (even unpublished content will prevent us from removing a folder on the UI)",
+                "operationId": "delete Folder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/admission": {
+            "post": {
+                "tags": [
+                    "Admission"
+                ],
+                "summary": "Get Admission Model",
+                "description": "Get the details of a Admission",
+                "operationId": "postFolder",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Admission"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A list of Admission"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Admission"
+                ],
+                "summary": "Get Admission Model",
+                "description": "Get the details of a Admission",
+                "operationId": "getFolderr",
+                "responses": {
+                    "200": {
+                        "description": "A list of Admission"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Admission"
+                ],
+                "summary": "Create or update a Addess",
+                "description": "Create a new folder that doesn't yet exist. Or if the folder exists, update its information.",
+                "operationId": "putFolder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The updated user",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Admission"
+                ],
+                "summary": "Delete user by ID",
+                "description": "Delete a folder. It's only possible to delete folders that doesn't have published content inside, and that doesn't have nested folders. Note that this behavior is slightly different than the same operation in the UI, where the folder has to be completely empty to be removed (even unpublished content will prevent us from removing a folder on the UI)",
+                "operationId": "deleteFolder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "streetAddress1": {
+                        "type": "string"
+                    },
+                    "streetAddress2": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "zip_code": {
+                        "type": "integer"
+                    },
+                    "is_active": {
+                        "type": "boolean"
+                    },
+                    "status": {
+                        "type": "integer"
+                    },
+                    "created_by": {
+                        "type": "integer"
+                    },
+                    "updated_by": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Admission": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "patient_id": {
+                        "type": "integer"
+                    },
+                    "ward_id": {
+                        "type": "integer"
+                    },
+                    "admission_date": {
+                        "type": "string"
+                    },
+                    "discharge_date": {
+                        "type": "string"
+                    },
+                    "reason": {
+                        "type": "string"
+                    },
+                    "is_active": {
+                        "type": "boolean"
+                    },
+                    "status": {
+                        "type": "integer"
+                    },
+                    "created_by": {
+                        "type": "integer"
+                    },
+                    "updated_by": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    },
+    "x-readme": {
+        "explorer-enabled": true,
+        "proxy-enabled": true,
+        "samples-enabled": true
+    }
+}

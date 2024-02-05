@@ -23,7 +23,7 @@ db.sequelize = sequelize;
 
 db.AddressModel = require("../Models/AddressModel")(sequelize, Sequelize);
 db.AdmissionModel = require("../Models/AdmissionModel")(sequelize, Sequelize);
-db.AppointmentModel = require("../Models/AppointmenModel")(sequelize, Sequelize);
+db.AppointmentModel = require("../Models/AppointmentModel")(sequelize, Sequelize);
 db.BillingModel = require("../Models/BillingModel")(sequelize, Sequelize);
 db.DepartmentModel = require("../Models/DepartmentModel")(sequelize, Sequelize);
 db.DoctorModel = require("../Models/DoctorModel")(sequelize, Sequelize);

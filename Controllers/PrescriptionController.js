@@ -4,8 +4,8 @@ const Prescription = db.PrescriptionModel
 module.exports = {
 
     addPrescription: (req, res) => {
-        if (!req.body.name) {
-            res.status(400).send({ message: "Prescription Name Can not be Emapty" })
+        if (!req.body.patient_id) {
+            res.status(400).send({ message: "Patient Id Can not be Emapty" })
             return;
         }
         const data = req.body;

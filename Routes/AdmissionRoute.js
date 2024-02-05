@@ -4,11 +4,164 @@ const AdmissionController = require('../Controllers/AdmissionController')
 const authorize = require('../Middleware/auth');
 const Role = require("../Helpers/Role");
 
-router.get('/', (req, res) => {
-    res.send("Inside Admission Router");
-})
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Admission:
+ *       type: object
+ *       required:
+ *         - patient_id
+ *         - ward_id
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: The auto-generated id of the Admission
+ *         patient_id:
+ *           type: integer
+ *           description: The title of your Admission
+ *         ward_id:
+ *           type: integer
+ *           description: The Admission author
+ *         admission_date:
+ *           type: string
+ *           format: date
+ *           description: Whether you have finished reading the Admission
+ *         discharge_date:
+ *           type: string 
+ *           format: date
+ *           description: The date the Admission was added
+ *         reason:
+ *           type: string
+ *           description: The date the Admission was added
+ *         is_active:
+ *           type: string
+ *           description: The date the Admission was added
+ *         status:
+ *           type: string
+ *           description: The date the Admission was added
+ *         created_by:
+ *           type: integer
+ *           format: date
+ *           description: The date the Admission was added
+ *         updated_by:
+ *           type: integer
+ *           format: date
+ *           description: The date the Admission was added
+ *       example:
+ *         patient_id: 1
+ *         ward_id: 1
+ *         admission_date: "2020/01/01"
+ *         discharge_date: "01-01-2023"
+ *         reason: "not fill good"
+ *         is_active: true
+ *         status: true
+ *         created_by: 3
+ *         updated_by: 3
+ */
 
-router.post('/admission', authorize([Role.ADMIN, Role.SUPER_ADMIN]), AdmissionController.addAdmission)
+/**
+ * @swagger
+ * tags:
+ *   name: Admission
+ *   description: The admission managing API
+ * /admission:
+ *   get:
+ *     summary: Lists all the admission
+ *     tags: [Admission]
+ *     responses:
+ *       200:
+ *         description: The list of the admission
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Admission'
+ *   post:
+ *     summary: Create a new Admission
+ *     tags: [Admission]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Admission'
+ *     responses:
+ *       200:
+ *         description: The created Admission.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Admission'
+ *       500:
+ *         description: Some server error
+ * /admission/{id}:
+ *   get:
+ *     summary: Get the Admission by id
+ *     tags: [Admission]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The Admission id
+ *     responses:
+ *       200:
+ *         description: The Admission response by id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Admission'
+ *       404:
+ *         description: The Admission was not found
+ *   put:
+ *    summary: Update the Admission by the id
+ *    tags: [Admission]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: The Admission id
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Admission'
+ *    responses:
+ *      200:
+ *        description: The Admission was updated
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Admission'
+ *      404:
+ *        description: The Admission was not found
+ *      500:
+ *        description: Some error happened
+ *   delete:
+ *     summary: Remove the Admission by id
+ *     tags: [Admission]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The Admission id
+ *
+ *     responses:
+ *       200:
+ *         description: The Admission was deleted
+ *       404:
+ *         description: The Admission was not found
+ */
+
+router.post('/admission',  AdmissionController.addAdmission)
 router.get('/admission', AdmissionController.getAllAdmission)
 router.get('/admission?:id', AdmissionController.getAdmissionById)
 router.put('/admission?:id', AdmissionController.updateAdmission)

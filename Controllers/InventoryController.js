@@ -4,8 +4,8 @@ const Inventory = db.InventoryModel
 module.exports = {
 
     addInventory: (req, res) => {
-        if (!req.body.name) {
-            res.status(400).send({ message: "Inventory Name Can not be Emapty" })
+        if (!req.body.item_name) {
+            res.status(400).send({ message: "Item Name Can not be Emapty" })
             return;
         }
         const data = req.body;
