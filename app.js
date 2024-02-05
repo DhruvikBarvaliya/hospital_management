@@ -2,10 +2,6 @@ const express = require("express")
 const app = express()
 const cors = require('cors'); 
 
-// Swagger
-const swaggerUi = require('swagger-ui-express');
-const swaggerJsDoc = require('swagger-jsdoc');
-
 const indexRouter = require("./Routes/index")
 
 app.use(express.json());
@@ -13,30 +9,30 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cors()); 
 
 // Swagger
-// const swaggerDocument = require('./swagger/swagger.json');
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { explorer: true }));
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc');
 
 const options = {
     definition: {
       openapi: "3.0.0",
       info: {
-        title: "LogRocket Express API with Swagger",
+        title: "Hospital Management System Express API with Swagger",
         version: "0.1.0",
         description:
-          "This is a simple CRUD API application made with Express and documented with Swagger",
+          "This is a Demo app Using JavaScript,NodeJS,ExpressJS,Sequlize with Postgres with Swagger",
         license: {
           name: "MIT",
           url: "https://spdx.org/licenses/MIT.html",
         },
         contact: {
-          name: "LogRocket",
-          url: "https://logrocket.com",
-          email: "info@email.com",
+          name: "Dhruvik",
+          //url: "https://logrocket.com",
+          email: "dhruvik.barvaliya.blackwolve@gmail.com",
         },
       },
       servers: [
         {
-            "url": "http://localhost:8000/api/v1"
+            "url": "http://localhost:3000/api/v1"
         },
       ],
     },
@@ -49,8 +45,6 @@ const options = {
     swaggerUi.serve,
     swaggerUi.setup(specs, {
       explorer: true,
-      // customCssUrl:
-      //   "https://cdn.jsdelivr.net/npm/swagger-ui-themes@3.0.0/themes/3.x/theme-newspaper.css",
     })
   );
 
