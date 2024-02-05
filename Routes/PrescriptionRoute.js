@@ -50,12 +50,12 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Prescription was added
  *       example:
- *         patient_id: 1,
- *         medication_name: "Paracetamol",
- *         prescription_date: "2023-01-02",
- *         prescription_cost: 200.23,
- *         doctor_id: 3,
- *         medication_id: 1,
+ *         patient_id: 1
+ *         medication_name: "Paracetamol"
+ *         prescription_date: "2023-01-02"
+ *         prescription_cost: 200.23
+ *         doctor_id: 3
+ *         medication_id: 1
  *         is_active: true
  *         status: true
  *         created_by: 5

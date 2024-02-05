@@ -53,7 +53,7 @@ const AuthController = require("../Controllers/AuthController");
  *         patient_id: 1
  *         doctore_id: 2
  *         admission_id: 3
- *         bill_date: 12/01/1994,
+ *         bill_date: 12/01/1994
  *         total_amount: 1200
  *         payment_status: Done
  *         is_active: true

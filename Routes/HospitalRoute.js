@@ -38,9 +38,9 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           description: The date the Hospital was added
  *       example:
- *         hospital_name: "Apollo",
- *         hospital_address: 5,
- *         hospital_phone_number: "02821",
+ *         hospital_name: "Apollo"
+ *         hospital_address: 5
+ *         hospital_phone_number: "02821"
  *         is_active: true
  *         status: true
  *         created_by: 5

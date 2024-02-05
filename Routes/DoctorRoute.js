@@ -60,16 +60,16 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           description: The date the Doctor was added
  *       example:
- *         doctor_first_name: "Dhruvik",
- *         doctore_last_name: "Barvaliya",
- *         department_id: 3,
- *         doctore_phone_number: "7567270030",
- *         specialization: "Dermatology",
- *         email: "dhruvik@gmail.com",
- *         doctor_address: 5,
- *         salary: 50000,
- *         hospital_id: 1,
- *         qualification: "MBBS",
+ *         doctor_first_name: "Dhruvik"
+ *         doctore_last_name: "Barvaliya"
+ *         department_id: 3
+ *         doctore_phone_number: "7567270030"
+ *         specialization: "Dermatology"
+ *         email: "dhruvik@gmail.com"
+ *         doctor_address: 5
+ *         salary: 50000
+ *         hospital_id: 1
+ *         qualification: "MBBS"
  *         is_active: true
  *         status: true
  *         created_by: 5

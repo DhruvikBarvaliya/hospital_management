@@ -48,17 +48,17 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Address was added
- *       example:
- *         streetAddress1: "Bapa Sitarm Row House",
- *         streetAddress2: "Near Yogi Choke",
- *         country: "India",
- *         state: "Gujarat",
- *         city: "Surat",
- *         zip_code: 395006,
- *         is_active: true,
- *         status: true
- *         created_by: 5
- *         updated_by: 5
+ *         example:
+ *           streetAddress1: "Bapa Sitarm Row House"
+ *           streetAddress2: "Near Yogi Choke"
+ *           country: "India"
+ *           state: "Gujarat"
+ *           city: "Surat"
+ *           zip_code: 395006
+ *           is_active: true
+ *           status: true
+ *           created_by: 5
+ *           updated_by: 5
  */
 
 /**

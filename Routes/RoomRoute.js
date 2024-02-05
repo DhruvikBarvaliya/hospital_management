@@ -43,9 +43,9 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Room was added
  *       example:
- *         patient_id: 1,
- *         staff_id: 2,
- *         admission_date: "202/01/01",
+ *         patient_id: 1
+ *         staff_id: 2
+ *         admission_date: "202/01/01"
  *         is_active: true
  *         status: true
  *         created_by: 5

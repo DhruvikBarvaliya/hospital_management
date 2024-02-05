@@ -43,9 +43,9 @@ const Role = require("../Helpers/Role");
  *           description: The date the Invoice was added
  *       example:
  *         patient_id: 1
- *         service_description: "Good",
- *         cost: 10,
- *         total: 20,
+ *         service_description: "Good"
+ *         cost: 10
+ *         total: 20
  *         is_active: true
  *         status: true
  *         created_by: 5

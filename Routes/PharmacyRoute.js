@@ -40,9 +40,9 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Pharmacy was added
  *       example:
- *         pharmacy_name: "Apollo Pharmacy",
- *         pharmacy_address: 5,
- *         pharmacy_phone_number: "7894561230",
+ *         pharmacy_name: "Apollo Pharmacy"
+ *         pharmacy_address: 5
+ *         pharmacy_phone_number: "7894561230"
  *         is_active: true
  *         status: true
  *         created_by: 5

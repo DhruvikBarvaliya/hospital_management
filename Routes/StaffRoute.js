@@ -55,14 +55,14 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Staff was added
  *       example:
- *         department_id: 3,
- *         staff_first_name: "Suman",
- *         staff_last_name: "Magya",
- *         staff_address: 5,
- *         staff_phone_number: "6598741230",
- *         email: "suman@gmail.com",
- *         position: "Sr",
- *         role: 1,
+ *         department_id: 3
+ *         staff_first_name: "Suman"
+ *         staff_last_name: "Magya"
+ *         staff_address: 5
+ *         staff_phone_number: "6598741230"
+ *         email: "suman@gmail.com"
+ *         position: "Sr"
+ *         role: 1
  *         is_active: true
  *         status: true
  *         created_by: 5

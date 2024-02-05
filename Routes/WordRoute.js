@@ -40,9 +40,9 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Word was added
  *       example:
- *         word_name: "om",
- *         capacity: 20,
- *         departmnet_id: 3,
+ *         word_name: "om"
+ *         capacity: 20
+ *         departmnet_id: 3
  *         is_active: true
  *         status: true
  *         created_by: 5

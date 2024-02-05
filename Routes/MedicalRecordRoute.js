@@ -63,15 +63,15 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the MedicalRecord was added
  *       example:
- *         patient_id: 1,
- *         doctor_id: 3,
- *         record_date: "02-02-2056",
- *         diagnosis: "Anxiety",
- *         prescription: "Paracetamol",
- *         test_result: 1,
- *         notes: "Next chekup on Coming Sunday",
- *         problem: "High Anxiety",
- *         date_of_examination: "02-02-2563",
+ *         patient_id: 1
+ *         doctor_id: 3
+ *         record_date: "02-02-2056"
+ *         diagnosis: "Anxiety"
+ *         prescription: "Paracetamol"
+ *         test_result: 1
+ *         notes: "Next chekup on Coming Sunday"
+ *         problem: "High Anxiety"
+ *         date_of_examination: "02-02-2563"
  *         is_active: true
  *         status: true
  *         created_by: 5

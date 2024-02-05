@@ -43,10 +43,10 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           description: The date the Inventory was added
  *       example:
- *         item_id: "Para01",
- *         item_name: "Paracetamol",
- *         quantity_available: 100,
- *         unit_price: 10,
+ *         item_id: "Para01"
+ *         item_name: "Paracetamol"
+ *         quantity_available: 100
+ *         unit_price: 10
  *         is_active: true
  *         status: true
  *         created_by: 5

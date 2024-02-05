@@ -49,15 +49,15 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Admission was added
  *       example:
- *         patient_id: 1,
- *         ward_id: 1,
- *         admission_date: "2020/01/01",
- *         discharge_date: "01-01-2023",
- *         reason: "not fill good",
- *         is_active: true,
- *         status: true,
- *         created_by: 3,
- *         updated_by: 5
+ *         patient_id: 1
+ *         ward_id: 1
+ *         admission_date: "2020/01/01"
+ *         discharge_date: "01-01-2023"
+ *         reason: "not fill good"
+ *         is_active: true
+ *         status: true
+ *         created_by: 3
+ *         updated_by: 3
  */
 
 /**

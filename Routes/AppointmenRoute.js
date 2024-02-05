@@ -46,14 +46,14 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Appointment was added
  *       example:
- *         patient_id: 1
- *         doctore_id: 2
- *         date: "1994-12-01",
- *         time: "2023/03/03 04:33:12",
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
+ *           patient_id: 1
+ *           doctore_id: 2
+ *           date: "1994-12-01"
+ *           time: "2023/03/03 04:33:12"
+ *           is_active: true
+ *           status: true
+ *           created_by: 5
+ *           updated_by: 5
  */
 
 /**

@@ -61,15 +61,15 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Patient was added
  *       example:
- *         patient_first_name: "vikas",
- *         patient_last_name: "Dubay",
- *         patient_address: 5,
- *         patient_phone_number: "9876543210",
- *         pharmacy_id: 1,
- *         date_of_birth: "01-01-1994",
- *         gender: "Male",
- *         hospital_id: 2,
- *         email: "vikas@gmail.com",
+ *         patient_first_name: "vikas"
+ *         patient_last_name: "Dubay"
+ *         patient_address: 5
+ *         patient_phone_number: "9876543210"
+ *         pharmacy_id: 1
+ *         date_of_birth: "01-01-1994"
+ *         gender: "Male"
+ *         hospital_id: 2
+ *         email: "vikas@gmail.com"
  *         is_active: true
  *         status: true
  *         created_by: 5

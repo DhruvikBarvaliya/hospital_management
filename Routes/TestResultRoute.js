@@ -45,10 +45,10 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the TestResult was added
  *       example:
- *         patient_id: 1,
- *         test_id: 1,
- *         result_details: "fervor high temperature 100",
- *         test_date: "03/03/1254",
+ *         patient_id: 1
+ *         test_id: 1
+ *         result_details: "fervor high temperature 100"
+ *         test_date: "03/03/1254"
  *         is_active: true
  *         status: true
  *         created_by: 5
