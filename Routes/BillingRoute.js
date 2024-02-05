@@ -8,76 +8,99 @@ const Role = require("../Helpers/Role");
  * @swagger
  * components:
  *   schemas:
- *     Book:
+ *     Billing:
  *       type: object
  *       required:
- *         - title
- *         - author
- *         - finished
+ *         - patient_id
+ *         - doctore_id
+ *         - admission_id
  *       properties:
  *         id:
- *           type: string
- *           description: The auto-generated id of the book
- *         title:
- *           type: string
- *           description: The title of your book
- *         author:
- *           type: string
- *           description: The book author
- *         finished:
- *           type: boolean
- *           description: Whether you have finished reading the book
- *         createdAt:
+ *           type: integer
+ *           description: The auto-generated id of the Billing
+ *         patient_id:
+ *           type: integer
+ *           description: The title of your Billing
+ *         doctore_id:
+ *           type: integer
+ *           description: The Billing author
+ *         admission_id:
+ *           type: integer
+ *           description: Whether you have finished reading the Billing
+ *         bill_date:
  *           type: string
  *           format: date
- *           description: The date the book was added
+ *           description: The date the Billing was added
+ *         total_amount:
+ *           type: integer
+ *           description: The date the Billing was added
+ *         payment_status:
+ *           type: string
+ *           description: The date the Billing was added
+ *         is_active:
+ *           type: string
+ *           description: The date the Billing was added
+ *         status:
+ *           type: string
+ *           description: The date the Billing was added
+ *         created_by:
+ *           type: integer
+ *           description: The date the Billing was added
+ *         updated_by:
+ *           type: integer
+ *           description: The date the Billing was added
  *       example:
- *         id: d5fE_asz
- *         title: The New Turing Omnibus
- *         author: Alexander K. Dewdney
- *         finished: false
- *         createdAt: 2020-03-10T04:05:06.157Z
+ *         patient_id: 1
+ *         doctore_id: 2
+ *         admission_id: 3
+ *         bill_date: 12/01/1994,
+ *         total_amount: 1200
+ *         payment_status: Done
+ *         is_active: true
+ *         status: true
+ *         created_by: 5
+ *         updated_by: 5
  */
 
 /**
  * @swagger
  * tags:
  *   name: Billing
- *   description: The billings managing API
- * /billings:
+ *   description: The billing managing API
+ * /billing:
  *   get:
- *     summary: Lists all the billings
+ *     summary: Lists all the billing
  *     tags: [Billing]
  *     responses:
  *       200:
- *         description: The list of the billings
+ *         description: The list of the billing
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Book'
+ *                 $ref: '#/components/schemas/Billing'
  *   post:
- *     summary: Create a new book
+ *     summary: Create a new Billing
  *     tags: [Billing]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Book'
+ *             $ref: '#/components/schemas/Billing'
  *     responses:
  *       200:
- *         description: The created book.
+ *         description: The created Billing.
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Book'
+ *               $ref: '#/components/schemas/Billing'
  *       500:
  *         description: Some server error
- * /billings/{id}:
+ * /billing/{id}:
  *   get:
- *     summary: Get the book by id
+ *     summary: Get the Billing by id
  *     tags: [Billing]
  *     parameters:
  *       - in: path
@@ -85,18 +108,18 @@ const Role = require("../Helpers/Role");
  *         schema:
  *           type: string
  *         required: true
- *         description: The book id
+ *         description: The Billing id
  *     responses:
  *       200:
- *         description: The book response by id
+ *         description: The Billing response by id
  *         contens:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Book'
+ *               $ref: '#/components/schemas/Billing'
  *       404:
- *         description: The book was not found
+ *         description: The Billing was not found
  *   put:
- *    summary: Update the book by the id
+ *    summary: Update the Billing by the id
  *    tags: [Billing]
  *    parameters:
  *      - in: path
@@ -104,26 +127,26 @@ const Role = require("../Helpers/Role");
  *        schema:
  *          type: string
  *        required: true
- *        description: The book id
+ *        description: The Billing id
  *    requestBody:
  *      required: true
  *      content:
  *        application/json:
  *          schema:
- *            $ref: '#/components/schemas/Book'
+ *            $ref: '#/components/schemas/Billing'
  *    responses:
  *      200:
- *        description: The book was updated
+ *        description: The Billing was updated
  *        content:
  *          application/json:
  *            schema:
- *              $ref: '#/components/schemas/Book'
+ *              $ref: '#/components/schemas/Billing'
  *      404:
- *        description: The book was not found
+ *        description: The Billing was not found
  *      500:
  *        description: Some error happened
  *   delete:
- *     summary: Remove the book by id
+ *     summary: Remove the Billing by id
  *     tags: [Billing]
  *     parameters:
  *       - in: path
@@ -131,20 +154,16 @@ const Role = require("../Helpers/Role");
  *         schema:
  *           type: string
  *         required: true
- *         description: The book id
+ *         description: The Billing id
  *
  *     responses:
  *       200:
- *         description: The book was deleted
+ *         description: The Billing was deleted
  *       404:
- *         description: The book was not found
+ *         description: The Billing was not found
  */
 
-router.get('/', (req, res) => {
-    res.send("Inside Billing Router");
-})
-
-router.post('/billing', authorize([Role.ADMIN, Role.SUPER_ADMIN]), BillingController.addBilling)
+router.post('/billing', BillingController.addBilling)
 router.get('/billing', BillingController.getAllBilling)
 router.get('/billing?:id', BillingController.getBillingById)
 router.put('/billing?:id', BillingController.updateBilling)

@@ -4,8 +4,8 @@ const Doctor = db.DoctorModel
 module.exports = {
 
     addDoctor: (req, res) => {
-        if (!req.body.name) {
-            res.status(400).send({ message: "Doctor Name Can not be Emapty" })
+        if (!req.body.doctor_first_name) {
+            res.status(400).send({ message: "Doctor First Name Can not be Emapty" })
             return;
         }
         const data = req.body;

@@ -4,8 +4,8 @@ const Room = db.RoomModel
 module.exports = {
 
     addRoom: (req, res) => {
-        if (!req.body.name) {
-            res.status(400).send({ message: "Room Name Can not be Emapty" })
+        if (!req.body.staff_id) {
+            res.status(400).send({ message: "Staff Id Can not be Emapty" })
             return;
         }
         const data = req.body;

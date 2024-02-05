@@ -4,7 +4,7 @@ const Patient = db.PatientModel
 module.exports = {
 
     addPatient: (req, res) => {
-        if (!req.body.name) {
+        if (!req.body.patient_first_name) {
             res.status(400).send({ message: "Patient Name Can not be Emapty" })
             return;
         }

@@ -4,7 +4,7 @@ const Role = db.RoleModel
 module.exports = {
 
     addRole: (req, res) => {
-        if (!req.body.name) {
+        if (!req.body.role_name) {
             res.status(400).send({ message: "Role Name Can not be Emapty" })
             return;
         }

@@ -4,7 +4,7 @@ const Department = db.DepartmentModel
 module.exports = {
 
     addDepartment: (req, res) => {
-        if (!req.body.name) {
+        if (!req.body.department_name) {
             res.status(400).send({ message: "Department Name Can not be Emapty" })
             return;
         }

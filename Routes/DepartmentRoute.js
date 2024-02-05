@@ -4,11 +4,147 @@ const DepartmentController = require('../Controllers/DepartmentController')
 const authorize = require('../Middleware/auth');
 const Role = require("../Helpers/Role");
 
-router.get('/', (req, res) => {
-    res.send("Inside Department Router");
-})
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Department:
+ *       type: object
+ *       required:
+ *         - department_name
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: The auto-generated id of the Department
+ *         department_name:
+ *           type: string
+ *           description: The title of your Department
+ *         hospital_id:
+ *           type: integer
+ *           description: The Department author
+ *         is_active:
+ *           type: string
+ *           description: The date the Department was added
+ *         status:
+ *           type: string
+ *           description: The date the Department was added
+ *         created_by:
+ *           type: integer
+ *           description: The date the Department was added
+ *         updated_by:
+ *           type: integer
+ *           description: The date the Department was added
+ *       example:
+ *         department_name: "Cardiology"
+ *         hospital_id: 2
+ *         is_active: true
+ *         status: true
+ *         created_by: 5
+ *         updated_by: 5
+ */
 
-router.post('/department', authorize([Role.ADMIN, Role.SUPER_ADMIN]), DepartmentController.addDepartment)
+/**
+ * @swagger
+ * tags:
+ *   name: Department
+ *   description: The department managing API
+ * /department:
+ *   get:
+ *     summary: Lists all the department
+ *     tags: [Department]
+ *     responses:
+ *       200:
+ *         description: The list of the department
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Department'
+ *   post:
+ *     summary: Create a new Department
+ *     tags: [Department]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Department'
+ *     responses:
+ *       200:
+ *         description: The created Department.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Department'
+ *       500:
+ *         description: Some server error
+ * /department/{id}:
+ *   get:
+ *     summary: Get the Department by id
+ *     tags: [Department]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The Department id
+ *     responses:
+ *       200:
+ *         description: The Department response by id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Department'
+ *       404:
+ *         description: The Department was not found
+ *   put:
+ *    summary: Update the Department by the id
+ *    tags: [Department]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: The Department id
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Department'
+ *    responses:
+ *      200:
+ *        description: The Department was updated
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Department'
+ *      404:
+ *        description: The Department was not found
+ *      500:
+ *        description: Some error happened
+ *   delete:
+ *     summary: Remove the Department by id
+ *     tags: [Department]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The Department id
+ *
+ *     responses:
+ *       200:
+ *         description: The Department was deleted
+ *       404:
+ *         description: The Department was not found
+ */
+
+router.post('/department',  DepartmentController.addDepartment)
 router.get('/department', DepartmentController.getAllDepartment)
 router.get('/department?:id', DepartmentController.getDepartmentById)
 router.put('/department?:id', DepartmentController.updateDepartment)

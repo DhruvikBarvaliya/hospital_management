@@ -10,7 +10,7 @@ module.exports = (sequelize, Sequelize) => {
             }
         },
         staff_first_name: { type: Sequelize.STRING },
-        staff_last_name: { type: Sequelize.DATEONLY },
+        staff_last_name: { type: Sequelize.STRING },
         staff_address: {
             type: Sequelize.INTEGER,
             references: {

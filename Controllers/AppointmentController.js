@@ -4,8 +4,8 @@ const Appointment = db.AppointmentModel
 module.exports = {
 
     addAppointment: (req, res) => {
-        if (!req.body.name) {
-            res.status(400).send({ message: "Appointment Name Can not be Emapty" })
+        if (!req.body.doctor_id) {
+            res.status(400).send({ message: "Doctor Id Can not be Emapty" })
             return;
         }
         const data = req.body;

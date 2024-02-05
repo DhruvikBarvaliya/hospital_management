@@ -4,7 +4,7 @@ const Staff = db.StaffModel
 module.exports = {
 
     addStaff: (req, res) => {
-        if (!req.body.name) {
+        if (!req.body.staff_first_name) {
             res.status(400).send({ message: "Staff Name Can not be Emapty" })
             return;
         }

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const AddressRoute = require('./AddressRoute');
 const AdmissionRoute = require('./AdmissionRoute');
+const AppointmenRoute = require('./AppointmenRoute');
 const AuthRoute = require("./AuthRoute");
 const BillingRoute = require('./BillingRoute');
 const DepartmentRoute = require('./DepartmentRoute');
@@ -27,6 +28,7 @@ router.get('/', (req, res) => {
 router.use('/v1',
     AddressRoute,
     AdmissionRoute,
+    AppointmenRoute,
     AuthRoute,
     BillingRoute,
     DepartmentRoute,

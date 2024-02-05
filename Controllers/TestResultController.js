@@ -4,8 +4,8 @@ const TestResult = db.TestResultModel
 module.exports = {
 
     addTestResult: (req, res) => {
-        if (!req.body.name) {
-            res.status(400).send({ message: "TestResult Name Can not be Emapty" })
+        if (!req.body.test_id) {
+            res.status(400).send({ message: "Test Id Can not be Emapty" })
             return;
         }
         const data = req.body;

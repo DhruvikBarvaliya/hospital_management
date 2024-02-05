@@ -4,7 +4,7 @@ const Word = db.WordModel
 module.exports = {
 
     addWord: (req, res) => {
-        if (!req.body.name) {
+        if (!req.body.word_name) {
             res.status(400).send({ message: "Word Name Can not be Emapty" })
             return;
         }
