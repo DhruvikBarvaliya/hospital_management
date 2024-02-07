@@ -13,9 +13,6 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - hospital_name
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Hospital
  *         hospital_name:
  *           type: string
  *           description: The title of your Hospital
@@ -26,10 +23,10 @@ const Role = require("../Helpers/Role");
  *           type: string
  *           description: Whether you have finished reading the Hospital
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Hospital was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Hospital was added
  *         created_by:
  *           type: integer
@@ -37,14 +34,6 @@ const Role = require("../Helpers/Role");
  *         updated_by:
  *           type: integer
  *           description: The date the Hospital was added
- *       example:
- *         hospital_name: "Apollo"
- *         hospital_address: 5
- *         hospital_phone_number: "02821"
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

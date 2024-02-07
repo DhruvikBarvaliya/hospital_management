@@ -13,9 +13,6 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - department_name
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Department
  *         department_name:
  *           type: string
  *           description: The title of your Department
@@ -23,10 +20,10 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           description: The Department author
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Department was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Department was added
  *         created_by:
  *           type: integer
@@ -34,13 +31,6 @@ const Role = require("../Helpers/Role");
  *         updated_by:
  *           type: integer
  *           description: The date the Department was added
- *       example:
- *         department_name: "Cardiology"
- *         hospital_id: 2
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

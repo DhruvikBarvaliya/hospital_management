@@ -14,9 +14,6 @@ const Role = require("../Helpers/Role");
  *         - patient_id
  *         - doctore_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the MedicalRecord
  *         patient_id:
  *           type: integer
  *           description: The title of your MedicalRecord
@@ -49,10 +46,10 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the MedicalRecord was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the MedicalRecord was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the MedicalRecord was added
  *         created_by:
  *           type: integer
@@ -62,20 +59,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the MedicalRecord was added
- *       example:
- *         patient_id: 1
- *         doctor_id: 3
- *         record_date: "02-02-2056"
- *         diagnosis: "Anxiety"
- *         prescription: "Paracetamol"
- *         test_result: 1
- *         notes: "Next chekup on Coming Sunday"
- *         problem: "High Anxiety"
- *         date_of_examination: "02-02-2563"
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

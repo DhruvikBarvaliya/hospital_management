@@ -13,17 +13,14 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - role_name
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Role
  *         role_name:
  *           type: string
  *           description: The title of your Role
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Role was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Role was added
  *         created_by:
  *           type: integer
@@ -33,12 +30,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Role was added
- *       example:
- *         role_name: "Admin"
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

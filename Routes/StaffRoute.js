@@ -13,9 +13,6 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - department_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Staff
  *         department_id:
  *           type: integer
  *           description: The title of your Staff
@@ -41,10 +38,10 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           description: The date the Staff was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Staff was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Staff was added
  *         created_by:
  *           type: integer
@@ -54,19 +51,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Staff was added
- *       example:
- *         department_id: 3
- *         staff_first_name: "Suman"
- *         staff_last_name: "Magya"
- *         staff_address: 5
- *         staff_phone_number: "6598741230"
- *         email: "suman@gmail.com"
- *         position: "Sr"
- *         role: 1
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

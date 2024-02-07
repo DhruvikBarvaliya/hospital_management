@@ -14,9 +14,6 @@ const Role = require("../Helpers/Role");
  *         - patient_id
  *         - doctore_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Appointment
  *         patient_id:
  *           type: integer
  *           description: The title of your Appointment
@@ -32,10 +29,10 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Appointment was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Appointment was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Appointment was added
  *         created_by:
  *           type: integer
@@ -45,15 +42,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Appointment was added
- *       example:
- *           patient_id: 1
- *           doctore_id: 2
- *           date: "1994-12-01"
- *           time: "2023/03/03 04:33:12"
- *           is_active: true
- *           status: true
- *           created_by: 5
- *           updated_by: 5
  */
 
 /**

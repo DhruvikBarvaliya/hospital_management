@@ -14,9 +14,6 @@ const Role = require("../Helpers/Role");
  *         - doctor_first_name
  *         - department_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Doctor
  *         doctor_first_name:
  *           type: string
  *           description: The title of your Doctor
@@ -48,10 +45,10 @@ const Role = require("../Helpers/Role");
  *           type: string
  *           description: The date the Doctor was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Doctor was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Doctor was added
  *         created_by:
  *           type: integer
@@ -59,21 +56,6 @@ const Role = require("../Helpers/Role");
  *         updated_by:
  *           type: integer
  *           description: The date the Doctor was added
- *       example:
- *         doctor_first_name: "Dhruvik"
- *         doctore_last_name: "Barvaliya"
- *         department_id: 3
- *         doctore_phone_number: "7567270030"
- *         specialization: "Dermatology"
- *         email: "dhruvik@gmail.com"
- *         doctor_address: 5
- *         salary: 50000
- *         hospital_id: 1
- *         qualification: "MBBS"
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

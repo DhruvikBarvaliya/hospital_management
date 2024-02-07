@@ -13,9 +13,6 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - patient_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Invoice
  *         patient_id:
  *           type: integer
  *           description: The title of your Invoice
@@ -30,10 +27,10 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Invoice was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Invoice was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Invoice was added
  *         created_by:
  *           type: integer
@@ -41,15 +38,6 @@ const Role = require("../Helpers/Role");
  *         updated_by:
  *           type: integer
  *           description: The date the Invoice was added
- *       example:
- *         patient_id: 1
- *         service_description: "Good"
- *         cost: 10
- *         total: 20
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

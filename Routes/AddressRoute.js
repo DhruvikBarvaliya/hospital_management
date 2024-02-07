@@ -13,9 +13,6 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - streetAddress1
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Address
  *         streetAddress1:
  *           type: string
  *           description: The title of your Address
@@ -35,30 +32,17 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           description: The date the Address was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Address was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Address was added
  *         created_by:
  *           type: integer
- *           format: date
  *           description: The date the Address was added
  *         updated_by:
  *           type: integer
- *           format: date
  *           description: The date the Address was added
- *         example:
- *           streetAddress1: "Bapa Sitarm Row House"
- *           streetAddress2: "Near Yogi Choke"
- *           country: "India"
- *           state: "Gujarat"
- *           city: "Surat"
- *           zip_code: 395006
- *           is_active: true
- *           status: true
- *           created_by: 5
- *           updated_by: 5
  */
 
 /**

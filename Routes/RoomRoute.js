@@ -15,9 +15,6 @@ const Role = require("../Helpers/Role");
  *         - staff_id
  *         - admission_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Room
  *         patient_id:
  *           type: integer
  *           description: The title of your Room
@@ -29,10 +26,10 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the Room was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Room was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Room was added
  *         created_by:
  *           type: integer
@@ -42,14 +39,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Room was added
- *       example:
- *         patient_id: 1
- *         staff_id: 2
- *         admission_date: "202/01/01"
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

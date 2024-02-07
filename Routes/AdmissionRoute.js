@@ -14,9 +14,6 @@ const Role = require("../Helpers/Role");
  *         - patient_id
  *         - ward_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Admission
  *         patient_id:
  *           type: integer
  *           description: The title of your Admission
@@ -35,10 +32,10 @@ const Role = require("../Helpers/Role");
  *           type: string
  *           description: The date the Admission was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Admission was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Admission was added
  *         created_by:
  *           type: integer
@@ -48,16 +45,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Admission was added
- *       example:
- *         patient_id: 1
- *         ward_id: 1
- *         admission_date: "2020/01/01"
- *         discharge_date: "01-01-2023"
- *         reason: "not fill good"
- *         is_active: true
- *         status: true
- *         created_by: 3
- *         updated_by: 3
  */
 
 /**

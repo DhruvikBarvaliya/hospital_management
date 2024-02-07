@@ -13,9 +13,6 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - word_name
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Word
  *         word_name:
  *           type: string
  *           description: The title of your Word
@@ -26,10 +23,10 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           description: Whether you have finished reading the Word
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Word was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Word was added
  *         created_by:
  *           type: integer
@@ -39,14 +36,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Word was added
- *       example:
- *         word_name: "om"
- *         capacity: 20
- *         departmnet_id: 3
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

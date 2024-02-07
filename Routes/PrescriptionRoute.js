@@ -13,9 +13,6 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - patient_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Prescription
  *         patient_id:
  *           type: integer
  *           description: The title of your Prescription
@@ -36,10 +33,10 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           description: The date the Prescription was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Prescription was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Prescription was added
  *         created_by:
  *           type: integer
@@ -49,17 +46,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Prescription was added
- *       example:
- *         patient_id: 1
- *         medication_name: "Paracetamol"
- *         prescription_date: "2023-01-02"
- *         prescription_cost: 200.23
- *         doctor_id: 3
- *         medication_id: 1
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

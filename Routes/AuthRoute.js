@@ -13,9 +13,6 @@ const AuthController = require("../Controllers/AuthController");
  *         - doctore_id
  *         - admission_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Billing
  *         patient_id:
  *           type: integer
  *           description: The title of your Billing
@@ -36,10 +33,10 @@ const AuthController = require("../Controllers/AuthController");
  *           type: string
  *           description: The date the Billing was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Billing was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Billing was added
  *         created_by:
  *           type: integer
@@ -49,17 +46,6 @@ const AuthController = require("../Controllers/AuthController");
  *           type: integer
  *           format: date
  *           description: The date the Billing was added
- *       example:
- *         patient_id: 1
- *         doctore_id: 2
- *         admission_id: 3
- *         bill_date: 12/01/1994
- *         total_amount: 1200
- *         payment_status: Done
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

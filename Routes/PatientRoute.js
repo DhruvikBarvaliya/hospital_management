@@ -13,9 +13,6 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - patient_first_name
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Patient
  *         patient_first_name:
  *           type: string
  *           description: The title of your Patient
@@ -47,10 +44,10 @@ const Role = require("../Helpers/Role");
  *           type: string
  *           description: The date the Patient was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Patient was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Patient was added
  *         created_by:
  *           type: integer
@@ -60,20 +57,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Patient was added
- *       example:
- *         patient_first_name: "vikas"
- *         patient_last_name: "Dubay"
- *         patient_address: 5
- *         patient_phone_number: "9876543210"
- *         pharmacy_id: 1
- *         date_of_birth: "01-01-1994"
- *         gender: "Male"
- *         hospital_id: 2
- *         email: "vikas@gmail.com"
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

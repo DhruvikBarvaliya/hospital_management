@@ -13,9 +13,6 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - test_name
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Test
  *         test_name:
  *           type: string
  *           description: The title of your Test
@@ -23,10 +20,10 @@ const Role = require("../Helpers/Role");
  *           type: string
  *           description: The Test author
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Test was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Test was added
  *         created_by:
  *           type: integer
@@ -36,13 +33,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Test was added
- *       example:
- *         test_name: "Fervor"
- *         description: "fervor high temperature"
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

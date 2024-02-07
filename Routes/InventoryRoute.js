@@ -15,9 +15,6 @@ const Role = require("../Helpers/Role");
  *         - doctore_id
  *         - admission_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Inventory
  *         item_id:
  *           type: string
  *           description: The title of your Inventory
@@ -31,10 +28,10 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           description: The date the Inventory was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Inventory was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Inventory was added
  *         created_by:
  *           type: integer
@@ -42,15 +39,6 @@ const Role = require("../Helpers/Role");
  *         updated_by:
  *           type: integer
  *           description: The date the Inventory was added
- *       example:
- *         item_id: "Para01"
- *         item_name: "Paracetamol"
- *         quantity_available: 100
- *         unit_price: 10
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

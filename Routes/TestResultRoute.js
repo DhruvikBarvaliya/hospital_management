@@ -14,9 +14,6 @@ const Role = require("../Helpers/Role");
  *         - patient_id
  *         - test_id
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the TestResult
  *         patient_id:
  *           type: integer
  *           description: The title of your TestResult
@@ -31,10 +28,10 @@ const Role = require("../Helpers/Role");
  *           format: date
  *           description: The date the TestResult was added
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the TestResult was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the TestResult was added
  *         created_by:
  *           type: integer
@@ -44,15 +41,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the TestResult was added
- *       example:
- *         patient_id: 1
- *         test_id: 1
- *         result_details: "fervor high temperature 100"
- *         test_date: "03/03/1254"
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**

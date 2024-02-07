@@ -13,9 +13,6 @@ const Role = require("../Helpers/Role");
  *       required:
  *         - pharmacy_name
  *       properties:
- *         id:
- *           type: integer
- *           description: The auto-generated id of the Pharmacy
  *         pharmacy_name:
  *           type: string
  *           description: The title of your Pharmacy
@@ -26,10 +23,10 @@ const Role = require("../Helpers/Role");
  *           type: string
  *           description: Whether you have finished reading the Pharmacy
  *         is_active:
- *           type: string
+ *           type: boolean
  *           description: The date the Pharmacy was added
  *         status:
- *           type: string
+ *           type: boolean
  *           description: The date the Pharmacy was added
  *         created_by:
  *           type: integer
@@ -39,14 +36,6 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           format: date
  *           description: The date the Pharmacy was added
- *       example:
- *         pharmacy_name: "Apollo Pharmacy"
- *         pharmacy_address: 5
- *         pharmacy_phone_number: "7894561230"
- *         is_active: true
- *         status: true
- *         created_by: 5
- *         updated_by: 5
  */
 
 /**
