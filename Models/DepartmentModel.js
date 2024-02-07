@@ -27,9 +27,9 @@ module.exports = (sequelize, Sequelize) => {
             }
         },
     },
-        {
-            freezeTableName: true,
-            timestamps: true
-        })
+    {
+        freezeTableName: true,
+        timestamps: true
+    })
     return Department;
 }

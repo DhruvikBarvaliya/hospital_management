@@ -12,9 +12,10 @@ const sequelize = new Sequelize(Database.DB, Database.USER, Database.PASSWORD, {
         acquire: Database.pool.acquire,
         idle: Database.pool.idle
     },
-    logging: console.log,
+    // logging: Database.ENV === 'production' ? false : console.log
+    logging: false
+    // logging: console.log,
 });
-
 const db = {};
 
 db.Sequelize = Sequelize;
@@ -34,10 +35,11 @@ db.MedicalRecordModel = require("../Models/MedicalRecordModel")(sequelize, Seque
 db.PatientModel = require("../Models/PatientModel")(sequelize, Sequelize);
 db.PharmacyModel = require("../Models/PharmacyModel")(sequelize, Sequelize);
 db.PrescriptionModel = require("../Models/PrescriptionModel")(sequelize, Sequelize);
-db.TestResultModel = require("../Models/TestResultModel")(sequelize, Sequelize);
 db.RoleModel = require("../Models/RoleModel")(sequelize, Sequelize);
+db.RoomModel = require("../Models/RoomModel")(sequelize, Sequelize);
 db.StaffModel = require("../Models/StaffModel")(sequelize, Sequelize);
 db.TestModel = require("../Models/TestModel")(sequelize, Sequelize);
+db.TestResultModel = require("../Models/TestResultModel")(sequelize, Sequelize);
 db.WordModel = require("../Models/WordModel")(sequelize, Sequelize);
 
 
