@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getTestById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Test.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updateTest: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Test.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updateTestStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Test.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deleteTestById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Test.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

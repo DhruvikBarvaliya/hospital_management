@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getInventoryById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Inventory.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updateInventory: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Inventory.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updateInventoryStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Inventory.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deleteInventoryById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Inventory.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

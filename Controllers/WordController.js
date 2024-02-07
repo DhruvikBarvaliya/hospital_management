@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getWordById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Word.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updateWord: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Word.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updateWordStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Word.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deleteWordById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Word.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

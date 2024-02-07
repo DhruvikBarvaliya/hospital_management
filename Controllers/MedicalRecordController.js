@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getMedicalRecordById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         MedicalRecord.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updateMedicalRecord: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         MedicalRecord.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updateMedicalRecordStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         MedicalRecord.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deleteMedicalRecordById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         MedicalRecord.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

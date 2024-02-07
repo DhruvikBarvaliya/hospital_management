@@ -147,9 +147,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/appointment',  AppointmentController.addAppointment)
 router.get('/appointment', AppointmentController.getAllAppointment)
-router.get('/appointment?:id', AppointmentController.getAppointmentById)
-router.put('/appointment?:id', AppointmentController.updateAppointment)
+router.get('/appointment/:id', AppointmentController.getAppointmentById)
+router.put('/appointment/:id', AppointmentController.updateAppointment)
 router.patch('/appointment/:id/:status', AppointmentController.updateAppointmentStatus)
-router.delete('/appointment?:id', AppointmentController.deleteAppointmentById)
+router.delete('/appointment/:id', AppointmentController.deleteAppointmentById)
 
 module.exports = router;  

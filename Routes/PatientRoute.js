@@ -162,9 +162,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/patient',  PatientController.addPatient)
 router.get('/patient', PatientController.getAllPatient)
-router.get('/patient?:id', PatientController.getPatientById)
-router.put('/patient?:id', PatientController.updatePatient)
+router.get('/patient/:id', PatientController.getPatientById)
+router.put('/patient/:id', PatientController.updatePatient)
 router.patch('/patient/:id/:status', PatientController.updatePatientStatus)
-router.delete('/patient?:id', PatientController.deletePatientById)
+router.delete('/patient/:id', PatientController.deletePatientById)
 
 module.exports = router;  

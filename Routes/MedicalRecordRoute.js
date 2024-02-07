@@ -164,9 +164,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/medical-record',  MedicalRecordController.addMedicalRecord)
 router.get('/medical-record', MedicalRecordController.getAllMedicalRecord)
-router.get('/medical-record?:id', MedicalRecordController.getMedicalRecordById)
-router.put('/medical-record?:id', MedicalRecordController.updateMedicalRecord)
+router.get('/medical-record/:id', MedicalRecordController.getMedicalRecordById)
+router.put('/medical-record/:id', MedicalRecordController.updateMedicalRecord)
 router.patch('/medical-record/:id/:status', MedicalRecordController.updateMedicalRecordStatus)
-router.delete('/medical-record?:id', MedicalRecordController.deleteMedicalRecordById)
+router.delete('/medical-record/:id', MedicalRecordController.deleteMedicalRecordById)
 
 module.exports = router;  

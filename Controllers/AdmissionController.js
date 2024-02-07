@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getAdmissionById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Admission.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updateAdmission: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Admission.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updateAdmissionStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Admission.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deleteAdmissionById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Admission.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

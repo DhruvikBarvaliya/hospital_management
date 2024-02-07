@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getPatientById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Patient.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updatePatient: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Patient.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updatePatientStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Patient.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deletePatientById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Patient.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

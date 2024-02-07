@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getRoomById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Room.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updateRoom: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Room.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updateRoomStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Room.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deleteRoomById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Room.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

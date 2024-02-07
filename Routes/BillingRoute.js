@@ -151,9 +151,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/billing', BillingController.addBilling)
 router.get('/billing', BillingController.getAllBilling)
-router.get('/billing?:id', BillingController.getBillingById)
-router.put('/billing?:id', BillingController.updateBilling)
+router.get('/billing/:id', BillingController.getBillingById)
+router.put('/billing/:id', BillingController.updateBilling)
 router.patch('/billing/:id/:status', BillingController.updateBillingStatus)
-router.delete('/billing?:id', BillingController.deleteBillingById)
+router.delete('/billing/:id', BillingController.deleteBillingById)
 
 module.exports = router;  

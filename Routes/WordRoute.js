@@ -141,9 +141,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/word',  WordController.addWord)
 router.get('/word', WordController.getAllWord)
-router.get('/word?:id', WordController.getWordById)
-router.put('/word?:id', WordController.updateWord)
+router.get('/word/:id', WordController.getWordById)
+router.put('/word/:id', WordController.updateWord)
 router.patch('/word/:id/:status', WordController.updateWordStatus)
-router.delete('/word?:id', WordController.deleteWordById)
+router.delete('/word/:id', WordController.deleteWordById)
 
 module.exports = router;  

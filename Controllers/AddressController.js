@@ -31,7 +31,8 @@ module.exports = {
         })
     },
     getAddressById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
+        console.log(id);
         Address.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -48,7 +49,7 @@ module.exports = {
         })
     },
     updateAddress: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Address.update(data, {
             where: { id: id }
@@ -68,8 +69,8 @@ module.exports = {
         })
     },
     updateAddressStatus: (req, res) => {
-        let id = req.query.id
-        let status = req.params;
+        let id = req.params.id
+        let status = req.params.status;
         Address.update({ status: status }, {
             where: { id: id }
         }).then(result => {

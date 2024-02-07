@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getStaffById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Staff.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updateStaff: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Staff.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updateStaffStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Staff.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deleteStaffById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Staff.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

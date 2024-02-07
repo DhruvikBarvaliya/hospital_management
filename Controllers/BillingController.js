@@ -31,7 +31,7 @@ module.exports = {
         })
     },
     getBillingById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Billing.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -48,7 +48,7 @@ module.exports = {
         })
     },
     updateBilling: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Billing.update(data, {
             where: { id: id }
@@ -68,7 +68,7 @@ module.exports = {
         })
     },
     updateBillingStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Billing.update({ status: status }, {
             where: { id: id }
@@ -88,7 +88,7 @@ module.exports = {
         })
     },
     deleteBillingById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Billing.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

@@ -144,9 +144,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/inventory', InventoryController.addInventory)
 router.get('/inventory', InventoryController.getAllInventory)
-router.get('/inventory?:id', InventoryController.getInventoryById)
-router.put('/inventory?:id', InventoryController.updateInventory)
+router.get('/inventory/:id', InventoryController.getInventoryById)
+router.put('/inventory/:id', InventoryController.updateInventory)
 router.patch('/inventory/:id/:status', InventoryController.updateInventoryStatus)
-router.delete('/inventory?:id', InventoryController.deleteInventoryById)
+router.delete('/inventory/:id', InventoryController.deleteInventoryById)
 
 module.exports = router;  

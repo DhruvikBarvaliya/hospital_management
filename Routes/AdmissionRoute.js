@@ -150,9 +150,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/admission',  AdmissionController.addAdmission)
 router.get('/admission', AdmissionController.getAllAdmission)
-router.get('/admission?:id', AdmissionController.getAdmissionById)
-router.put('/admission?:id', AdmissionController.updateAdmission)
+router.get('/admission/:id', AdmissionController.getAdmissionById)
+router.put('/admission/:id', AdmissionController.updateAdmission)
 router.patch('/admission/:id/:status', AdmissionController.updateAdmissionStatus)
-router.delete('/admission?:id', AdmissionController.deleteAdmissionById)
+router.delete('/admission/:id', AdmissionController.deleteAdmissionById)
 
 module.exports = router;  

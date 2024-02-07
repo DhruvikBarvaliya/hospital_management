@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getHospitalById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Hospital.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updateHospital: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Hospital.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updateHospitalStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Hospital.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deleteHospitalById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Hospital.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

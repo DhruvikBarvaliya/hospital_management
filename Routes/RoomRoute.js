@@ -144,9 +144,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/room',  RoomController.addRoom)
 router.get('/room', RoomController.getAllRoom)
-router.get('/room?:id', RoomController.getRoomById)
-router.put('/room?:id', RoomController.updateRoom)
+router.get('/room/:id', RoomController.getRoomById)
+router.put('/room/:id', RoomController.updateRoom)
 router.patch('/room/:id/:status', RoomController.updateRoomStatus)
-router.delete('/room?:id', RoomController.deleteRoomById)
+router.delete('/room/:id', RoomController.deleteRoomById)
 
 module.exports = router;  

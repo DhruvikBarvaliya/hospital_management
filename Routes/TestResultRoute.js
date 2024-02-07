@@ -146,9 +146,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/test-result', TestResultController.addTestResult)
 router.get('/test-result', TestResultController.getAllTestResult)
-router.get('/test-result?:id', TestResultController.getTestResultById)
-router.put('/test-result?:id', TestResultController.updateTestResult)
+router.get('/test-result/:id', TestResultController.getTestResultById)
+router.put('/test-result/:id', TestResultController.updateTestResult)
 router.patch('/test-result/:id/:status', TestResultController.updateTestResultStatus)
-router.delete('/test-result?:id', TestResultController.deleteTestResultById)
+router.delete('/test-result/:id', TestResultController.deleteTestResultById)
 
 module.exports = router;  

@@ -143,9 +143,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/invoice',  InvoiceController.addInvoice)
 router.get('/invoice', InvoiceController.getAllInvoice)
-router.get('/invoice?:id', InvoiceController.getInvoiceById)
-router.put('/invoice?:id', InvoiceController.updateInvoice)
+router.get('/invoice/:id', InvoiceController.getInvoiceById)
+router.put('/invoice/:id', InvoiceController.updateInvoice)
 router.patch('/invoice/:id/:status', InvoiceController.updateInvoiceStatus)
-router.delete('/invoice?:id', InvoiceController.deleteInvoiceById)
+router.delete('/invoice/:id', InvoiceController.deleteInvoiceById)
 
 module.exports = router;  

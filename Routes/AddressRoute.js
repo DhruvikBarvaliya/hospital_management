@@ -149,8 +149,8 @@ const Role = require("../Helpers/Role");
 router.post('/address', AddressController.addAddress)
 // router.post('/address', authorize([Role.ADMIN, Role.SUPER_ADMIN]), AddressController.addAddress)
 router.get('/address', AddressController.getAllAddress)
-router.get('/address?:id', AddressController.getAddressById)
-router.put('/address?:id', AddressController.updateAddress)
+router.get('/address/:id', AddressController.getAddressById)
+router.put('/address/:id', AddressController.updateAddress)
 router.patch('/address/:id/:status', AddressController.updateAddressStatus)
 router.delete('/address/:id', AddressController.deleteAddressById)
 

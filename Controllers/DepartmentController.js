@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getDepartmentById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Department.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updateDepartment: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Department.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updateDepartmentStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Department.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deleteDepartmentById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Department.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({

@@ -141,9 +141,9 @@ const Role = require("../Helpers/Role");
 
 router.post('/pharmacy',  PharmacyController.addPharmacy)
 router.get('/pharmacy', PharmacyController.getAllPharmacy)
-router.get('/pharmacy?:id', PharmacyController.getPharmacyById)
-router.put('/pharmacy?:id', PharmacyController.updatePharmacy)
+router.get('/pharmacy/:id', PharmacyController.getPharmacyById)
+router.put('/pharmacy/:id', PharmacyController.updatePharmacy)
 router.patch('/pharmacy/:id/:status', PharmacyController.updatePharmacyStatus)
-router.delete('/pharmacy?:id', PharmacyController.deletePharmacyById)
+router.delete('/pharmacy/:id', PharmacyController.deletePharmacyById)
 
 module.exports = router;  

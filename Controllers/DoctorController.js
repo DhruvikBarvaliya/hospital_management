@@ -35,7 +35,7 @@ module.exports = {
         })
     },
     getDoctorById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Doctor.findByPk(id).then(result => {
             if (result) {
                 res.json({
@@ -52,7 +52,7 @@ module.exports = {
         })
     },
     updateDoctor: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let data = req.body;
         Doctor.update(data, {
             where: { id: id }
@@ -72,7 +72,7 @@ module.exports = {
         })
     },
     updateDoctorStatus: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         let status = req.params;
         Doctor.update({ status: status }, {
             where: { id: id }
@@ -92,7 +92,7 @@ module.exports = {
         })
     },
     deleteDoctorById: (req, res) => {
-        let id = req.query.id
+        let id = req.params.id
         Doctor.destroy({ where: { id: id } }).then(result => {
             if (result) {
                 res.json({
