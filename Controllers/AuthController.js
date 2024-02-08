@@ -1,14 +1,13 @@
-const { jwt_key } = require("../Config/Config");
-// const UserModel = require("../Models/UserModel");
+const { JWT_SECRET_KEY } = require("../Config/Config");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { sendMail } = require('../Helpers/email')
 const db = require('../Config/Sequelize');
-// const DoctorModel = require("../Models/DoctorModel");
 const UserModel = db.UserModel
 const DoctorModel = db.DoctorModel
 const StaffModel = db.StaffModel
 const PatientModel = db.PatientModel
+
 module.exports = {
   register: async (req, res) => {
     try {
@@ -92,7 +91,7 @@ module.exports = {
       // }
 
       const data = req.body;
-      const user = await UserModel.findOne({ where:{ email: data.email }});
+      const user = await UserModel.findOne({ where: { email: data.email } });
 
       if (user) {
         return res.status(400).json({ status: false, message: "User already registered" });
@@ -118,12 +117,19 @@ module.exports = {
   },
   login: async (req, res) => {
     try {
-      const { email, password } = req.body;
-      let user = await UserModel.findOne({ where: { email: email } })
-
-      // user = await DoctorModel.findOne({ where: { email: email } })
-      // user = await StaffModel.findOne({ where: { email: email } })
-      // user = await PatientModel.findOne({ where: { email: email } })
+      let { email, password, model } = req.body;
+      let user
+      if (model == "DOCTOR") {
+        user = await DoctorModel.findOne({ where: { email: email } })
+      } else if (model == "STAFF") {
+        user = await StaffModel.findOne({ where: { email: email } })
+      }
+      else if (model == "PATIENT") {
+        user = await PatientModel.findOne({ where: { email: email } })
+      }
+      else {
+        user = await UserModel.findOne({ where: { email: email } })
+      }
 
       if (!user) {
         return res.status(404).json({ status: false, message: "User Not Found" });
@@ -141,7 +147,7 @@ module.exports = {
       if (user.email == email && pass) {
         let token = jsonwebtoken.sign(
           { id: user._id, email: email, role: user.role },
-          jwt_key, {
+          JWT_SECRET_KEY, {
           expiresIn: '12h'
         }
         );
@@ -152,6 +158,7 @@ module.exports = {
           .json({ status: false, message: "Please Provide Valid Email And Password" });
       }
     } catch (err) {
+      console.log(err);
       return res
         .status(500)
         .json({ status: false, message: 'Server Error', error: err.message || err.toString() });
