@@ -3,7 +3,7 @@ const Address = db.AddressModel
 
 module.exports = {
 
-    addAddress: (req, res) => {
+    addAddress: async (req, res) => {
         const data = req.body;
         Address.create(data).then(data => {
             res.send(data);
@@ -14,7 +14,7 @@ module.exports = {
             });
         });
     },
-    getAllAddress: (req, res) => {
+    getAllAddress: async (req, res) => {
         Address.findAll().then(result => {
             if (result) {
                 res.json({
@@ -30,7 +30,7 @@ module.exports = {
             }
         })
     },
-    getAddressById: (req, res) => {
+    getAddressById: async (req, res) => {
         let id = req.params.id
         console.log(id);
         Address.findByPk(id).then(result => {
@@ -48,7 +48,7 @@ module.exports = {
             }
         })
     },
-    updateAddress: (req, res) => {
+    updateAddress: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Address.update(data, {
@@ -68,7 +68,7 @@ module.exports = {
             }
         })
     },
-    updateAddressStatus: (req, res) => {
+    updateAddressStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params.status;
         Address.update({ status: status }, {
@@ -88,7 +88,7 @@ module.exports = {
             }
         })
     },
-    deleteAddressById: (req, res) => {
+    deleteAddressById: async (req, res) => {
         let id = req.query.id
         Address.destroy({ where: { id: id } }).then(result => {
             if (result) {

@@ -6,6 +6,42 @@ db.sequelize.sync({ force: false }).then(async () => {
     console.log("Drop and re-sync db.");
     if (false) {
 
+        await db.UserModel.create({
+            role: "SUPER_ADMIN",
+            first_name: "super",
+            last_name: "admin",
+            phone_number: "7894560322",
+            email: "superadmin@gmail.com",
+            password: "superadmin",
+            is_verified: true,
+            is_active: true,
+            status: true,
+        }).then(res => {
+            setTimeout(function () {
+                console.log("1> User as SUPER_ADMIN");
+            }, 1000);
+        }).catch((error) => {
+            console.error('Failed to create a new record : ', error);
+        });
+
+        await db.UserModel.create({
+            role: "ADMIN",
+            first_name: "apollo",
+            last_name: "admin",
+            phone_number: "6502314789",
+            email: "apolloadmin@gmail.com",
+            password: "apolloadmin",
+            is_verified: true,
+            is_active: true,
+            status: true,
+        }).then(res => {
+            setTimeout(function () {
+                console.log("1> User as APOLLO ADMIN");
+            }, 1000);
+        }).catch((error) => {
+            console.error('Failed to create a new record : ', error);
+        });
+
         await db.RoleModel.create({
             role_name: "SUPER_ADMIN",
             is_active: true,

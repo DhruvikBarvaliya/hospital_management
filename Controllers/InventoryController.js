@@ -3,7 +3,7 @@ const Inventory = db.InventoryModel
 
 module.exports = {
 
-    addInventory: (req, res) => {
+    addInventory: async (req, res) => {
         if (!req.body.item_name) {
             res.status(400).send({ message: "Item Name Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllInventory: (req, res) => {
+    getAllInventory: async (req, res) => {
         Inventory.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getInventoryById: (req, res) => {
+    getInventoryById: async (req, res) => {
         let id = req.params.id
         Inventory.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateInventory: (req, res) => {
+    updateInventory: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Inventory.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateInventoryStatus: (req, res) => {
+    updateInventoryStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Inventory.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteInventoryById: (req, res) => {
+    deleteInventoryById: async (req, res) => {
         let id = req.params.id
         Inventory.destroy({ where: { id: id } }).then(result => {
             if (result) {

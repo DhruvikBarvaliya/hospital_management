@@ -3,7 +3,7 @@ const Billing = db.BillingModel
 
 module.exports = {
 
-    addBilling: (req, res) => {
+    addBilling: async (req, res) => {
         const data = req.body;
         Billing.create(data).then(data => {
             res.send(data);
@@ -14,7 +14,7 @@ module.exports = {
             });
         });
     },
-    getAllBilling: (req, res) => {
+    getAllBilling: async (req, res) => {
         Billing.findAll().then(result => {
             if (result) {
                 res.json({
@@ -30,7 +30,7 @@ module.exports = {
             }
         })
     },
-    getBillingById: (req, res) => {
+    getBillingById: async (req, res) => {
         let id = req.params.id
         Billing.findByPk(id).then(result => {
             if (result) {
@@ -47,7 +47,7 @@ module.exports = {
             }
         })
     },
-    updateBilling: (req, res) => {
+    updateBilling: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Billing.update(data, {
@@ -67,7 +67,7 @@ module.exports = {
             }
         })
     },
-    updateBillingStatus: (req, res) => {
+    updateBillingStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Billing.update({ status: status }, {
@@ -87,7 +87,7 @@ module.exports = {
             }
         })
     },
-    deleteBillingById: (req, res) => {
+    deleteBillingById: async (req, res) => {
         let id = req.params.id
         Billing.destroy({ where: { id: id } }).then(result => {
             if (result) {

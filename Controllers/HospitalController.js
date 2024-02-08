@@ -3,7 +3,7 @@ const Hospital = db.HospitalModel
 
 module.exports = {
 
-    addHospital: (req, res) => {
+    addHospital: async (req, res) => {
         if (!req.body.hospital_name) {
             res.status(400).send({ message: "Hospital Name Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllHospital: (req, res) => {
+    getAllHospital: async (req, res) => {
         Hospital.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getHospitalById: (req, res) => {
+    getHospitalById: async (req, res) => {
         let id = req.params.id
         Hospital.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateHospital: (req, res) => {
+    updateHospital: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Hospital.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateHospitalStatus: (req, res) => {
+    updateHospitalStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Hospital.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteHospitalById: (req, res) => {
+    deleteHospitalById: async (req, res) => {
         let id = req.params.id
         Hospital.destroy({ where: { id: id } }).then(result => {
             if (result) {

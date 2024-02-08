@@ -1,10 +1,14 @@
 const { jwt_key } = require("../Config/Config");
-// const employeeModel = require("../Models/EmployeeModel");
+// const UserModel = require("../Models/UserModel");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { sendMail } = require('../Helpers/email')
-const db = require('../Config/Sequelize')
-const employeeModel = db.employee
+const db = require('../Config/Sequelize');
+// const DoctorModel = require("../Models/DoctorModel");
+const UserModel = db.UserModel
+const DoctorModel = db.DoctorModel
+const StaffModel = db.StaffModel
+const PatientModel = db.PatientModel
 module.exports = {
   register: async (req, res) => {
     try {
@@ -37,12 +41,12 @@ module.exports = {
       // const salt = await bcrypt.genSalt(10);
       // const password = await bcrypt.hash(req.body.password, salt);
 
-      // const user = await employeeModel.findOne({ email: email });
+      // const user = await UserModel.findOne({ where:{ email: email }});
 
       // if (user) {
       //   return res.status(400).json({ status: false, message: "User already registered" });
       // } else {
-      //   const userData = new employeeModel({
+      //   const userData = new UserModel({
       //     role,
       //     first_name,
       //     middle_name,
@@ -86,8 +90,9 @@ module.exports = {
       //   res.status(400).send({ message: "Book Name Can not be Emapty" })
       //   return;
       // }
+
       const data = req.body;
-      const user = await employeeModel.findOne({ email: data.email });
+      const user = await UserModel.findOne({ where:{ email: data.email }});
 
       if (user) {
         return res.status(400).json({ status: false, message: "User already registered" });
@@ -97,11 +102,11 @@ module.exports = {
         const encryptPassword = await bcrypt.hash(req.body.password, salt);
         data.password = encryptPassword
         // data.full_name = data.first_name || "" + " " + data.middle_name || "" + " " + data.last_name || "",
-        employeeModel.create(data).then(data => {
+        UserModel.create(data).then(data => {
           res.send(data);
         }).catch(error => {
           res.status(400).send({
-            message: error.message || "Some error occurred while creating the employee."
+            message: error.message || "Some error occurred while creating the user."
           })
         })
       }
@@ -114,7 +119,11 @@ module.exports = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-      const user = await employeeModel.findOne({ where: { email: email } })
+      let user = await UserModel.findOne({ where: { email: email } })
+
+      // user = await DoctorModel.findOne({ where: { email: email } })
+      // user = await StaffModel.findOne({ where: { email: email } })
+      // user = await PatientModel.findOne({ where: { email: email } })
 
       if (!user) {
         return res.status(404).json({ status: false, message: "User Not Found" });
@@ -149,15 +158,15 @@ module.exports = {
     }
   },
   logout: async (req, res) => {
-    return employeeModel.find();
+    return UserModel.find();
   },
   sendOtp: async (req, res) => {
     try {
       const otp = Math.floor(Math.random() * 9000 + 1000);
       let { email, for_forgot } = req.body
       console.log(otp, email);
-      const employee = await employeeModel.findOne({ where: { email: email } });
-      if (employee == null) {
+      const user = await UserModel.findOne({ where: { email: email } });
+      if (user == null) {
         return res
           .status(404)
           .json({ status: false, message: `Employee Not Found With Email :- ${email} ` });
@@ -166,7 +175,7 @@ module.exports = {
         let purpose = ""
         if (for_forgot) {
 
-          const employee = await employeeModel.update({ forgot_otp: otp }, {
+          const user = await UserModel.update({ forgot_otp: otp }, {
             where: {
               email: email,
             },
@@ -175,7 +184,7 @@ module.exports = {
 
         }
         else {
-          const employee = await employeeModel.update({ otp: otp }, {
+          const user = await UserModel.update({ otp: otp }, {
             where: {
               email: email,
             },
@@ -197,15 +206,15 @@ module.exports = {
   verify: async (req, res) => {
     try {
       const { email, otp } = req.body
-      const employee = await employeeModel.findOne({ where: { email: email } });
-      if (employee == null) {
+      const user = await UserModel.findOne({ where: { email: email } });
+      if (user == null) {
         return res
           .status(404)
           .json({ status: false, message: `Employee Not Found With Email :- ${email} ` });
       } else {
-        if (employee.otp == otp) {
+        if (user.otp == otp) {
 
-          const employee = await employeeModel.update({ is_verified: true, is_active: true }, {
+          const user = await UserModel.update({ is_verified: true, is_active: true }, {
             where: {
               email: email,
             },
@@ -232,11 +241,11 @@ module.exports = {
       const { email, password, newPassword } = req.body
       const salt = await bcrypt.genSalt(10);
       const updatedPassword = await bcrypt.hash(newPassword, salt);
-      const user = await employeeModel.findOne({ where: { email: email } })
+      const user = await UserModel.findOne({ where: { email: email } })
 
       if (user.email == email && bcrypt.compare(password, user.password)) {
 
-        const employee = await employeeModel.update({ password: updatedPassword }, {
+        const user = await UserModel.update({ password: updatedPassword }, {
           where: {
             email: email,
           },
@@ -260,14 +269,14 @@ module.exports = {
       const { email, otp, newPassword } = req.body
       const salt = await bcrypt.genSalt(10);
       const updatedPassword = await bcrypt.hash(newPassword, salt);
-      const user = await employeeModel.findOne({ where: { email: email } })
+      const user = await UserModel.findOne({ where: { email: email } })
       if (user == null) {
         return res
           .status(404)
           .json({ status: false, message: `Employee Not Found With Email :- ${email} ` });
       }
       if (user.email == email && user.forgot_otp == otp) {
-        const employee = await employeeModel.update({ password: updatedPassword }, {
+        const user = await UserModel.update({ password: updatedPassword }, {
           where: {
             email: email,
           },

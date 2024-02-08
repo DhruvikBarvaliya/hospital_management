@@ -1,34 +1,22 @@
 
+// import { DataTypes } from '@sequelize/core';
+
 module.exports = (sequelize, Sequelize) => {
     const User = sequelize.define('User', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-        role: { type: Sequelize.ENUM("Super_Admin", "Admin", "Doctore", "Staff", "Patient"), defaultValue: "Patient" },
-        first_name: { type: Sequelize.STRING },
+        role: { type: Sequelize.ENUM("SUPER_ADMIN", "ADMIN"), defaultValue: "ADMIN" },
+        first_name: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
         last_name: { type: Sequelize.STRING },
         phone_number: { type: Sequelize.STRING },
         email: { type: Sequelize.STRING },
         password: { type: Sequelize.STRING },
-        doctor_id: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: "Doctor",
-                key: 'id'
-            }
-        },
-        patient_id: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: "Patient",
-                key: 'id'
-            }
-        },
-        staff_id: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: "Staff",
-                key: 'id'
-            }
-        },
+        otp: { type: Sequelize.INTEGER },
+        last_login: { type: Sequelize.DATE, defaultValue: Sequelize.NOW, },
+        date_of_hire: { type: Sequelize.DATEONLY, defaultValue: Sequelize.NOW },
+        date_of_birth: { type: Sequelize.DATEONLY, defaultValue: sequelize.fn('NOW') },
         is_verified: { type: Sequelize.BOOLEAN, default: false },
         is_active: { type: Sequelize.BOOLEAN, default: false },
         status: { type: Sequelize.BOOLEAN, default: false },

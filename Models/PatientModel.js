@@ -2,6 +2,7 @@
 module.exports = (sequelize, Sequelize) => {
     const Patient = sequelize.define('Patient', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+        role: { type: Sequelize.STRING, defaultValue: "PATIENT" },
         patient_first_name: { type: Sequelize.STRING },
         patient_last_name: { type: Sequelize.STRING },
         patient_address: {
@@ -29,6 +30,12 @@ module.exports = (sequelize, Sequelize) => {
             }
         },
         email: { type: Sequelize.STRING },
+        password: { type: Sequelize.STRING },
+        otp: { type: Sequelize.INTEGER },
+        last_login: { type: Sequelize.DATE, defaultValue: Sequelize.NOW, },
+        date_of_hire: { type: Sequelize.DATEONLY, defaultValue: Sequelize.NOW },
+        date_of_birth: { type: Sequelize.DATEONLY, defaultValue: sequelize.fn('NOW') },
+        is_verified: { type: Sequelize.BOOLEAN, default: false },
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
         created_by: {

@@ -3,7 +3,7 @@ const Department = db.DepartmentModel
 
 module.exports = {
 
-    addDepartment: (req, res) => {
+    addDepartment: async (req, res) => {
         if (!req.body.department_name) {
             res.status(400).send({ message: "Department Name Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllDepartment: (req, res) => {
+    getAllDepartment: async (req, res) => {
         Department.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getDepartmentById: (req, res) => {
+    getDepartmentById: async (req, res) => {
         let id = req.params.id
         Department.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateDepartment: (req, res) => {
+    updateDepartment: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Department.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateDepartmentStatus: (req, res) => {
+    updateDepartmentStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Department.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteDepartmentById: (req, res) => {
+    deleteDepartmentById: async (req, res) => {
         let id = req.params.id
         Department.destroy({ where: { id: id } }).then(result => {
             if (result) {

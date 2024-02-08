@@ -1,24 +1,38 @@
 const db = require('../Config/Sequelize')
 const Staff = db.StaffModel
+const bcrypt = require("bcryptjs");
 
 module.exports = {
 
-    addStaff: (req, res) => {
+    addStaff: async (req, res) => {
         if (!req.body.staff_first_name) {
             res.status(400).send({ message: "Staff Name Can not be Emapty" })
             return;
         }
         const data = req.body;
-        Staff.create(data).then(data => {
-            res.send(data);
-        }).catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while creating the Staff."
-            });
+        const staff = await Staff.findOne({
+            where: {
+                email: data.email
+            }
         });
+        if (staff.length) {
+            return res.status(400).json({ status: false, message: "Staff already registered with this Email" });
+
+        } else {
+            const salt = await bcrypt.genSalt(10);
+            const password = await bcrypt.hash(data.password, salt);
+            data.password = password
+            Staff.create(data).then(data => {
+                res.send(data);
+            }).catch(err => {
+                res.status(500).send({
+                    message:
+                        err.message || "Some error occurred while creating the Staff."
+                });
+            });
+        }
     },
-    getAllStaff: (req, res) => {
+    getAllStaff: async (req, res) => {
         Staff.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +48,7 @@ module.exports = {
             }
         })
     },
-    getStaffById: (req, res) => {
+    getStaffById: async (req, res) => {
         let id = req.params.id
         Staff.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +65,7 @@ module.exports = {
             }
         })
     },
-    updateStaff: (req, res) => {
+    updateStaff: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Staff.update(data, {
@@ -71,7 +85,7 @@ module.exports = {
             }
         })
     },
-    updateStaffStatus: (req, res) => {
+    updateStaffStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Staff.update({ status: status }, {
@@ -91,7 +105,7 @@ module.exports = {
             }
         })
     },
-    deleteStaffById: (req, res) => {
+    deleteStaffById: async (req, res) => {
         let id = req.params.id
         Staff.destroy({ where: { id: id } }).then(result => {
             if (result) {

@@ -3,7 +3,7 @@ const Test = db.TestModel
 
 module.exports = {
 
-    addTest: (req, res) => {
+    addTest: async (req, res) => {
         if (!req.body.test_name) {
             res.status(400).send({ message: "Test Name Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllTest: (req, res) => {
+    getAllTest: async (req, res) => {
         Test.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getTestById: (req, res) => {
+    getTestById: async (req, res) => {
         let id = req.params.id
         Test.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateTest: (req, res) => {
+    updateTest: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Test.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateTestStatus: (req, res) => {
+    updateTestStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Test.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteTestById: (req, res) => {
+    deleteTestById: async (req, res) => {
         let id = req.params.id
         Test.destroy({ where: { id: id } }).then(result => {
             if (result) {

@@ -3,7 +3,7 @@ const Prescription = db.PrescriptionModel
 
 module.exports = {
 
-    addPrescription: (req, res) => {
+    addPrescription: async (req, res) => {
         if (!req.body.patient_id) {
             res.status(400).send({ message: "Patient Id Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllPrescription: (req, res) => {
+    getAllPrescription: async (req, res) => {
         Prescription.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getPrescriptionById: (req, res) => {
+    getPrescriptionById: async (req, res) => {
         let id = req.params.id
         Prescription.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updatePrescription: (req, res) => {
+    updatePrescription: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Prescription.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updatePrescriptionStatus: (req, res) => {
+    updatePrescriptionStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Prescription.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deletePrescriptionById: (req, res) => {
+    deletePrescriptionById: async (req, res) => {
         let id = req.params.id
         Prescription.destroy({ where: { id: id } }).then(result => {
             if (result) {
