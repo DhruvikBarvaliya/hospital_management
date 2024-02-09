@@ -3,7 +3,7 @@ const Role = db.RoleModel
 
 module.exports = {
 
-    addRole: (req, res) => {
+    addRole: async (req, res) => {
         if (!req.body.role_name) {
             res.status(400).send({ message: "Role Name Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllRole: (req, res) => {
+    getAllRole: async (req, res) => {
         Role.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getRoleById: (req, res) => {
+    getRoleById: async (req, res) => {
         let id = req.params.id
         Role.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateRole: (req, res) => {
+    updateRole: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Role.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateRoleStatus: (req, res) => {
+    updateRoleStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Role.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteRoleById: (req, res) => {
+    deleteRoleById: async (req, res) => {
         let id = req.params.id
         Role.destroy({ where: { id: id } }).then(result => {
             if (result) {

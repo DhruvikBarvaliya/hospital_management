@@ -15,29 +15,28 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Invoice
+ *           description: The Patient Id From Patient Table
  *         service_description:
  *           type: string
- *           description: The Invoice author
+ *           description: Give Service Description for Invoice
  *         cost:
  *           type: integer
- *           description: Whether you have finished reading the Invoice
+ *           description: Give Cost for particuler this for Invoice
  *         total:
  *           type: string
- *           format: date
- *           description: The date the Invoice was added
+ *           description: Give total for particuler this for Invoice
  *         is_active:
  *           type: boolean
- *           description: The date the Invoice was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Invoice was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           description: The date the Invoice was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           description: The date the Invoice was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -141,11 +140,11 @@ const Role = require("../Helpers/Role");
  *         description: The Invoice was not found
  */
 
-router.post('/invoice',  InvoiceController.addInvoice)
-router.get('/invoice', InvoiceController.getAllInvoice)
-router.get('/invoice/:id', InvoiceController.getInvoiceById)
-router.put('/invoice/:id', InvoiceController.updateInvoice)
-router.patch('/invoice/:id/:status', InvoiceController.updateInvoiceStatus)
-router.delete('/invoice/:id', InvoiceController.deleteInvoiceById)
+router.post('/invoice',/* authorize(), */  InvoiceController.addInvoice)
+router.get('/invoice',/* authorize(), */ InvoiceController.getAllInvoice)
+router.get('/invoice/:id',/* authorize(), */ InvoiceController.getInvoiceById)
+router.put('/invoice/:id',/* authorize(), */ InvoiceController.updateInvoice)
+router.patch('/invoice/:id/:status',/* authorize(), */ InvoiceController.updateInvoiceStatus)
+router.delete('/invoice/:id',/* authorize(), */ InvoiceController.deleteInvoiceById)
 
 module.exports = router;  

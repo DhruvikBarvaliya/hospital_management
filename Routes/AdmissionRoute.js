@@ -16,35 +16,33 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Admission
- *         ward_id:
+ *           description: The Patient Id From Patient Table
+ *         word_id:
  *           type: integer
- *           description: The Admission author
+ *           description: The Word Id From Word Table
  *         admission_date:
  *           type: string
  *           format: date
- *           description: Whether you have finished reading the Admission
+ *           description: Give admission Date When Patient Admitted in Hospital
  *         discharge_date:
  *           type: string 
  *           format: date
- *           description: The date the Admission was added
+ *           description: Give discharge Date When Patient discharge from Hospital
  *         reason:
  *           type: string
- *           description: The date the Admission was added
+ *           description: Give Reason Why Patient Admitted in Hospital
  *         is_active:
  *           type: boolean
- *           description: The date the Admission was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Admission was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           format: date
- *           description: The date the Admission was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           format: date
- *           description: The date the Admission was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -148,11 +146,11 @@ const Role = require("../Helpers/Role");
  *         description: The Admission was not found
  */
 
-router.post('/admission',  AdmissionController.addAdmission)
-router.get('/admission', AdmissionController.getAllAdmission)
-router.get('/admission/:id', AdmissionController.getAdmissionById)
-router.put('/admission/:id', AdmissionController.updateAdmission)
-router.patch('/admission/:id/:status', AdmissionController.updateAdmissionStatus)
-router.delete('/admission/:id', AdmissionController.deleteAdmissionById)
+router.post('/admission',/* authorize(), */  AdmissionController.addAdmission)
+router.get('/admission',/* authorize(), */ AdmissionController.getAllAdmission)
+router.get('/admission/:id',/* authorize(), */ AdmissionController.getAdmissionById)
+router.put('/admission/:id',/* authorize(), */ AdmissionController.updateAdmission)
+router.patch('/admission/:id/:status',/* authorize(), */ AdmissionController.updateAdmissionStatus)
+router.delete('/admission/:id',/* authorize(), */ AdmissionController.deleteAdmissionById)
 
 module.exports = router;  

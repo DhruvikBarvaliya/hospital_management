@@ -15,21 +15,19 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         role_name:
  *           type: string
- *           description: The title of your Role
+ *           description: Enter Role Name
  *         is_active:
  *           type: boolean
- *           description: The date the Role was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Role was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           format: date
- *           description: The date the Role was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           format: date
- *           description: The date the Role was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -133,11 +131,11 @@ const Role = require("../Helpers/Role");
  *         description: The Role was not found
  */
 
-router.post('/role',  RoleController.addRole)
-router.get('/role', RoleController.getAllRole)
-router.get('/role/:id', RoleController.getRoleById)
-router.put('/role/:id', RoleController.updateRole)
-router.patch('/role/:id/:status', RoleController.updateRoleStatus)
-router.delete('/role/:id', RoleController.deleteRoleById)
+router.post('/role',/* authorize(), */  RoleController.addRole)
+router.get('/role',/* authorize(), */ RoleController.getAllRole)
+router.get('/role/:id',/* authorize(), */ RoleController.getRoleById)
+router.put('/role/:id',/* authorize(), */ RoleController.updateRole)
+router.patch('/role/:id/:status',/* authorize(), */ RoleController.updateRoleStatus)
+router.delete('/role/:id',/* authorize(), */ RoleController.deleteRoleById)
 
 module.exports = router; 

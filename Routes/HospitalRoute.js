@@ -15,25 +15,25 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         hospital_name:
  *           type: string
- *           description: The title of your Hospital
+ *           description: Give Hospital Name
  *         hospital_address:
  *           type: integer
- *           description: The Hospital author
+ *           description: Give Hospital Address
  *         hospital_phone_number:
  *           type: string
- *           description: Whether you have finished reading the Hospital
+ *           description: Give Hospital Phone Number
  *         is_active:
  *           type: boolean
- *           description: The date the Hospital was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Hospital was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           description: The date the Hospital was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           description: The date the Hospital was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -137,11 +137,11 @@ const Role = require("../Helpers/Role");
  *         description: The Hospital was not found
  */
 
-router.post('/hospital',  HospitalController.addHospital)
-router.get('/hospital', HospitalController.getAllHospital)
-router.get('/hospital/:id', HospitalController.getHospitalById)
-router.put('/hospital/:id', HospitalController.updateHospital)
-router.patch('/hospital/:id/:status', HospitalController.updateHospitalStatus)
-router.delete('/hospital/:id', HospitalController.deleteHospitalById)
+router.post('/hospital',/* authorize(), */  HospitalController.addHospital)
+router.get('/hospital',/* authorize(), */ HospitalController.getAllHospital)
+router.get('/hospital/:id',/* authorize(), */ HospitalController.getHospitalById)
+router.put('/hospital/:id',/* authorize(), */ HospitalController.updateHospital)
+router.patch('/hospital/:id/:status',/* authorize(), */ HospitalController.updateHospitalStatus)
+router.delete('/hospital/:id',/* authorize(), */ HospitalController.deleteHospitalById)
 
 module.exports = router;  

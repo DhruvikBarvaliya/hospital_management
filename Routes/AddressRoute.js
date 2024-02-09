@@ -15,34 +15,34 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         streetAddress1:
  *           type: string
- *           description: The title of your Address
+ *           description: Enter Your Street Address 1 Here
  *         streetAddress2:
  *           type: string
- *           description: The Address author
+ *           description: Enter Your Street Address 2  Here
  *         country:
  *           type: string
- *           description: Whether you have finished reading the Address
+ *           description: Give Your Country Name Here
  *         state:
  *           type: string
- *           description: The date the Address was added
+ *           description: Give Your State Name Here
  *         city:
  *           type: string
- *           description: The date the Address was added
+ *           description: Give Your City Name Here
  *         zip_code:
  *           type: integer
- *           description: The date the Address was added
+ *           description: Give Your Zip Code Here
  *         is_active:
  *           type: boolean
- *           description: The date the Address was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Address was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           description: The date the Address was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           description: The date the Address was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -146,12 +146,12 @@ const Role = require("../Helpers/Role");
  *         description: The Address was not found
  */
 
-router.post('/address', AddressController.addAddress)
+router.post('/address',/* authorize(), */ AddressController.addAddress)
 // router.post('/address', authorize([Role.ADMIN, Role.SUPER_ADMIN]), AddressController.addAddress)
-router.get('/address', AddressController.getAllAddress)
-router.get('/address/:id', AddressController.getAddressById)
-router.put('/address/:id', AddressController.updateAddress)
-router.patch('/address/:id/:status', AddressController.updateAddressStatus)
-router.delete('/address/:id', AddressController.deleteAddressById)
+router.get('/address',/* authorize(), */ AddressController.getAllAddress)
+router.get('/address/:id', /* authorize(), */AddressController.getAddressById)
+router.put('/address/:id', /* authorize(), */AddressController.updateAddress)
+router.patch('/address/:id/:status',/* authorize(), */ AddressController.updateAddressStatus)
+router.delete('/address/:id',/* authorize(), */ AddressController.deleteAddressById)
 
 module.exports = router;  

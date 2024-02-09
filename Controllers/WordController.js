@@ -3,7 +3,7 @@ const Word = db.WordModel
 
 module.exports = {
 
-    addWord: (req, res) => {
+    addWord: async (req, res) => {
         if (!req.body.word_name) {
             res.status(400).send({ message: "Word Name Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllWord: (req, res) => {
+    getAllWord: async (req, res) => {
         Word.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getWordById: (req, res) => {
+    getWordById: async (req, res) => {
         let id = req.params.id
         Word.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateWord: (req, res) => {
+    updateWord: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Word.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateWordStatus: (req, res) => {
+    updateWordStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Word.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteWordById: (req, res) => {
+    deleteWordById: async (req, res) => {
         let id = req.params.id
         Word.destroy({ where: { id: id } }).then(result => {
             if (result) {

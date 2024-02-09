@@ -15,22 +15,22 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         department_name:
  *           type: string
- *           description: The title of your Department
+ *           description: Enter Department Name
  *         hospital_id:
  *           type: integer
- *           description: The Department author
+ *           description: Give Hospital Id from Hospital Table
  *         is_active:
  *           type: boolean
- *           description: The date the Department was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Department was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           description: The date the Department was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           description: The date the Department was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -134,11 +134,11 @@ const Role = require("../Helpers/Role");
  *         description: The Department was not found
  */
 
-router.post('/department',  DepartmentController.addDepartment)
-router.get('/department', DepartmentController.getAllDepartment)
-router.get('/department/:id', DepartmentController.getDepartmentById)
-router.put('/department/:id', DepartmentController.updateDepartment)
-router.patch('/department/:id/:status', DepartmentController.updateDepartmentStatus)
-router.delete('/department/:id', DepartmentController.deleteDepartmentById)
+router.post('/department',/* authorize(), */  DepartmentController.addDepartment)
+router.get('/department',/* authorize(), */ DepartmentController.getAllDepartment)
+router.get('/department/:id',/* authorize(), */ DepartmentController.getDepartmentById)
+router.put('/department/:id',/* authorize(), */ DepartmentController.updateDepartment)
+router.patch('/department/:id/:status',/* authorize(), */ DepartmentController.updateDepartmentStatus)
+router.delete('/department/:id',/* authorize(), */ DepartmentController.deleteDepartmentById)
 
 module.exports = router;  

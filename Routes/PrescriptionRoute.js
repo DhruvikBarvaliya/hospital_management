@@ -15,37 +15,35 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Prescription
+ *           description: The Patient Id From Patient Table
  *         medication_name:
  *           type: string
- *           description: The Prescription author
+ *           description: Enter Medication Name
  *         prescription_date:
  *           type: string
  *           format: date
- *           description: Whether you have finished reading the Prescription
+ *           description: Give Prescription Date
  *         prescription_cost:
  *           type: integer
- *           description: The date the Prescription was added
+ *           description: Give Prescription Cost
  *         doctor_id:
  *           type: integer
- *           description: The date the Prescription was added
+ *           description: The Doctor Id From Doctor Table
  *         medication_id:
  *           type: integer
- *           description: The date the Prescription was added
+ *           description: The Medication Id From Medication Table
  *         is_active:
  *           type: boolean
- *           description: The date the Prescription was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Prescription was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           format: date
- *           description: The date the Prescription was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           format: date
- *           description: The date the Prescription was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -149,11 +147,11 @@ const Role = require("../Helpers/Role");
  *         description: The Prescription was not found
  */
 
-router.post('/prescription',  PrescriptionController.addPrescription)
-router.get('/prescription', PrescriptionController.getAllPrescription)
-router.get('/prescription/:id', PrescriptionController.getPrescriptionById)
-router.put('/prescription/:id', PrescriptionController.updatePrescription)
-router.patch('/prescription/:id/:status', PrescriptionController.updatePrescriptionStatus)
-router.delete('/prescription/:id', PrescriptionController.deletePrescriptionById)
+router.post('/prescription',/* authorize(), */  PrescriptionController.addPrescription)
+router.get('/prescription',/* authorize(), */ PrescriptionController.getAllPrescription)
+router.get('/prescription/:id',/* authorize(), */ PrescriptionController.getPrescriptionById)
+router.put('/prescription/:id',/* authorize(), */ PrescriptionController.updatePrescription)
+router.patch('/prescription/:id/:status',/* authorize(), */ PrescriptionController.updatePrescriptionStatus)
+router.delete('/prescription/:id',/* authorize(), */ PrescriptionController.deletePrescriptionById)
 
 module.exports = router;  

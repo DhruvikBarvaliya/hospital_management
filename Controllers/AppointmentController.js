@@ -3,7 +3,7 @@ const Appointment = db.AppointmentModel
 
 module.exports = {
 
-    addAppointment: (req, res) => {
+    addAppointment: async (req, res) => {
         if (!req.body.doctor_id) {
             res.status(400).send({ message: "Doctor Id Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllAppointment: (req, res) => {
+    getAllAppointment: async (req, res) => {
         Appointment.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getAppointmentById: (req, res) => {
+    getAppointmentById: async (req, res) => {
         let id = req.params.id
         Appointment.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateAppointment: (req, res) => {
+    updateAppointment: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Appointment.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateAppointmentStatus: (req, res) => {
+    updateAppointmentStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Appointment.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteAppointmentById: (req, res) => {
+    deleteAppointmentById: async (req, res) => {
         let id = req.params.id
         Appointment.destroy({ where: { id: id } }).then(result => {
             if (result) {

@@ -15,42 +15,47 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         department_id:
  *           type: integer
- *           description: The title of your Staff
+ *           description: The Department Id From Department Table
  *         staff_first_name:
  *           type: string
- *           description: The Staff author
+ *           description: Enter First Name of The Staff
  *         staff_last_name:
  *           type: string
- *           description: Whether you have finished reading the Staff
+ *           description: Enter First Last of The Staff
  *         staff_address:
  *           type: integer
- *           description: The date the Staff was added
+ *           description: Enter Address of The Staff
  *         staff_phone_number:
  *           type: string
- *           description: The date the Staff was added
+ *           description: Enter Phone Number of The Staff
  *         email:
  *           type: string
- *           description: The date the Staff was added
+ *           description: Enter Email of The Staff
+ *         password:
+ *           type: string
+ *           description: Enter Password of The Staff
  *         position:
  *           type: string
- *           description: The date the Staff was added
+ *           description: Enter Position of The Staff
  *         role:
  *           type: integer
- *           description: The date the Staff was added
+ *           description: Enter Role of The Staff
+ *         date_of_birth:
+ *           type: string
+ *           format: date
+ *           description: Enter Date Of Birth of The Staff
  *         is_active:
  *           type: boolean
- *           description: The date the Staff was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Staff was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           format: date
- *           description: The date the Staff was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           format: date
- *           description: The date the Staff was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -154,11 +159,11 @@ const Role = require("../Helpers/Role");
  *         description: The Staff was not found
  */
 
-router.post('/staff',  StaffController.addStaff)
-router.get('/staff', StaffController.getAllStaff)
-router.get('/staff/:id', StaffController.getStaffById)
-router.put('/staff/:id', StaffController.updateStaff)
-router.patch('/staff/:id/:status', StaffController.updateStaffStatus)
-router.delete('/staff/:id', StaffController.deleteStaffById)
+router.post('/staff',/* authorize(), */  StaffController.addStaff)
+router.get('/staff',/* authorize(), */ StaffController.getAllStaff)
+router.get('/staff/:id',/* authorize(), */ StaffController.getStaffById)
+router.put('/staff/:id',/* authorize(), */ StaffController.updateStaff)
+router.patch('/staff/:id/:status',/* authorize(), */ StaffController.updateStaffStatus)
+router.delete('/staff/:id',/* authorize(), */ StaffController.deleteStaffById)
 
 module.exports = router;  

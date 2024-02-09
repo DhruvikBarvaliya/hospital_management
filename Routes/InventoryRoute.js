@@ -17,28 +17,28 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         item_id:
  *           type: string
- *           description: The title of your Inventory
+ *           description: Give Unique Item Id
  *         item_name:
  *           type: string
- *           description: The Inventory author
+ *           description: Give Unique Item Name
  *         quantity_available:
  *           type: integer
- *           description: Whether you have finished reading the Inventory
+ *           description: Give How many Quantity Available for Item
  *         unit_price:
  *           type: integer
- *           description: The date the Inventory was added
+ *           description: Give How many Price Available for Item
  *         is_active:
  *           type: boolean
- *           description: The date the Inventory was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Inventory was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           description: The date the Inventory was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           description: The date the Inventory was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -142,11 +142,11 @@ const Role = require("../Helpers/Role");
  *         description: The Inventory was not found
  */
 
-router.post('/inventory', InventoryController.addInventory)
-router.get('/inventory', InventoryController.getAllInventory)
-router.get('/inventory/:id', InventoryController.getInventoryById)
-router.put('/inventory/:id', InventoryController.updateInventory)
-router.patch('/inventory/:id/:status', InventoryController.updateInventoryStatus)
-router.delete('/inventory/:id', InventoryController.deleteInventoryById)
+router.post('/inventory',/* authorize(), */ InventoryController.addInventory)
+router.get('/inventory',/* authorize(), */ InventoryController.getAllInventory)
+router.get('/inventory/:id',/* authorize(), */ InventoryController.getInventoryById)
+router.put('/inventory/:id',/* authorize(), */ InventoryController.updateInventory)
+router.patch('/inventory/:id/:status',/* authorize(), */ InventoryController.updateInventoryStatus)
+router.delete('/inventory/:id',/* authorize(), */ InventoryController.deleteInventoryById)
 
 module.exports = router;  

@@ -15,48 +15,48 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_first_name:
  *           type: string
- *           description: The title of your Patient
+ *           description: Enter First Name of The Patient
  *         patient_last_name:
  *           type: string
- *           description: The Patient author
+ *           description: Enter Last Name of The Patient
  *         patient_address:
  *           type: integer
- *           description: Whether you have finished reading the Patient
+ *           description: Enter Address of The Patient
  *         patient_phone_number:
  *           type: string
- *           format: date
- *           description: The date the Patient was added
+ *           description: Enter Patient Phone Number of The Patient
  *         pharmacy_id:
  *           type: integer
- *           description: The date the Patient was added
+ *           description: Give Pharmacy Id From Pharmacy Table
  *         date_of_birth:
  *           type: string
  *           format: date
- *           description: The date the Patient was added
+ *           description: Enter Date Of Birth of The Patient
  *         gender:
  *           type: string
  *           format: date
- *           description: The date the Patient was added
+ *           description: Enter Patient Gender
  *         hospital_id:
  *           type: integer
- *           description: The date the Patient was added
+ *           description: Give Hospital Id From Hospital Table
  *         email:
  *           type: string
- *           description: The date the Patient was added
+ *           description: Enter Email of The Patient
+ *         password:
+ *           type: string
+ *           description: Enter Password of The Patient
  *         is_active:
  *           type: boolean
- *           description: The date the Patient was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Patient was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           format: date
- *           description: The date the Patient was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           format: date
- *           description: The date the Patient was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -160,11 +160,11 @@ const Role = require("../Helpers/Role");
  *         description: The Patient was not found
  */
 
-router.post('/patient',  PatientController.addPatient)
-router.get('/patient', PatientController.getAllPatient)
-router.get('/patient/:id', PatientController.getPatientById)
-router.put('/patient/:id', PatientController.updatePatient)
-router.patch('/patient/:id/:status', PatientController.updatePatientStatus)
-router.delete('/patient/:id', PatientController.deletePatientById)
+router.post('/patient',/* authorize(), */  PatientController.addPatient)
+router.get('/patient',/* authorize(), */ PatientController.getAllPatient)
+router.get('/patient/:id',/* authorize(), */ PatientController.getPatientById)
+router.put('/patient/:id',/* authorize(), */ PatientController.updatePatient)
+router.patch('/patient/:id/:status',/* authorize(), */ PatientController.updatePatientStatus)
+router.delete('/patient/:id',/* authorize(), */ PatientController.deletePatientById)
 
 module.exports = router;  

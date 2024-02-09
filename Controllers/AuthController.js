@@ -1,120 +1,59 @@
-const { jwt_key } = require("../Config/Config");
-// const employeeModel = require("../Models/EmployeeModel");
+const { JWT_SECRET_KEY } = require("../Config/Config");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { sendMail } = require('../Helpers/email')
-const db = require('../Config/Sequelize')
-const employeeModel = db.employee
+const db = require('../Config/Sequelize');
+const User = db.UserModel
+const Doctor = db.DoctorModel
+const Staff = db.StaffModel
+const Patient = db.PatientModel
+
 module.exports = {
   register: async (req, res) => {
-    try {
-      // const {
-      //   role,
-      //   first_name,
-      //   middle_name,
-      //   last_name,
-      //   address,
-      //   pincode,
-      //   country,
-      //   state,
-      //   city,
-      //   phone,
-      //   email,
-      //   gender,
-      //   department_id,
-      //   designation_id,
-      //   manager_id,
-      //   job_id,
-      //   shift,
-      //   date_of_birth,
-      //   date_of_hire,
-      //   salary,
-      //   is_verified,
-      //   is_active,
-      //   last_login,
-      //   modifyed_by, } = req.body;
-
-      // const salt = await bcrypt.genSalt(10);
-      // const password = await bcrypt.hash(req.body.password, salt);
-
-      // const user = await employeeModel.findOne({ email: email });
-
-      // if (user) {
-      //   return res.status(400).json({ status: false, message: "User already registered" });
-      // } else {
-      //   const userData = new employeeModel({
-      //     role,
-      //     first_name,
-      //     middle_name,
-      //     last_name,
-      //     full_name: first_name + " " + middle_name + " " + last_name,
-      //     address,
-      //     pincode,
-      //     country,
-      //     state,
-      //     city,
-      //     phone,
-      //     email,
-      //     password,
-      //     gender,
-      //     department_id,
-      //     designation_id,
-      //     manager_id,
-      //     job_id,
-      //     shift,
-      //     date_of_birth,
-      //     date_of_hire,
-      //     salary,
-      //     is_verified,
-      //     is_active,
-      //     last_login,
-      //     modifyed_by,
-      //   });
-      //   userData
-      //     .save()
-      //     .then((data) => {
-      //       return res
-      //         .status(201)
-      //         .json({ status: true, message: "User created Successfully", data });
-      //     })
-      //     .catch((error) => {
-      //       return res.status(400).json({ message: error.message, error: error });
-      //     });
-      // }
-
-      // if (!req.body.name) {
-      //   res.status(400).send({ message: "Book Name Can not be Emapty" })
-      //   return;
-      // }
-      const data = req.body;
-      const user = await employeeModel.findOne({ email: data.email });
-
-      if (user) {
-        return res.status(400).json({ status: false, message: "User already registered" });
-      } else {
-
-        const salt = await bcrypt.genSalt(10);
-        const encryptPassword = await bcrypt.hash(req.body.password, salt);
-        data.password = encryptPassword
-        // data.full_name = data.first_name || "" + " " + data.middle_name || "" + " " + data.last_name || "",
-        employeeModel.create(data).then(data => {
-          res.send(data);
-        }).catch(error => {
-          res.status(400).send({
-            message: error.message || "Some error occurred while creating the employee."
-          })
-        })
+    if (!req.body.first_name) {
+      res.status(400).send({ message: "First Name Can not be Emapty" })
+      return;
+    }
+    const data = req.body;
+    const user = await User.findOne({
+      where: {
+        email: data.email
       }
-    } catch (err) {
-      return res
-        .status(500)
-        .json({ status: false, message: 'Server Error', error: err.message || err.toString() });
+    });
+
+    if (user.length) {
+      return res.status(400).json({ status: false, message: "User already registered with this Email" });
+    } else {
+      const salt = await bcrypt.genSalt(10);
+      const password = await bcrypt.hash(data.password, salt);
+      data.password = password
+      User.create(data).then(data => {
+        res.send(data);
+      }).catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while creating the User."
+        });
+      });
+
     }
   },
+
   login: async (req, res) => {
     try {
-      const { email, password } = req.body;
-      const user = await employeeModel.findOne({ where: { email: email } })
+      let { email, password, model } = req.body;
+      let user
+      if (model == "DOCTOR") {
+        user = await Doctor.findOne({ where: { email: email } })
+      } else if (model == "STAFF") {
+        user = await Staff.findOne({ where: { email: email } })
+      }
+      else if (model == "PATIENT") {
+        user = await Patient.findOne({ where: { email: email } })
+      }
+      else {
+        user = await User.findOne({ where: { email: email } })
+      }
 
       if (!user) {
         return res.status(404).json({ status: false, message: "User Not Found" });
@@ -132,7 +71,7 @@ module.exports = {
       if (user.email == email && pass) {
         let token = jsonwebtoken.sign(
           { id: user._id, email: email, role: user.role },
-          jwt_key, {
+          JWT_SECRET_KEY, {
           expiresIn: '12h'
         }
         );
@@ -143,21 +82,24 @@ module.exports = {
           .json({ status: false, message: "Please Provide Valid Email And Password" });
       }
     } catch (err) {
+      console.log(err);
       return res
         .status(500)
         .json({ status: false, message: 'Server Error', error: err.message || err.toString() });
     }
   },
   logout: async (req, res) => {
-    return employeeModel.find();
+    res.clearCookie('jwtToken');
+    return res.redirect('/');
+    // return User.find();
   },
   sendOtp: async (req, res) => {
     try {
       const otp = Math.floor(Math.random() * 9000 + 1000);
       let { email, for_forgot } = req.body
       console.log(otp, email);
-      const employee = await employeeModel.findOne({ where: { email: email } });
-      if (employee == null) {
+      const user = await User.findOne({ where: { email: email } });
+      if (user == null) {
         return res
           .status(404)
           .json({ status: false, message: `Employee Not Found With Email :- ${email} ` });
@@ -166,7 +108,7 @@ module.exports = {
         let purpose = ""
         if (for_forgot) {
 
-          const employee = await employeeModel.update({ forgot_otp: otp }, {
+          const user = await User.update({ forgot_otp: otp }, {
             where: {
               email: email,
             },
@@ -175,7 +117,7 @@ module.exports = {
 
         }
         else {
-          const employee = await employeeModel.update({ otp: otp }, {
+          const user = await User.update({ otp: otp }, {
             where: {
               email: email,
             },
@@ -197,15 +139,15 @@ module.exports = {
   verify: async (req, res) => {
     try {
       const { email, otp } = req.body
-      const employee = await employeeModel.findOne({ where: { email: email } });
-      if (employee == null) {
+      const user = await User.findOne({ where: { email: email } });
+      if (user == null) {
         return res
           .status(404)
           .json({ status: false, message: `Employee Not Found With Email :- ${email} ` });
       } else {
-        if (employee.otp == otp) {
+        if (user.otp == otp) {
 
-          const employee = await employeeModel.update({ is_verified: true, is_active: true }, {
+          const user = await User.update({ is_verified: true, is_active: true }, {
             where: {
               email: email,
             },
@@ -232,11 +174,11 @@ module.exports = {
       const { email, password, newPassword } = req.body
       const salt = await bcrypt.genSalt(10);
       const updatedPassword = await bcrypt.hash(newPassword, salt);
-      const user = await employeeModel.findOne({ where: { email: email } })
+      const user = await User.findOne({ where: { email: email } })
 
       if (user.email == email && bcrypt.compare(password, user.password)) {
 
-        const employee = await employeeModel.update({ password: updatedPassword }, {
+        const user = await User.update({ password: updatedPassword }, {
           where: {
             email: email,
           },
@@ -260,14 +202,14 @@ module.exports = {
       const { email, otp, newPassword } = req.body
       const salt = await bcrypt.genSalt(10);
       const updatedPassword = await bcrypt.hash(newPassword, salt);
-      const user = await employeeModel.findOne({ where: { email: email } })
+      const user = await User.findOne({ where: { email: email } })
       if (user == null) {
         return res
           .status(404)
           .json({ status: false, message: `Employee Not Found With Email :- ${email} ` });
       }
       if (user.email == email && user.forgot_otp == otp) {
-        const employee = await employeeModel.update({ password: updatedPassword }, {
+        const user = await User.update({ password: updatedPassword }, {
           where: {
             email: email,
           },

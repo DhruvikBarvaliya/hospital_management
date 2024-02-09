@@ -15,27 +15,25 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         pharmacy_name:
  *           type: string
- *           description: The title of your Pharmacy
+ *           description: Enter Pharmacy Name
  *         pharmacy_address:
  *           type: integer
- *           description: The Pharmacy author
+ *           description: Enter Pharmacy Address
  *         pharmacy_phone_number:
  *           type: string
- *           description: Whether you have finished reading the Pharmacy
+ *           description: Enter Pharmacy Phone Number
  *         is_active:
  *           type: boolean
- *           description: The date the Pharmacy was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Pharmacy was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           format: date
- *           description: The date the Pharmacy was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           format: date
- *           description: The date the Pharmacy was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -139,11 +137,11 @@ const Role = require("../Helpers/Role");
  *         description: The Pharmacy was not found
  */
 
-router.post('/pharmacy',  PharmacyController.addPharmacy)
-router.get('/pharmacy', PharmacyController.getAllPharmacy)
-router.get('/pharmacy/:id', PharmacyController.getPharmacyById)
-router.put('/pharmacy/:id', PharmacyController.updatePharmacy)
-router.patch('/pharmacy/:id/:status', PharmacyController.updatePharmacyStatus)
-router.delete('/pharmacy/:id', PharmacyController.deletePharmacyById)
+router.post('/pharmacy',/* authorize(), */  PharmacyController.addPharmacy)
+router.get('/pharmacy',/* authorize(), */ PharmacyController.getAllPharmacy)
+router.get('/pharmacy/:id',/* authorize(), */ PharmacyController.getPharmacyById)
+router.put('/pharmacy/:id',/* authorize(), */ PharmacyController.updatePharmacy)
+router.patch('/pharmacy/:id/:status',/* authorize(), */ PharmacyController.updatePharmacyStatus)
+router.delete('/pharmacy/:id',/* authorize(), */ PharmacyController.deletePharmacyById)
 
 module.exports = router;  

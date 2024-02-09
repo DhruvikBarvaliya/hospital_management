@@ -3,7 +3,7 @@ const TestResult = db.TestResultModel
 
 module.exports = {
 
-    addTestResult: (req, res) => {
+    addTestResult: async (req, res) => {
         if (!req.body.test_id) {
             res.status(400).send({ message: "Test Id Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllTestResult: (req, res) => {
+    getAllTestResult: async (req, res) => {
         TestResult.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getTestResultById: (req, res) => {
+    getTestResultById: async (req, res) => {
         let id = req.params.id
         TestResult.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateTestResult: (req, res) => {
+    updateTestResult: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         TestResult.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateTestResultStatus: (req, res) => {
+    updateTestResultStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         TestResult.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteTestResultById: (req, res) => {
+    deleteTestResultById: async (req, res) => {
         let id = req.params.id
         TestResult.destroy({ where: { id: id } }).then(result => {
             if (result) {

@@ -17,23 +17,23 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Billing
+ *           description: The Patient Id From Patient Table
  *         doctore_id:
  *           type: integer
- *           description: The Billing author
+ *           description: The Doctor Id From Doctor Table
  *         admission_id:
  *           type: integer
- *           description: Whether you have finished reading the Billing
+ *           description: The Admission Id From Admission Table
  *         bill_date:
  *           type: string
  *           format: date
- *           description: The date the Billing was added
+ *           description: Give Bill Date When Bill is Generate for User
  *         total_amount:
  *           type: integer
- *           description: The date the Billing was added
+ *           description: Give Total Amount When Bill is Generate for User
  *         payment_status:
  *           type: string
- *           description: The date the Billing was added
+ *           description: Give Payment Status for Particular this bill for User
  *         is_active:
  *           type: boolean
  *           description: The date the Billing was added
@@ -149,11 +149,11 @@ const Role = require("../Helpers/Role");
  *         description: The Billing was not found
  */
 
-router.post('/billing', BillingController.addBilling)
-router.get('/billing', BillingController.getAllBilling)
-router.get('/billing/:id', BillingController.getBillingById)
-router.put('/billing/:id', BillingController.updateBilling)
-router.patch('/billing/:id/:status', BillingController.updateBillingStatus)
-router.delete('/billing/:id', BillingController.deleteBillingById)
+router.post('/billing',/* authorize(), */ BillingController.addBilling)
+router.get('/billing',/* authorize(), */ BillingController.getAllBilling)
+router.get('/billing/:id',/* authorize(), */ BillingController.getBillingById)
+router.put('/billing/:id',/* authorize(), */ BillingController.updateBilling)
+router.patch('/billing/:id/:status',/* authorize(), */ BillingController.updateBillingStatus)
+router.delete('/billing/:id',/* authorize(), */ BillingController.deleteBillingById)
 
 module.exports = router;  

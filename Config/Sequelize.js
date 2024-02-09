@@ -40,6 +40,7 @@ db.RoomModel = require("../Models/RoomModel")(sequelize, Sequelize);
 db.StaffModel = require("../Models/StaffModel")(sequelize, Sequelize);
 db.TestModel = require("../Models/TestModel")(sequelize, Sequelize);
 db.TestResultModel = require("../Models/TestResultModel")(sequelize, Sequelize);
+db.UserModel = require("../Models/UserModel")(sequelize, Sequelize);
 db.WordModel = require("../Models/WordModel")(sequelize, Sequelize);
 
 

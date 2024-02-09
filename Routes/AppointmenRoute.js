@@ -16,32 +16,30 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Appointment
- *         doctore_id:
+ *           description: The Patient Id From Patient Table
+ *         doctor_id:
  *           type: integer
- *           description: The Appointment author
+ *           description: The Doctor Id From Doctor Table
  *         date:
  *           type: string
  *           format: date
- *           description: Whether you have finished reading the Appointment
+ *           description:  Give Date When Patiant Want Appointment
  *         time:
  *           type: string
  *           format: date
- *           description: The date the Appointment was added
+ *           description: Give Time When Patiant Want Appointment
  *         is_active:
  *           type: boolean
- *           description: The date the Appointment was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Appointment was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           format: date
- *           description: The date the Appointment was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           format: date
- *           description: The date the Appointment was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -145,11 +143,11 @@ const Role = require("../Helpers/Role");
  *         description: The Appointment was not found
  */
 
-router.post('/appointment',  AppointmentController.addAppointment)
-router.get('/appointment', AppointmentController.getAllAppointment)
-router.get('/appointment/:id', AppointmentController.getAppointmentById)
-router.put('/appointment/:id', AppointmentController.updateAppointment)
-router.patch('/appointment/:id/:status', AppointmentController.updateAppointmentStatus)
-router.delete('/appointment/:id', AppointmentController.deleteAppointmentById)
+router.post('/appointment',/* authorize(), */  AppointmentController.addAppointment)
+router.get('/appointment',/* authorize(), */ AppointmentController.getAllAppointment)
+router.get('/appointment/:id',/* authorize(), */ AppointmentController.getAppointmentById)
+router.put('/appointment/:id',/* authorize(), */ AppointmentController.updateAppointment)
+router.patch('/appointment/:id/:status',/* authorize(), */ AppointmentController.updateAppointmentStatus)
+router.delete('/appointment/:id',/* authorize(), */ AppointmentController.deleteAppointmentById)
 
 module.exports = router;  

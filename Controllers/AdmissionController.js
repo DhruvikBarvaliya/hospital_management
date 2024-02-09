@@ -3,7 +3,7 @@ const Admission = db.AdmissionModel
 
 module.exports = {
 
-    addAdmission: (req, res) => {
+    addAdmission: async (req, res) => {
         if (!req.body.patient_id) {
             res.status(400).send({ message: "Patient Id Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllAdmission: (req, res) => {
+    getAllAdmission: async (req, res) => {
         Admission.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getAdmissionById: (req, res) => {
+    getAdmissionById: async (req, res) => {
         let id = req.params.id
         Admission.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateAdmission: (req, res) => {
+    updateAdmission: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Admission.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateAdmissionStatus: (req, res) => {
+    updateAdmissionStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Admission.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteAdmissionById: (req, res) => {
+    deleteAdmissionById: async (req, res) => {
         let id = req.params.id
         Admission.destroy({ where: { id: id } }).then(result => {
             if (result) {

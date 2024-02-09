@@ -1,4 +1,7 @@
 module.exports = {
   SUPER_ADMIN: "SUPER_ADMIN",
   ADMIN: "ADMIN",
+  DOCTOR: "DOCTOR",
+  STAFF: "STAFF",
+  PATIENT: "PATIENT",
 }

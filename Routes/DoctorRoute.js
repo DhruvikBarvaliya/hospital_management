@@ -16,46 +16,53 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         doctor_first_name:
  *           type: string
- *           description: The title of your Doctor
+ *           description: Enter First Name of The Doctor
  *         doctore_last_name:
  *           type: string
- *           description: The Doctor author
+ *           description: Enter Last Name of The Doctor
  *         department_id:
  *           type: integer
- *           description: Whether you have finished reading the Doctor
- *         doctore_phone_number:
+ *           description: Enter Department Id From where Doctor belongs to
+  *         doctore_phone_number:
  *           type: string
- *           description: The date the Doctor was added
+ *           description: Enter Doctore Phone Number of Doctor
  *         specialization:
  *           type: string
- *           description: The date the Doctor was added
+ *           description: Enter Specialization of Doctor
  *         email:
  *           type: string
- *           description: The date the Doctor was added
+ *           description: Enter Email of Doctor
+ *         password:
+ *           type: string
+ *           description: Enter Password for Doctor Login
  *         doctor_address:
  *           type: integer
- *           description: Whether you have finished reading the Doctor
+ *           description: Enter Address for Doctor
  *         salary:
- *           type: string
- *           description: The date the Doctor was added
+ *           type: integer
+ *           description: Enter Salary for Doctor
  *         hospital_id:
  *           type: integer
- *           description: The date the Doctor was added
+ *           description: Give Hospital Id from Hospital Table
+ *         date_of_birth:
+ *           type: string
+ *           format: date
+ *           description: Enter Date Of Birth of The Doctor
  *         qualification:
  *           type: string
- *           description: The date the Doctor was added
+ *           description: Enter Qualification of Doctor
  *         is_active:
  *           type: boolean
- *           description: The date the Doctor was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Doctor was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           description: The date the Doctor was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           description: The date the Doctor was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -159,11 +166,11 @@ const Role = require("../Helpers/Role");
  *         description: The Doctor was not found
  */
 
-router.post('/doctor',  DoctorController.addDoctor)
-router.get('/doctor', DoctorController.getAllDoctor)
-router.get('/doctor/:id', DoctorController.getDoctorById)
-router.put('/doctor/:id', DoctorController.updateDoctor)
-router.patch('/doctor/:id/:status', DoctorController.updateDoctorStatus)
-router.delete('/doctor/:id', DoctorController.deleteDoctorById)
+router.post('/doctor',/* authorize(), */  DoctorController.addDoctor)
+router.get('/doctor',/* authorize(), */ DoctorController.getAllDoctor)
+router.get('/doctor/:id',/* authorize(), */ DoctorController.getDoctorById)
+router.put('/doctor/:id',/* authorize(), */ DoctorController.updateDoctor)
+router.patch('/doctor/:id/:status',/* authorize(), */ DoctorController.updateDoctorStatus)
+router.delete('/doctor/:id',/* authorize(), */ DoctorController.deleteDoctorById)
 
 module.exports = router;  

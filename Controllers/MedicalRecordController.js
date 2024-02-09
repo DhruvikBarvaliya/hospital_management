@@ -3,7 +3,7 @@ const MedicalRecord = db.MedicalRecordModel
 
 module.exports = {
 
-    addMedicalRecord: (req, res) => {
+    addMedicalRecord: async (req, res) => {
         if (!req.body.patient_id) {
             res.status(400).send({ message: "Patient Id Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllMedicalRecord: (req, res) => {
+    getAllMedicalRecord: async (req, res) => {
         MedicalRecord.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getMedicalRecordById: (req, res) => {
+    getMedicalRecordById: async (req, res) => {
         let id = req.params.id
         MedicalRecord.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateMedicalRecord: (req, res) => {
+    updateMedicalRecord: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         MedicalRecord.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateMedicalRecordStatus: (req, res) => {
+    updateMedicalRecordStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         MedicalRecord.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteMedicalRecordById: (req, res) => {
+    deleteMedicalRecordById: async (req, res) => {
         let id = req.params.id
         MedicalRecord.destroy({ where: { id: id } }).then(result => {
             if (result) {

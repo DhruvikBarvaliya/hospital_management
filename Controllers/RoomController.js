@@ -3,7 +3,7 @@ const Room = db.RoomModel
 
 module.exports = {
 
-    addRoom: (req, res) => {
+    addRoom: async (req, res) => {
         if (!req.body.staff_id) {
             res.status(400).send({ message: "Staff Id Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllRoom: (req, res) => {
+    getAllRoom: async (req, res) => {
         Room.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getRoomById: (req, res) => {
+    getRoomById: async (req, res) => {
         let id = req.params.id
         Room.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateRoom: (req, res) => {
+    updateRoom: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Room.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateRoomStatus: (req, res) => {
+    updateRoomStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Room.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteRoomById: (req, res) => {
+    deleteRoomById: async (req, res) => {
         let id = req.params.id
         Room.destroy({ where: { id: id } }).then(result => {
             if (result) {

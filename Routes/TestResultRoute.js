@@ -16,31 +16,29 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your TestResult
+ *           description: The Patient Id From Patient Table
  *         test_id:
  *           type: integer
- *           description: The TestResult author
+ *           description: The Test Id From Test Table
  *         result_details:
  *           type: string
- *           description: Whether you have finished reading the TestResult
+ *           description: Give Result Details for TestResult
  *         test_date:
  *           type: string
  *           format: date
- *           description: The date the TestResult was added
+ *           description: Enter Test Date for Test Result
  *         is_active:
  *           type: boolean
- *           description: The date the TestResult was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the TestResult was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           format: date
- *           description: The date the TestResult was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           format: date
- *           description: The date the TestResult was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -144,11 +142,11 @@ const Role = require("../Helpers/Role");
  *         description: The TestResult was not found
  */
 
-router.post('/test-result', TestResultController.addTestResult)
-router.get('/test-result', TestResultController.getAllTestResult)
-router.get('/test-result/:id', TestResultController.getTestResultById)
-router.put('/test-result/:id', TestResultController.updateTestResult)
-router.patch('/test-result/:id/:status', TestResultController.updateTestResultStatus)
-router.delete('/test-result/:id', TestResultController.deleteTestResultById)
+router.post('/test-result',/* authorize(), */ TestResultController.addTestResult)
+router.get('/test-result',/* authorize(), */ TestResultController.getAllTestResult)
+router.get('/test-result/:id',/* authorize(), */ TestResultController.getTestResultById)
+router.put('/test-result/:id',/* authorize(), */ TestResultController.updateTestResult)
+router.patch('/test-result/:id/:status',/* authorize(), */ TestResultController.updateTestResultStatus)
+router.delete('/test-result/:id',/* authorize(), */ TestResultController.deleteTestResultById)
 
 module.exports = router;  

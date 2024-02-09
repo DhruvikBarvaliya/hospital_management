@@ -3,7 +3,7 @@ const Invoice = db.InvoiceModel
 
 module.exports = {
 
-    addInvoice: (req, res) => {
+    addInvoice: async (req, res) => {
         if (!req.body.patient_id) {
             res.status(400).send({ message: "Patient Id Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllInvoice: (req, res) => {
+    getAllInvoice: async (req, res) => {
         Invoice.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getInvoiceById: (req, res) => {
+    getInvoiceById: async (req, res) => {
         let id = req.params.id
         Invoice.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updateInvoice: (req, res) => {
+    updateInvoice: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Invoice.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updateInvoiceStatus: (req, res) => {
+    updateInvoiceStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Invoice.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deleteInvoiceById: (req, res) => {
+    deleteInvoiceById: async (req, res) => {
         let id = req.params.id
         Invoice.destroy({ where: { id: id } }).then(result => {
             if (result) {

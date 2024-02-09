@@ -17,28 +17,26 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Room
+ *           description: The Patient Id From Patient Table
  *         staff_id:
  *           type: integer
- *           description: The Room author
+ *           description: The Staff Id From Staff Table
  *         admission_date:
  *           type: string
  *           format: date
- *           description: The date the Room was added
+ *           description: Give Admission Date When Patient Admitted
  *         is_active:
  *           type: boolean
- *           description: The date the Room was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Room was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           format: date
- *           description: The date the Room was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           format: date
- *           description: The date the Room was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
@@ -142,11 +140,11 @@ const Role = require("../Helpers/Role");
  *         description: The Room was not found
  */
 
-router.post('/room',  RoomController.addRoom)
-router.get('/room', RoomController.getAllRoom)
-router.get('/room/:id', RoomController.getRoomById)
-router.put('/room/:id', RoomController.updateRoom)
-router.patch('/room/:id/:status', RoomController.updateRoomStatus)
-router.delete('/room/:id', RoomController.deleteRoomById)
+router.post('/room',/* authorize(), */  RoomController.addRoom)
+router.get('/room',/* authorize(), */ RoomController.getAllRoom)
+router.get('/room/:id',/* authorize(), */ RoomController.getRoomById)
+router.put('/room/:id',/* authorize(), */ RoomController.updateRoom)
+router.patch('/room/:id/:status',/* authorize(), */ RoomController.updateRoomStatus)
+router.delete('/room/:id',/* authorize(), */ RoomController.deleteRoomById)
 
 module.exports = router;  

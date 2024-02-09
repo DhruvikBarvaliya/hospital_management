@@ -3,7 +3,7 @@ const Pharmacy = db.PharmacyModel
 
 module.exports = {
 
-    addPharmacy: (req, res) => {
+    addPharmacy: async (req, res) => {
         if (!req.body.pharmacy_name) {
             res.status(400).send({ message: "Pharmacy Name Can not be Emapty" })
             return;
@@ -18,7 +18,7 @@ module.exports = {
             });
         });
     },
-    getAllPharmacy: (req, res) => {
+    getAllPharmacy: async (req, res) => {
         Pharmacy.findAll().then(result => {
             if (result) {
                 res.json({
@@ -34,7 +34,7 @@ module.exports = {
             }
         })
     },
-    getPharmacyById: (req, res) => {
+    getPharmacyById: async (req, res) => {
         let id = req.params.id
         Pharmacy.findByPk(id).then(result => {
             if (result) {
@@ -51,7 +51,7 @@ module.exports = {
             }
         })
     },
-    updatePharmacy: (req, res) => {
+    updatePharmacy: async (req, res) => {
         let id = req.params.id
         let data = req.body;
         Pharmacy.update(data, {
@@ -71,7 +71,7 @@ module.exports = {
             }
         })
     },
-    updatePharmacyStatus: (req, res) => {
+    updatePharmacyStatus: async (req, res) => {
         let id = req.params.id
         let status = req.params;
         Pharmacy.update({ status: status }, {
@@ -91,7 +91,7 @@ module.exports = {
             }
         })
     },
-    deletePharmacyById: (req, res) => {
+    deletePharmacyById: async (req, res) => {
         let id = req.params.id
         Pharmacy.destroy({ where: { id: id } }).then(result => {
             if (result) {
