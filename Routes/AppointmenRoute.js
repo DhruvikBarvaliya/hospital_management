@@ -16,18 +16,18 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Appointment
- *         doctore_id:
+ *           description: The Patient Id From Patient Table
+ *         doctor_id:
  *           type: integer
- *           description: The Appointment author
+ *           description: The Doctor Id From Doctor Table
  *         date:
  *           type: string
  *           format: date
- *           description: Whether you have finished reading the Appointment
+ *           description:  Give Date When Patiant Want Appointment
  *         time:
  *           type: string
  *           format: date
- *           description: The date the Appointment was added
+ *           description: Give Time When Patiant Want Appointment
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

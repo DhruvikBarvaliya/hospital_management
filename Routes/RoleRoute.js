@@ -15,7 +15,7 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         role_name:
  *           type: string
- *           description: The title of your Role
+ *           description: Enter Role Name
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

@@ -15,17 +15,16 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Invoice
+ *           description: The Patient Id From Patient Table
  *         service_description:
  *           type: string
- *           description: The Invoice author
+ *           description: Give Service Description for Invoice
  *         cost:
  *           type: integer
- *           description: Whether you have finished reading the Invoice
+ *           description: Give Cost for particuler this for Invoice
  *         total:
  *           type: string
- *           format: date
- *           description: The date the Invoice was added
+ *           description: Give total for particuler this for Invoice
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

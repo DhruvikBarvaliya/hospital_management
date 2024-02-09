@@ -15,10 +15,10 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         test_name:
  *           type: string
- *           description: The title of your Test
+ *           description: Give Test Name
  *         description:
  *           type: string
- *           description: The Test author
+ *           description: Give Test Description
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

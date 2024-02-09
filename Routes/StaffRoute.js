@@ -15,35 +15,35 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         department_id:
  *           type: integer
- *           description: The title of your Staff
+ *           description: The Department Id From Department Table
  *         staff_first_name:
  *           type: string
- *           description: The Staff author
+ *           description: Enter First Name of The Staff
  *         staff_last_name:
  *           type: string
- *           description: Whether you have finished reading the Staff
+ *           description: Enter First Last of The Staff
  *         staff_address:
  *           type: integer
- *           description: The date the Staff was added
+ *           description: Enter Address of The Staff
  *         staff_phone_number:
  *           type: string
- *           description: The date the Staff was added
+ *           description: Enter Phone Number of The Staff
  *         email:
  *           type: string
- *           description: The date the Staff was added
+ *           description: Enter Email of The Staff
  *         password:
  *           type: string
- *           description: The date the Staff was added
+ *           description: Enter Password of The Staff
  *         position:
  *           type: string
- *           description: The date the Staff was added
+ *           description: Enter Position of The Staff
  *         role:
  *           type: integer
- *           description: The date the Staff was added
+ *           description: Enter Role of The Staff
  *         date_of_birth:
  *           type: string
  *           format: date
- *           description: The date the Staff was added
+ *           description: Enter Date Of Birth of The Staff
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

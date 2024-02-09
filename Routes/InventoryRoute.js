@@ -17,16 +17,16 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         item_id:
  *           type: string
- *           description: The title of your Inventory
+ *           description: Give Unique Item Id
  *         item_name:
  *           type: string
- *           description: The Inventory author
+ *           description: Give Unique Item Name
  *         quantity_available:
  *           type: integer
- *           description: Whether you have finished reading the Inventory
+ *           description: Give How many Quantity Available for Item
  *         unit_price:
  *           type: integer
- *           description: The date the Inventory was added
+ *           description: Give How many Price Available for Item
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

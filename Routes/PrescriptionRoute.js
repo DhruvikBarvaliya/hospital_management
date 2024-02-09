@@ -15,23 +15,23 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Prescription
+ *           description: The Patient Id From Patient Table
  *         medication_name:
  *           type: string
- *           description: The Prescription author
+ *           description: Enter Medication Name
  *         prescription_date:
  *           type: string
  *           format: date
- *           description: Whether you have finished reading the Prescription
+ *           description: Give Prescription Date
  *         prescription_cost:
  *           type: integer
- *           description: The date the Prescription was added
+ *           description: Give Prescription Cost
  *         doctor_id:
  *           type: integer
- *           description: The date the Prescription was added
+ *           description: The Doctor Id From Doctor Table
  *         medication_id:
  *           type: integer
- *           description: The date the Prescription was added
+ *           description: The Medication Id From Medication Table
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

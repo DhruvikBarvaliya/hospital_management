@@ -16,21 +16,21 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Admission
- *         ward_id:
+ *           description: The Patient Id From Patient Table
+ *         word_id:
  *           type: integer
- *           description: The Admission author
+ *           description: The Word Id From Word Table
  *         admission_date:
  *           type: string
  *           format: date
- *           description: Whether you have finished reading the Admission
+ *           description: Give admission Date When Patient Admitted in Hospital
  *         discharge_date:
  *           type: string 
  *           format: date
- *           description: The date the Admission was added
+ *           description: Give discharge Date When Patient discharge from Hospital
  *         reason:
  *           type: string
- *           description: The date the Admission was added
+ *           description: Give Reason Why Patient Admitted in Hospital
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

@@ -16,17 +16,17 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your TestResult
+ *           description: The Patient Id From Patient Table
  *         test_id:
  *           type: integer
- *           description: The TestResult author
+ *           description: The Test Id From Test Table
  *         result_details:
  *           type: string
- *           description: Whether you have finished reading the TestResult
+ *           description: Give Result Details for TestResult
  *         test_date:
  *           type: string
  *           format: date
- *           description: The date the TestResult was added
+ *           description: Enter Test Date for Test Result
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

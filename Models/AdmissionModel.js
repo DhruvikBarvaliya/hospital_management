@@ -9,7 +9,7 @@ module.exports = (sequelize, Sequelize) => {
                 key: 'id'
             }
         },
-        ward_id: {
+        word_id: {
             type: Sequelize.INTEGER,
             references: {
                 model: "Word",

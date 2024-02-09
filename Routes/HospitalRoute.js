@@ -15,13 +15,13 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         hospital_name:
  *           type: string
- *           description: The title of your Hospital
+ *           description: Give Hospital Name
  *         hospital_address:
  *           type: integer
- *           description: The Hospital author
+ *           description: Give Hospital Address
  *         hospital_phone_number:
  *           type: string
- *           description: Whether you have finished reading the Hospital
+ *           description: Give Hospital Phone Number
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

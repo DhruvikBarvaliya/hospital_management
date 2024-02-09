@@ -17,23 +17,23 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         patient_id:
  *           type: integer
- *           description: The title of your Billing
+ *           description: The Patient Id From Patient Table
  *         doctore_id:
  *           type: integer
- *           description: The Billing author
+ *           description: The Doctor Id From Doctor Table
  *         admission_id:
  *           type: integer
- *           description: Whether you have finished reading the Billing
+ *           description: The Admission Id From Admission Table
  *         bill_date:
  *           type: string
  *           format: date
- *           description: The date the Billing was added
+ *           description: Give Bill Date When Bill is Generate for User
  *         total_amount:
  *           type: integer
- *           description: The date the Billing was added
+ *           description: Give Total Amount When Bill is Generate for User
  *         payment_status:
  *           type: string
- *           description: The date the Billing was added
+ *           description: Give Payment Status for Particular this bill for User
  *         is_active:
  *           type: boolean
  *           description: The date the Billing was added

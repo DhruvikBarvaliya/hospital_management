@@ -15,13 +15,13 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         pharmacy_name:
  *           type: string
- *           description: The title of your Pharmacy
+ *           description: Enter Pharmacy Name
  *         pharmacy_address:
  *           type: integer
- *           description: The Pharmacy author
+ *           description: Enter Pharmacy Address
  *         pharmacy_phone_number:
  *           type: string
- *           description: Whether you have finished reading the Pharmacy
+ *           description: Enter Pharmacy Phone Number
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

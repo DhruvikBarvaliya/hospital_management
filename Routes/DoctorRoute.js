@@ -16,41 +16,41 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         doctor_first_name:
  *           type: string
- *           description: The title of your Doctor
+ *           description: Enter First Name of The Doctor
  *         doctore_last_name:
  *           type: string
- *           description: The Doctor author
+ *           description: Enter Last Name of The Doctor
  *         department_id:
  *           type: integer
- *           description: Whether you have finished reading the Doctor
- *         doctore_phone_number:
+ *           description: Enter Department Id From where Doctor belongs to
+  *         doctore_phone_number:
  *           type: string
- *           description: The date the Doctor was added
+ *           description: Enter Doctore Phone Number of Doctor
  *         specialization:
  *           type: string
- *           description: The date the Doctor was added
+ *           description: Enter Specialization of Doctor
  *         email:
  *           type: string
- *           description: The date the Doctor was added
+ *           description: Enter Email of Doctor
  *         password:
  *           type: string
- *           description: The date the Doctor was added
+ *           description: Enter Password for Doctor Login
  *         doctor_address:
  *           type: integer
- *           description: Whether you have finished reading the Doctor
+ *           description: Enter Address for Doctor
  *         salary:
- *           type: string
- *           description: The date the Doctor was added
+ *           type: integer
+ *           description: Enter Salary for Doctor
  *         hospital_id:
  *           type: integer
- *           description: The date the Doctor was added
+ *           description: Give Hospital Id from Hospital Table
  *         date_of_birth:
  *           type: string
  *           format: date
- *           description: The date the Doctor was added
+ *           description: Enter Date Of Birth of The Doctor
  *         qualification:
  *           type: string
- *           description: The date the Doctor was added
+ *           description: Enter Qualification of Doctor
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

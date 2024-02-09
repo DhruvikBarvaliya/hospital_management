@@ -15,13 +15,13 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         word_name:
  *           type: string
- *           description: The title of your Word
+ *           description: Enter Word Name
  *         capacity:
  *           type: integer
- *           description: The Word author
+ *           description: Give Word Capacity
  *         departmnet_id:
  *           type: integer
- *           description: Whether you have finished reading the Word
+ *           description:The Departmnet Id From Departmnet Table
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
