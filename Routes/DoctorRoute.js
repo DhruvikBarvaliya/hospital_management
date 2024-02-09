@@ -32,6 +32,9 @@ const Role = require("../Helpers/Role");
  *         email:
  *           type: string
  *           description: The date the Doctor was added
+ *         password:
+ *           type: string
+ *           description: The date the Doctor was added
  *         doctor_address:
  *           type: integer
  *           description: Whether you have finished reading the Doctor
@@ -41,21 +44,27 @@ const Role = require("../Helpers/Role");
  *         hospital_id:
  *           type: integer
  *           description: The date the Doctor was added
+ *         date_of_birth:
+ *           type: integer
+ *           format: date
+ *           description: The date the Doctor was added
  *         qualification:
  *           type: string
  *           description: The date the Doctor was added
  *         is_active:
  *           type: boolean
- *           description: The date the Doctor was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Doctor was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           description: The date the Doctor was added
+ *           format: date
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           description: The date the Doctor was added
+ *           format: date
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**

@@ -15,34 +15,36 @@ const Role = require("../Helpers/Role");
  *       properties:
  *         streetAddress1:
  *           type: string
- *           description: The title of your Address
+ *           description: Enter Your Street Address 1 Here
  *         streetAddress2:
  *           type: string
- *           description: The Address author
+ *           description: Enter Your Street Address 2  Here
  *         country:
  *           type: string
- *           description: Whether you have finished reading the Address
+ *           description: Give Your Country Name Here
  *         state:
  *           type: string
- *           description: The date the Address was added
+ *           description: Give Your State Name Here
  *         city:
  *           type: string
- *           description: The date the Address was added
+ *           description: Give Your City Name Here
  *         zip_code:
  *           type: integer
- *           description: The date the Address was added
+ *           description: Give Your Zip Code Here
  *         is_active:
  *           type: boolean
- *           description: The date the Address was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Address was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           description: The date the Address was added
+ *           format: date
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           description: The date the Address was added
+ *           format: date
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**

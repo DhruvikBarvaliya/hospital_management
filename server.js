@@ -18,7 +18,7 @@ db.sequelize.sync({ force: false }).then(async () => {
             status: true,
         }).then(res => {
             setTimeout(function () {
-                console.log("1> User as SUPER_ADMIN");
+                console.log(">>> SUPER_ADMIN");
             }, 1000);
         }).catch((error) => {
             console.error('Failed to create a new record : ', error);
@@ -36,7 +36,7 @@ db.sequelize.sync({ force: false }).then(async () => {
             status: true,
         }).then(res => {
             setTimeout(function () {
-                console.log("1> User as APOLLO ADMIN");
+                console.log(">>> APOLLO ADMIN");
             }, 1000);
         }).catch((error) => {
             console.error('Failed to create a new record : ', error);
@@ -387,4 +387,4 @@ db.sequelize.sync({ force: false }).then(async () => {
     console.error('Unable to create table : ', error);
 });;
 
-app.listen(PORT, console.log(`Server is Running on Port No ${PORT} `))
+app.listen(PORT, console.log(`Server is Running on Port No http://localhost:${PORT} `))

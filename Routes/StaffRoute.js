@@ -31,26 +31,33 @@ const Role = require("../Helpers/Role");
  *         email:
  *           type: string
  *           description: The date the Staff was added
+ *         password:
+ *           type: string
+ *           description: The date the Staff was added
  *         position:
  *           type: string
  *           description: The date the Staff was added
  *         role:
  *           type: integer
  *           description: The date the Staff was added
+ *         date_of_birth:
+ *           type: integer
+ *           format: date
+ *           description: The date the Staff was added
  *         is_active:
  *           type: boolean
- *           description: The date the Staff was added
+ *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
  *         status:
  *           type: boolean
- *           description: The date the Staff was added
+ *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
  *           format: date
- *           description: The date the Staff was added
+ *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
  *           format: date
- *           description: The date the Staff was added
+ *           description: This field is used to track the user that last updated a record in a database
  */
 
 /**
