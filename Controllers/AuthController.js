@@ -89,7 +89,9 @@ module.exports = {
     }
   },
   logout: async (req, res) => {
-    return User.find();
+    res.clearCookie('jwtToken');
+    return res.redirect('/');
+    // return User.find();
   },
   sendOtp: async (req, res) => {
     try {
