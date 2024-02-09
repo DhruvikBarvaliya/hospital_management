@@ -42,11 +42,9 @@ const Role = require("../Helpers/Role");
  *           description: The date the Billing was added
  *         created_by:
  *           type: integer
- *           format: date
  *           description: The date the Billing was added
  *         updated_by:
  *           type: integer
- *           format: date
  *           description: The date the Billing was added
  */
 

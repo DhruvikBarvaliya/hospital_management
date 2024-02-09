@@ -41,7 +41,7 @@ const Role = require("../Helpers/Role");
  *           type: integer
  *           description: The date the Staff was added
  *         date_of_birth:
- *           type: integer
+ *           type: string
  *           format: date
  *           description: The date the Staff was added
  *         is_active:
@@ -52,11 +52,9 @@ const Role = require("../Helpers/Role");
  *           description: This field is used to indicate the current state of a record
  *         created_by:
  *           type: integer
- *           format: date
  *           description: This field typically stores the user responsible for creating a record in a database
  *         updated_by:
  *           type: integer
- *           format: date
  *           description: This field is used to track the user that last updated a record in a database
  */
 
