@@ -70,6 +70,7 @@ module.exports = {
     updateDoctor: async (req, res) => {
         let id = req.params.id
         let data = req.body;
+        delete data.password;
         Doctor.update(data, {
             where: { id: id }
         }).then(result => {

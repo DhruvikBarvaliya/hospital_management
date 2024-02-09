@@ -148,11 +148,11 @@ const Role = require("../Helpers/Role");
  *         description: The Admission was not found
  */
 
-router.post('/admission',  AdmissionController.addAdmission)
-router.get('/admission', AdmissionController.getAllAdmission)
-router.get('/admission/:id', AdmissionController.getAdmissionById)
-router.put('/admission/:id', AdmissionController.updateAdmission)
-router.patch('/admission/:id/:status', AdmissionController.updateAdmissionStatus)
-router.delete('/admission/:id', AdmissionController.deleteAdmissionById)
+router.post('/admission',/* authorize(), */  AdmissionController.addAdmission)
+router.get('/admission',/* authorize(), */ AdmissionController.getAllAdmission)
+router.get('/admission/:id',/* authorize(), */ AdmissionController.getAdmissionById)
+router.put('/admission/:id',/* authorize(), */ AdmissionController.updateAdmission)
+router.patch('/admission/:id/:status',/* authorize(), */ AdmissionController.updateAdmissionStatus)
+router.delete('/admission/:id',/* authorize(), */ AdmissionController.deleteAdmissionById)
 
 module.exports = router;  

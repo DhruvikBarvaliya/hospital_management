@@ -23,6 +23,7 @@ module.exports = (sequelize, Sequelize) => {
         email: { type: Sequelize.STRING },
         password: { type: Sequelize.STRING },
         otp: { type: Sequelize.INTEGER },
+        forgot_otp: { type: Sequelize.INTEGER },
         position: { type: Sequelize.STRING },
         role: {
             type: Sequelize.INTEGER,
@@ -32,10 +33,10 @@ module.exports = (sequelize, Sequelize) => {
             }
         },
         salary: { type: Sequelize.BIGINT },
-        shift: { type: Sequelize.ENUM("FIRST_SHIFT", "SECOND_SHIFT", "THIRD_SHIFT") },
+        shift: { type: Sequelize.ENUM("FIRST_SHIFT", "SECOND_SHIFT", "THIRD_SHIFT") , defaultValue: "FIRST_SHIFT"},
         last_login: { type: Sequelize.DATE, defaultValue: Sequelize.NOW, },
-        date_of_hire: { type: Sequelize.DATEONLY, defaultValue: Sequelize.NOW },
-        date_of_birth: { type: Sequelize.DATEONLY, defaultValue: sequelize.fn('NOW') },
+        date_of_hire: { type: Sequelize.DATEONLY, defaultValue: sequelize.fn('NOW') },
+        date_of_birth: { type: Sequelize.DATEONLY },
         is_verified: { type: Sequelize.BOOLEAN, default: false },
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },

@@ -20,7 +20,6 @@ module.exports = (sequelize, Sequelize) => {
                 key: 'id'
             }
         },
-        date_of_birth: { type: Sequelize.DATEONLY },
         gender: { type: Sequelize.STRING },
         hospital_id: {
             type: Sequelize.INTEGER,
@@ -32,9 +31,10 @@ module.exports = (sequelize, Sequelize) => {
         email: { type: Sequelize.STRING },
         password: { type: Sequelize.STRING },
         otp: { type: Sequelize.INTEGER },
+        forgot_otp: { type: Sequelize.INTEGER },
         last_login: { type: Sequelize.DATE, defaultValue: Sequelize.NOW, },
-        date_of_hire: { type: Sequelize.DATEONLY, defaultValue: Sequelize.NOW },
-        date_of_birth: { type: Sequelize.DATEONLY, defaultValue: sequelize.fn('NOW') },
+        date_of_hire: { type: Sequelize.DATEONLY, defaultValue: sequelize.fn('NOW') },
+        date_of_birth: { type: Sequelize.DATEONLY },
         is_verified: { type: Sequelize.BOOLEAN, default: false },
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },

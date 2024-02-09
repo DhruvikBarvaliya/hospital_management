@@ -142,11 +142,11 @@ const Role = require("../Helpers/Role");
  *         description: The Room was not found
  */
 
-router.post('/room',  RoomController.addRoom)
-router.get('/room', RoomController.getAllRoom)
-router.get('/room/:id', RoomController.getRoomById)
-router.put('/room/:id', RoomController.updateRoom)
-router.patch('/room/:id/:status', RoomController.updateRoomStatus)
-router.delete('/room/:id', RoomController.deleteRoomById)
+router.post('/room',/* authorize(), */  RoomController.addRoom)
+router.get('/room',/* authorize(), */ RoomController.getAllRoom)
+router.get('/room/:id',/* authorize(), */ RoomController.getRoomById)
+router.put('/room/:id',/* authorize(), */ RoomController.updateRoom)
+router.patch('/room/:id/:status',/* authorize(), */ RoomController.updateRoomStatus)
+router.delete('/room/:id',/* authorize(), */ RoomController.deleteRoomById)
 
 module.exports = router;  

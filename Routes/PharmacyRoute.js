@@ -139,11 +139,11 @@ const Role = require("../Helpers/Role");
  *         description: The Pharmacy was not found
  */
 
-router.post('/pharmacy',  PharmacyController.addPharmacy)
-router.get('/pharmacy', PharmacyController.getAllPharmacy)
-router.get('/pharmacy/:id', PharmacyController.getPharmacyById)
-router.put('/pharmacy/:id', PharmacyController.updatePharmacy)
-router.patch('/pharmacy/:id/:status', PharmacyController.updatePharmacyStatus)
-router.delete('/pharmacy/:id', PharmacyController.deletePharmacyById)
+router.post('/pharmacy',/* authorize(), */  PharmacyController.addPharmacy)
+router.get('/pharmacy',/* authorize(), */ PharmacyController.getAllPharmacy)
+router.get('/pharmacy/:id',/* authorize(), */ PharmacyController.getPharmacyById)
+router.put('/pharmacy/:id',/* authorize(), */ PharmacyController.updatePharmacy)
+router.patch('/pharmacy/:id/:status',/* authorize(), */ PharmacyController.updatePharmacyStatus)
+router.delete('/pharmacy/:id',/* authorize(), */ PharmacyController.deletePharmacyById)
 
 module.exports = router;  

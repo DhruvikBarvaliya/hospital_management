@@ -146,12 +146,12 @@ const Role = require("../Helpers/Role");
  *         description: The Address was not found
  */
 
-router.post('/address', AddressController.addAddress)
+router.post('/address',/* authorize(), */ AddressController.addAddress)
 // router.post('/address', authorize([Role.ADMIN, Role.SUPER_ADMIN]), AddressController.addAddress)
-router.get('/address', AddressController.getAllAddress)
-router.get('/address/:id', AddressController.getAddressById)
-router.put('/address/:id', AddressController.updateAddress)
-router.patch('/address/:id/:status', AddressController.updateAddressStatus)
-router.delete('/address/:id', AddressController.deleteAddressById)
+router.get('/address',/* authorize(), */ AddressController.getAllAddress)
+router.get('/address/:id', /* authorize(), */AddressController.getAddressById)
+router.put('/address/:id', /* authorize(), */AddressController.updateAddress)
+router.patch('/address/:id/:status',/* authorize(), */ AddressController.updateAddressStatus)
+router.delete('/address/:id',/* authorize(), */ AddressController.deleteAddressById)
 
 module.exports = router;  

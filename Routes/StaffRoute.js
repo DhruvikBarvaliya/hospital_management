@@ -154,11 +154,11 @@ const Role = require("../Helpers/Role");
  *         description: The Staff was not found
  */
 
-router.post('/staff',  StaffController.addStaff)
-router.get('/staff', StaffController.getAllStaff)
-router.get('/staff/:id', StaffController.getStaffById)
-router.put('/staff/:id', StaffController.updateStaff)
-router.patch('/staff/:id/:status', StaffController.updateStaffStatus)
-router.delete('/staff/:id', StaffController.deleteStaffById)
+router.post('/staff',/* authorize(), */  StaffController.addStaff)
+router.get('/staff',/* authorize(), */ StaffController.getAllStaff)
+router.get('/staff/:id',/* authorize(), */ StaffController.getStaffById)
+router.put('/staff/:id',/* authorize(), */ StaffController.updateStaff)
+router.patch('/staff/:id/:status',/* authorize(), */ StaffController.updateStaffStatus)
+router.delete('/staff/:id',/* authorize(), */ StaffController.deleteStaffById)
 
 module.exports = router;  

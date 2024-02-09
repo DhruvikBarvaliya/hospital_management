@@ -68,6 +68,7 @@ module.exports = {
     updateStaff: async (req, res) => {
         let id = req.params.id
         let data = req.body;
+        delete data.password;
         Staff.update(data, {
             where: { id: id }
         }).then(result => {

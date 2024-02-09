@@ -160,11 +160,11 @@ const Role = require("../Helpers/Role");
  *         description: The Patient was not found
  */
 
-router.post('/patient',  PatientController.addPatient)
-router.get('/patient', PatientController.getAllPatient)
-router.get('/patient/:id', PatientController.getPatientById)
-router.put('/patient/:id', PatientController.updatePatient)
-router.patch('/patient/:id/:status', PatientController.updatePatientStatus)
-router.delete('/patient/:id', PatientController.deletePatientById)
+router.post('/patient',/* authorize(), */  PatientController.addPatient)
+router.get('/patient',/* authorize(), */ PatientController.getAllPatient)
+router.get('/patient/:id',/* authorize(), */ PatientController.getPatientById)
+router.put('/patient/:id',/* authorize(), */ PatientController.updatePatient)
+router.patch('/patient/:id/:status',/* authorize(), */ PatientController.updatePatientStatus)
+router.delete('/patient/:id',/* authorize(), */ PatientController.deletePatientById)
 
 module.exports = router;  

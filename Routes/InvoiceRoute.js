@@ -141,11 +141,11 @@ const Role = require("../Helpers/Role");
  *         description: The Invoice was not found
  */
 
-router.post('/invoice',  InvoiceController.addInvoice)
-router.get('/invoice', InvoiceController.getAllInvoice)
-router.get('/invoice/:id', InvoiceController.getInvoiceById)
-router.put('/invoice/:id', InvoiceController.updateInvoice)
-router.patch('/invoice/:id/:status', InvoiceController.updateInvoiceStatus)
-router.delete('/invoice/:id', InvoiceController.deleteInvoiceById)
+router.post('/invoice',/* authorize(), */  InvoiceController.addInvoice)
+router.get('/invoice',/* authorize(), */ InvoiceController.getAllInvoice)
+router.get('/invoice/:id',/* authorize(), */ InvoiceController.getInvoiceById)
+router.put('/invoice/:id',/* authorize(), */ InvoiceController.updateInvoice)
+router.patch('/invoice/:id/:status',/* authorize(), */ InvoiceController.updateInvoiceStatus)
+router.delete('/invoice/:id',/* authorize(), */ InvoiceController.deleteInvoiceById)
 
 module.exports = router;  

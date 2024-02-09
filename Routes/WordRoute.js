@@ -139,11 +139,11 @@ const Role = require("../Helpers/Role");
  *         description: The Word was not found
  */
 
-router.post('/word',  WordController.addWord)
-router.get('/word', WordController.getAllWord)
-router.get('/word/:id', WordController.getWordById)
-router.put('/word/:id', WordController.updateWord)
-router.patch('/word/:id/:status', WordController.updateWordStatus)
-router.delete('/word/:id', WordController.deleteWordById)
+router.post('/word',/* authorize(), */  WordController.addWord)
+router.get('/word',/* authorize(), */ WordController.getAllWord)
+router.get('/word/:id',/* authorize(), */ WordController.getWordById)
+router.put('/word/:id',/* authorize(), */ WordController.updateWord)
+router.patch('/word/:id/:status',/* authorize(), */ WordController.updateWordStatus)
+router.delete('/word/:id',/* authorize(), */ WordController.deleteWordById)
 
 module.exports = router;  

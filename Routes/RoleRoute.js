@@ -133,11 +133,11 @@ const Role = require("../Helpers/Role");
  *         description: The Role was not found
  */
 
-router.post('/role',  RoleController.addRole)
-router.get('/role', RoleController.getAllRole)
-router.get('/role/:id', RoleController.getRoleById)
-router.put('/role/:id', RoleController.updateRole)
-router.patch('/role/:id/:status', RoleController.updateRoleStatus)
-router.delete('/role/:id', RoleController.deleteRoleById)
+router.post('/role',/* authorize(), */  RoleController.addRole)
+router.get('/role',/* authorize(), */ RoleController.getAllRole)
+router.get('/role/:id',/* authorize(), */ RoleController.getRoleById)
+router.put('/role/:id',/* authorize(), */ RoleController.updateRole)
+router.patch('/role/:id/:status',/* authorize(), */ RoleController.updateRoleStatus)
+router.delete('/role/:id',/* authorize(), */ RoleController.deleteRoleById)
 
 module.exports = router; 

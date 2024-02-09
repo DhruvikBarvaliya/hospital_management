@@ -149,11 +149,11 @@ const Role = require("../Helpers/Role");
  *         description: The Billing was not found
  */
 
-router.post('/billing', BillingController.addBilling)
-router.get('/billing', BillingController.getAllBilling)
-router.get('/billing/:id', BillingController.getBillingById)
-router.put('/billing/:id', BillingController.updateBilling)
-router.patch('/billing/:id/:status', BillingController.updateBillingStatus)
-router.delete('/billing/:id', BillingController.deleteBillingById)
+router.post('/billing',/* authorize(), */ BillingController.addBilling)
+router.get('/billing',/* authorize(), */ BillingController.getAllBilling)
+router.get('/billing/:id',/* authorize(), */ BillingController.getBillingById)
+router.put('/billing/:id',/* authorize(), */ BillingController.updateBilling)
+router.patch('/billing/:id/:status',/* authorize(), */ BillingController.updateBillingStatus)
+router.delete('/billing/:id',/* authorize(), */ BillingController.deleteBillingById)
 
 module.exports = router;  

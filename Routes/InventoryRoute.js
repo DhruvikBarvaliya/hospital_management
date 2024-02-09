@@ -142,11 +142,11 @@ const Role = require("../Helpers/Role");
  *         description: The Inventory was not found
  */
 
-router.post('/inventory', InventoryController.addInventory)
-router.get('/inventory', InventoryController.getAllInventory)
-router.get('/inventory/:id', InventoryController.getInventoryById)
-router.put('/inventory/:id', InventoryController.updateInventory)
-router.patch('/inventory/:id/:status', InventoryController.updateInventoryStatus)
-router.delete('/inventory/:id', InventoryController.deleteInventoryById)
+router.post('/inventory',/* authorize(), */ InventoryController.addInventory)
+router.get('/inventory',/* authorize(), */ InventoryController.getAllInventory)
+router.get('/inventory/:id',/* authorize(), */ InventoryController.getInventoryById)
+router.put('/inventory/:id',/* authorize(), */ InventoryController.updateInventory)
+router.patch('/inventory/:id/:status',/* authorize(), */ InventoryController.updateInventoryStatus)
+router.delete('/inventory/:id',/* authorize(), */ InventoryController.deleteInventoryById)
 
 module.exports = router;  

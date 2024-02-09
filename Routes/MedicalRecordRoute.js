@@ -162,11 +162,11 @@ const Role = require("../Helpers/Role");
  *         description: The MedicalRecord was not found
  */
 
-router.post('/medical-record',  MedicalRecordController.addMedicalRecord)
-router.get('/medical-record', MedicalRecordController.getAllMedicalRecord)
-router.get('/medical-record/:id', MedicalRecordController.getMedicalRecordById)
-router.put('/medical-record/:id', MedicalRecordController.updateMedicalRecord)
-router.patch('/medical-record/:id/:status', MedicalRecordController.updateMedicalRecordStatus)
-router.delete('/medical-record/:id', MedicalRecordController.deleteMedicalRecordById)
+router.post('/medical-record',/* authorize(), */  MedicalRecordController.addMedicalRecord)
+router.get('/medical-record',/* authorize(), */ MedicalRecordController.getAllMedicalRecord)
+router.get('/medical-record/:id',/* authorize(), */ MedicalRecordController.getMedicalRecordById)
+router.put('/medical-record/:id',/* authorize(), */ MedicalRecordController.updateMedicalRecord)
+router.patch('/medical-record/:id/:status',/* authorize(), */ MedicalRecordController.updateMedicalRecordStatus)
+router.delete('/medical-record/:id',/* authorize(), */ MedicalRecordController.deleteMedicalRecordById)
 
 module.exports = router;  

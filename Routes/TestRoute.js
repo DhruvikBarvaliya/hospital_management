@@ -136,11 +136,11 @@ const Role = require("../Helpers/Role");
  *         description: The Test was not found
  */
 
-router.post('/test',  TestController.addTest)
-router.get('/test', TestController.getAllTest)
-router.get('/test/:id', TestController.getTestById)
-router.put('/test/:id', TestController.updateTest)
-router.patch('/test/:id/:status', TestController.updateTestStatus)
-router.delete('/test/:id', TestController.deleteTestById)
+router.post('/test',/* authorize(), */  TestController.addTest)
+router.get('/test',/* authorize(), */ TestController.getAllTest)
+router.get('/test/:id',/* authorize(), */ TestController.getTestById)
+router.put('/test/:id',/* authorize(), */ TestController.updateTest)
+router.patch('/test/:id/:status',/* authorize(), */ TestController.updateTestStatus)
+router.delete('/test/:id',/* authorize(), */ TestController.deleteTestById)
 
 module.exports = router;  

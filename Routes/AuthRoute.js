@@ -149,12 +149,12 @@ const AuthController = require("../Controllers/AuthController");
  *         description: The Billing was not found
  */
 
-router.post("/register", AuthController.register);
+router.post("/register",/* authorize([Role.SUPER_ADMIN]), */ AuthController.register);
 router.post("/login", AuthController.login);
 router.post("/logout", AuthController.logout);
-router.post("/sendOtp", AuthController.sendOtp);
-router.post("/verify", AuthController.verify);
-router.post("/changePassword", AuthController.changePassword);
-router.post("/forgotPassword", AuthController.forgotPassword);
+router.post("/sendOtp",/* authorize(), */ AuthController.sendOtp);
+router.post("/verify",/* authorize(), */ AuthController.verify);
+router.post("/changePassword", /* authorize(), */AuthController.changePassword);
+router.post("/forgotPassword",/* authorize(), */ AuthController.forgotPassword);
 
 module.exports = router;

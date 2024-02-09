@@ -134,11 +134,11 @@ const Role = require("../Helpers/Role");
  *         description: The Department was not found
  */
 
-router.post('/department',  DepartmentController.addDepartment)
-router.get('/department', DepartmentController.getAllDepartment)
-router.get('/department/:id', DepartmentController.getDepartmentById)
-router.put('/department/:id', DepartmentController.updateDepartment)
-router.patch('/department/:id/:status', DepartmentController.updateDepartmentStatus)
-router.delete('/department/:id', DepartmentController.deleteDepartmentById)
+router.post('/department',/* authorize(), */  DepartmentController.addDepartment)
+router.get('/department',/* authorize(), */ DepartmentController.getAllDepartment)
+router.get('/department/:id',/* authorize(), */ DepartmentController.getDepartmentById)
+router.put('/department/:id',/* authorize(), */ DepartmentController.updateDepartment)
+router.patch('/department/:id/:status',/* authorize(), */ DepartmentController.updateDepartmentStatus)
+router.delete('/department/:id',/* authorize(), */ DepartmentController.deleteDepartmentById)
 
 module.exports = router;  

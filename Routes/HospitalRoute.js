@@ -137,11 +137,11 @@ const Role = require("../Helpers/Role");
  *         description: The Hospital was not found
  */
 
-router.post('/hospital',  HospitalController.addHospital)
-router.get('/hospital', HospitalController.getAllHospital)
-router.get('/hospital/:id', HospitalController.getHospitalById)
-router.put('/hospital/:id', HospitalController.updateHospital)
-router.patch('/hospital/:id/:status', HospitalController.updateHospitalStatus)
-router.delete('/hospital/:id', HospitalController.deleteHospitalById)
+router.post('/hospital',/* authorize(), */  HospitalController.addHospital)
+router.get('/hospital',/* authorize(), */ HospitalController.getAllHospital)
+router.get('/hospital/:id',/* authorize(), */ HospitalController.getHospitalById)
+router.put('/hospital/:id',/* authorize(), */ HospitalController.updateHospital)
+router.patch('/hospital/:id/:status',/* authorize(), */ HospitalController.updateHospitalStatus)
+router.delete('/hospital/:id',/* authorize(), */ HospitalController.deleteHospitalById)
 
 module.exports = router;  

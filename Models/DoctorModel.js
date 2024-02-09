@@ -17,6 +17,7 @@ module.exports = (sequelize, Sequelize) => {
         email: { type: Sequelize.STRING },
         password: { type: Sequelize.STRING },
         otp: { type: Sequelize.INTEGER },
+        forgot_otp: { type: Sequelize.INTEGER },
         doctor_address: {
             type: Sequelize.INTEGER,
             references: {
@@ -34,8 +35,8 @@ module.exports = (sequelize, Sequelize) => {
         },
         qualification: { type: Sequelize.STRING },
         last_login: { type: Sequelize.DATE, defaultValue: Sequelize.NOW, },
-        date_of_hire: { type: Sequelize.DATEONLY, defaultValue: Sequelize.NOW },
-        date_of_birth: { type: Sequelize.DATEONLY, defaultValue: sequelize.fn('NOW') },
+        date_of_hire: { type: Sequelize.DATEONLY, defaultValue: sequelize.fn('NOW') },
+        date_of_birth: { type: Sequelize.DATEONLY },
         is_verified: { type: Sequelize.BOOLEAN, default: false },
         is_active: { type: Sequelize.BOOLEAN },
         status: { type: Sequelize.BOOLEAN },
