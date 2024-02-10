@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const PatientController = require('../Controllers/PatientController')
+const PatientController = require("../Controllers/PatientController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -160,11 +160,17 @@ const PatientController = require('../Controllers/PatientController')
  *         description: The Patient was not found
  */
 
-router.post('/patient',/* authorize(), */  PatientController.addPatient)
-router.get('/patient',/* authorize(), */ PatientController.getAllPatient)
-router.get('/patient/:id',/* authorize(), */ PatientController.getPatientById)
-router.put('/patient/:id',/* authorize(), */ PatientController.updatePatient)
-router.patch('/patient/:id/:status',/* authorize(), */ PatientController.updatePatientStatus)
-router.delete('/patient/:id',/* authorize(), */ PatientController.deletePatientById)
+router.post("/patient", /* authorize(), */ PatientController.addPatient);
+router.get("/patient", /* authorize(), */ PatientController.getAllPatient);
+router.get("/patient/:id", /* authorize(), */ PatientController.getPatientById);
+router.put("/patient/:id", /* authorize(), */ PatientController.updatePatient);
+router.patch(
+  "/patient/:id/:status",
+  /* authorize(), */ PatientController.updatePatientStatus
+);
+router.delete(
+  "/patient/:id",
+  /* authorize(), */ PatientController.deletePatientById
+);
 
-module.exports = router;  
+module.exports = router;

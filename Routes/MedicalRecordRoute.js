@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const MedicalRecordController = require('../Controllers/MedicalRecordController')
+const MedicalRecordController = require("../Controllers/MedicalRecordController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -159,11 +159,29 @@ const MedicalRecordController = require('../Controllers/MedicalRecordController'
  *         description: The MedicalRecord was not found
  */
 
-router.post('/medical-record',/* authorize(), */  MedicalRecordController.addMedicalRecord)
-router.get('/medical-record',/* authorize(), */ MedicalRecordController.getAllMedicalRecord)
-router.get('/medical-record/:id',/* authorize(), */ MedicalRecordController.getMedicalRecordById)
-router.put('/medical-record/:id',/* authorize(), */ MedicalRecordController.updateMedicalRecord)
-router.patch('/medical-record/:id/:status',/* authorize(), */ MedicalRecordController.updateMedicalRecordStatus)
-router.delete('/medical-record/:id',/* authorize(), */ MedicalRecordController.deleteMedicalRecordById)
+router.post(
+  "/medical-record",
+  /* authorize(), */ MedicalRecordController.addMedicalRecord
+);
+router.get(
+  "/medical-record",
+  /* authorize(), */ MedicalRecordController.getAllMedicalRecord
+);
+router.get(
+  "/medical-record/:id",
+  /* authorize(), */ MedicalRecordController.getMedicalRecordById
+);
+router.put(
+  "/medical-record/:id",
+  /* authorize(), */ MedicalRecordController.updateMedicalRecord
+);
+router.patch(
+  "/medical-record/:id/:status",
+  /* authorize(), */ MedicalRecordController.updateMedicalRecordStatus
+);
+router.delete(
+  "/medical-record/:id",
+  /* authorize(), */ MedicalRecordController.deleteMedicalRecordById
+);
 
-module.exports = router;  
+module.exports = router;

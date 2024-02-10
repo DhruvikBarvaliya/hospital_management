@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const PharmacyController = require('../Controllers/PharmacyController')
+const PharmacyController = require("../Controllers/PharmacyController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -137,11 +137,23 @@ const PharmacyController = require('../Controllers/PharmacyController')
  *         description: The Pharmacy was not found
  */
 
-router.post('/pharmacy',/* authorize(), */  PharmacyController.addPharmacy)
-router.get('/pharmacy',/* authorize(), */ PharmacyController.getAllPharmacy)
-router.get('/pharmacy/:id',/* authorize(), */ PharmacyController.getPharmacyById)
-router.put('/pharmacy/:id',/* authorize(), */ PharmacyController.updatePharmacy)
-router.patch('/pharmacy/:id/:status',/* authorize(), */ PharmacyController.updatePharmacyStatus)
-router.delete('/pharmacy/:id',/* authorize(), */ PharmacyController.deletePharmacyById)
+router.post("/pharmacy", /* authorize(), */ PharmacyController.addPharmacy);
+router.get("/pharmacy", /* authorize(), */ PharmacyController.getAllPharmacy);
+router.get(
+  "/pharmacy/:id",
+  /* authorize(), */ PharmacyController.getPharmacyById
+);
+router.put(
+  "/pharmacy/:id",
+  /* authorize(), */ PharmacyController.updatePharmacy
+);
+router.patch(
+  "/pharmacy/:id/:status",
+  /* authorize(), */ PharmacyController.updatePharmacyStatus
+);
+router.delete(
+  "/pharmacy/:id",
+  /* authorize(), */ PharmacyController.deletePharmacyById
+);
 
-module.exports = router;  
+module.exports = router;

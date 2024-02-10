@@ -4,4 +4,4 @@ module.exports = {
   DOCTOR: "DOCTOR",
   STAFF: "STAFF",
   PATIENT: "PATIENT",
-}
+};

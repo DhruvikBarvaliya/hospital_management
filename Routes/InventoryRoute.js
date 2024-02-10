@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const InventoryController = require('../Controllers/InventoryController')
+const InventoryController = require("../Controllers/InventoryController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -142,11 +142,26 @@ const InventoryController = require('../Controllers/InventoryController')
  *         description: The Inventory was not found
  */
 
-router.post('/inventory',/* authorize(), */ InventoryController.addInventory)
-router.get('/inventory',/* authorize(), */ InventoryController.getAllInventory)
-router.get('/inventory/:id',/* authorize(), */ InventoryController.getInventoryById)
-router.put('/inventory/:id',/* authorize(), */ InventoryController.updateInventory)
-router.patch('/inventory/:id/:status',/* authorize(), */ InventoryController.updateInventoryStatus)
-router.delete('/inventory/:id',/* authorize(), */ InventoryController.deleteInventoryById)
+router.post("/inventory", /* authorize(), */ InventoryController.addInventory);
+router.get(
+  "/inventory",
+  /* authorize(), */ InventoryController.getAllInventory
+);
+router.get(
+  "/inventory/:id",
+  /* authorize(), */ InventoryController.getInventoryById
+);
+router.put(
+  "/inventory/:id",
+  /* authorize(), */ InventoryController.updateInventory
+);
+router.patch(
+  "/inventory/:id/:status",
+  /* authorize(), */ InventoryController.updateInventoryStatus
+);
+router.delete(
+  "/inventory/:id",
+  /* authorize(), */ InventoryController.deleteInventoryById
+);
 
-module.exports = router;  
+module.exports = router;

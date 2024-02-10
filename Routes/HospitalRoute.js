@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const HospitalController = require('../Controllers/HospitalController')
+const HospitalController = require("../Controllers/HospitalController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -137,11 +137,23 @@ const HospitalController = require('../Controllers/HospitalController')
  *         description: The Hospital was not found
  */
 
-router.post('/hospital',/* authorize(), */  HospitalController.addHospital)
-router.get('/hospital',/* authorize(), */ HospitalController.getAllHospital)
-router.get('/hospital/:id',/* authorize(), */ HospitalController.getHospitalById)
-router.put('/hospital/:id',/* authorize(), */ HospitalController.updateHospital)
-router.patch('/hospital/:id/:status',/* authorize(), */ HospitalController.updateHospitalStatus)
-router.delete('/hospital/:id',/* authorize(), */ HospitalController.deleteHospitalById)
+router.post("/hospital", /* authorize(), */ HospitalController.addHospital);
+router.get("/hospital", /* authorize(), */ HospitalController.getAllHospital);
+router.get(
+  "/hospital/:id",
+  /* authorize(), */ HospitalController.getHospitalById
+);
+router.put(
+  "/hospital/:id",
+  /* authorize(), */ HospitalController.updateHospital
+);
+router.patch(
+  "/hospital/:id/:status",
+  /* authorize(), */ HospitalController.updateHospitalStatus
+);
+router.delete(
+  "/hospital/:id",
+  /* authorize(), */ HospitalController.deleteHospitalById
+);
 
-module.exports = router;  
+module.exports = router;

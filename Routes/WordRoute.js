@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const WordController = require('../Controllers/WordController')
+const WordController = require("../Controllers/WordController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -137,11 +137,14 @@ const WordController = require('../Controllers/WordController')
  *         description: The Word was not found
  */
 
-router.post('/word',/* authorize(), */  WordController.addWord)
-router.get('/word',/* authorize(), */ WordController.getAllWord)
-router.get('/word/:id',/* authorize(), */ WordController.getWordById)
-router.put('/word/:id',/* authorize(), */ WordController.updateWord)
-router.patch('/word/:id/:status',/* authorize(), */ WordController.updateWordStatus)
-router.delete('/word/:id',/* authorize(), */ WordController.deleteWordById)
+router.post("/word", /* authorize(), */ WordController.addWord);
+router.get("/word", /* authorize(), */ WordController.getAllWord);
+router.get("/word/:id", /* authorize(), */ WordController.getWordById);
+router.put("/word/:id", /* authorize(), */ WordController.updateWord);
+router.patch(
+  "/word/:id/:status",
+  /* authorize(), */ WordController.updateWordStatus
+);
+router.delete("/word/:id", /* authorize(), */ WordController.deleteWordById);
 
-module.exports = router;  
+module.exports = router;

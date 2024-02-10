@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const StaffController = require('../Controllers/StaffController')
+const StaffController = require("../Controllers/StaffController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -159,11 +159,14 @@ const StaffController = require('../Controllers/StaffController')
  *         description: The Staff was not found
  */
 
-router.post('/staff',/* authorize(), */  StaffController.addStaff)
-router.get('/staff',/* authorize(), */ StaffController.getAllStaff)
-router.get('/staff/:id',/* authorize(), */ StaffController.getStaffById)
-router.put('/staff/:id',/* authorize(), */ StaffController.updateStaff)
-router.patch('/staff/:id/:status',/* authorize(), */ StaffController.updateStaffStatus)
-router.delete('/staff/:id',/* authorize(), */ StaffController.deleteStaffById)
+router.post("/staff", /* authorize(), */ StaffController.addStaff);
+router.get("/staff", /* authorize(), */ StaffController.getAllStaff);
+router.get("/staff/:id", /* authorize(), */ StaffController.getStaffById);
+router.put("/staff/:id", /* authorize(), */ StaffController.updateStaff);
+router.patch(
+  "/staff/:id/:status",
+  /* authorize(), */ StaffController.updateStaffStatus
+);
+router.delete("/staff/:id", /* authorize(), */ StaffController.deleteStaffById);
 
-module.exports = router;  
+module.exports = router;

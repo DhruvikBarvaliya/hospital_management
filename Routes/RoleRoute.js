@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const RoleController = require('../Controllers/RoleController')
+const RoleController = require("../Controllers/RoleController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -131,11 +131,14 @@ const RoleController = require('../Controllers/RoleController')
  *         description: The Role was not found
  */
 
-router.post('/role',/* authorize(), */  RoleController.addRole)
-router.get('/role',/* authorize(), */ RoleController.getAllRole)
-router.get('/role/:id',/* authorize(), */ RoleController.getRoleById)
-router.put('/role/:id',/* authorize(), */ RoleController.updateRole)
-router.patch('/role/:id/:status',/* authorize(), */ RoleController.updateRoleStatus)
-router.delete('/role/:id',/* authorize(), */ RoleController.deleteRoleById)
+router.post("/role", /* authorize(), */ RoleController.addRole);
+router.get("/role", /* authorize(), */ RoleController.getAllRole);
+router.get("/role/:id", /* authorize(), */ RoleController.getRoleById);
+router.put("/role/:id", /* authorize(), */ RoleController.updateRole);
+router.patch(
+  "/role/:id/:status",
+  /* authorize(), */ RoleController.updateRoleStatus
+);
+router.delete("/role/:id", /* authorize(), */ RoleController.deleteRoleById);
 
-module.exports = router; 
+module.exports = router;

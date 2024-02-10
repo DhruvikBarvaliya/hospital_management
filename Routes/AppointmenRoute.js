@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const AppointmentController = require('../Controllers/AppointmentController')
+const AppointmentController = require("../Controllers/AppointmentController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -143,11 +143,29 @@ const AppointmentController = require('../Controllers/AppointmentController')
  *         description: The Appointment was not found
  */
 
-router.post('/appointment',/* authorize(), */  AppointmentController.addAppointment)
-router.get('/appointment',/* authorize(), */ AppointmentController.getAllAppointment)
-router.get('/appointment/:id',/* authorize(), */ AppointmentController.getAppointmentById)
-router.put('/appointment/:id',/* authorize(), */ AppointmentController.updateAppointment)
-router.patch('/appointment/:id/:status',/* authorize(), */ AppointmentController.updateAppointmentStatus)
-router.delete('/appointment/:id',/* authorize(), */ AppointmentController.deleteAppointmentById)
+router.post(
+  "/appointment",
+  /* authorize(), */ AppointmentController.addAppointment
+);
+router.get(
+  "/appointment",
+  /* authorize(), */ AppointmentController.getAllAppointment
+);
+router.get(
+  "/appointment/:id",
+  /* authorize(), */ AppointmentController.getAppointmentById
+);
+router.put(
+  "/appointment/:id",
+  /* authorize(), */ AppointmentController.updateAppointment
+);
+router.patch(
+  "/appointment/:id/:status",
+  /* authorize(), */ AppointmentController.updateAppointmentStatus
+);
+router.delete(
+  "/appointment/:id",
+  /* authorize(), */ AppointmentController.deleteAppointmentById
+);
 
-module.exports = router;  
+module.exports = router;

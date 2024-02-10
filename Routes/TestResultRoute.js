@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const TestResultController = require('../Controllers/TestResultController')
+const TestResultController = require("../Controllers/TestResultController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -142,11 +142,29 @@ const TestResultController = require('../Controllers/TestResultController')
  *         description: The TestResult was not found
  */
 
-router.post('/test-result',/* authorize(), */ TestResultController.addTestResult)
-router.get('/test-result',/* authorize(), */ TestResultController.getAllTestResult)
-router.get('/test-result/:id',/* authorize(), */ TestResultController.getTestResultById)
-router.put('/test-result/:id',/* authorize(), */ TestResultController.updateTestResult)
-router.patch('/test-result/:id/:status',/* authorize(), */ TestResultController.updateTestResultStatus)
-router.delete('/test-result/:id',/* authorize(), */ TestResultController.deleteTestResultById)
+router.post(
+  "/test-result",
+  /* authorize(), */ TestResultController.addTestResult
+);
+router.get(
+  "/test-result",
+  /* authorize(), */ TestResultController.getAllTestResult
+);
+router.get(
+  "/test-result/:id",
+  /* authorize(), */ TestResultController.getTestResultById
+);
+router.put(
+  "/test-result/:id",
+  /* authorize(), */ TestResultController.updateTestResult
+);
+router.patch(
+  "/test-result/:id/:status",
+  /* authorize(), */ TestResultController.updateTestResultStatus
+);
+router.delete(
+  "/test-result/:id",
+  /* authorize(), */ TestResultController.deleteTestResultById
+);
 
-module.exports = router;  
+module.exports = router;

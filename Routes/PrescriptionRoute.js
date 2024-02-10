@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const PrescriptionController = require('../Controllers/PrescriptionController')
+const PrescriptionController = require("../Controllers/PrescriptionController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -147,11 +147,29 @@ const PrescriptionController = require('../Controllers/PrescriptionController')
  *         description: The Prescription was not found
  */
 
-router.post('/prescription',/* authorize(), */  PrescriptionController.addPrescription)
-router.get('/prescription',/* authorize(), */ PrescriptionController.getAllPrescription)
-router.get('/prescription/:id',/* authorize(), */ PrescriptionController.getPrescriptionById)
-router.put('/prescription/:id',/* authorize(), */ PrescriptionController.updatePrescription)
-router.patch('/prescription/:id/:status',/* authorize(), */ PrescriptionController.updatePrescriptionStatus)
-router.delete('/prescription/:id',/* authorize(), */ PrescriptionController.deletePrescriptionById)
+router.post(
+  "/prescription",
+  /* authorize(), */ PrescriptionController.addPrescription
+);
+router.get(
+  "/prescription",
+  /* authorize(), */ PrescriptionController.getAllPrescription
+);
+router.get(
+  "/prescription/:id",
+  /* authorize(), */ PrescriptionController.getPrescriptionById
+);
+router.put(
+  "/prescription/:id",
+  /* authorize(), */ PrescriptionController.updatePrescription
+);
+router.patch(
+  "/prescription/:id/:status",
+  /* authorize(), */ PrescriptionController.updatePrescriptionStatus
+);
+router.delete(
+  "/prescription/:id",
+  /* authorize(), */ PrescriptionController.deletePrescriptionById
+);
 
-module.exports = router;  
+module.exports = router;

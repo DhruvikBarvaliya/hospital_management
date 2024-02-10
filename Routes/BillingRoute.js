@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const BillingController = require('../Controllers/BillingController')
+const BillingController = require("../Controllers/BillingController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -149,11 +149,17 @@ const BillingController = require('../Controllers/BillingController')
  *         description: The Billing was not found
  */
 
-router.post('/billing',/* authorize(), */ BillingController.addBilling)
-router.get('/billing',/* authorize(), */ BillingController.getAllBilling)
-router.get('/billing/:id',/* authorize(), */ BillingController.getBillingById)
-router.put('/billing/:id',/* authorize(), */ BillingController.updateBilling)
-router.patch('/billing/:id/:status',/* authorize(), */ BillingController.updateBillingStatus)
-router.delete('/billing/:id',/* authorize(), */ BillingController.deleteBillingById)
+router.post("/billing", /* authorize(), */ BillingController.addBilling);
+router.get("/billing", /* authorize(), */ BillingController.getAllBilling);
+router.get("/billing/:id", /* authorize(), */ BillingController.getBillingById);
+router.put("/billing/:id", /* authorize(), */ BillingController.updateBilling);
+router.patch(
+  "/billing/:id/:status",
+  /* authorize(), */ BillingController.updateBillingStatus
+);
+router.delete(
+  "/billing/:id",
+  /* authorize(), */ BillingController.deleteBillingById
+);
 
-module.exports = router;  
+module.exports = router;

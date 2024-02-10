@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const DoctorController = require('../Controllers/DoctorController')
+const DoctorController = require("../Controllers/DoctorController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -23,7 +23,7 @@ const DoctorController = require('../Controllers/DoctorController')
  *         department_id:
  *           type: integer
  *           description: Enter Department Id From where Doctor belongs to
-  *         doctore_phone_number:
+ *         doctore_phone_number:
  *           type: string
  *           description: Enter Doctore Phone Number of Doctor
  *         specialization:
@@ -166,11 +166,17 @@ const DoctorController = require('../Controllers/DoctorController')
  *         description: The Doctor was not found
  */
 
-router.post('/doctor',/* authorize(), */  DoctorController.addDoctor)
-router.get('/doctor',/* authorize(), */ DoctorController.getAllDoctor)
-router.get('/doctor/:id',/* authorize(), */ DoctorController.getDoctorById)
-router.put('/doctor/:id',/* authorize(), */ DoctorController.updateDoctor)
-router.patch('/doctor/:id/:status',/* authorize(), */ DoctorController.updateDoctorStatus)
-router.delete('/doctor/:id',/* authorize(), */ DoctorController.deleteDoctorById)
+router.post("/doctor", /* authorize(), */ DoctorController.addDoctor);
+router.get("/doctor", /* authorize(), */ DoctorController.getAllDoctor);
+router.get("/doctor/:id", /* authorize(), */ DoctorController.getDoctorById);
+router.put("/doctor/:id", /* authorize(), */ DoctorController.updateDoctor);
+router.patch(
+  "/doctor/:id/:status",
+  /* authorize(), */ DoctorController.updateDoctorStatus
+);
+router.delete(
+  "/doctor/:id",
+  /* authorize(), */ DoctorController.deleteDoctorById
+);
 
-module.exports = router;  
+module.exports = router;

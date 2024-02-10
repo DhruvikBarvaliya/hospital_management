@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const RoomController = require('../Controllers/RoomController')
+const RoomController = require("../Controllers/RoomController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -140,11 +140,14 @@ const RoomController = require('../Controllers/RoomController')
  *         description: The Room was not found
  */
 
-router.post('/room',/* authorize(), */  RoomController.addRoom)
-router.get('/room',/* authorize(), */ RoomController.getAllRoom)
-router.get('/room/:id',/* authorize(), */ RoomController.getRoomById)
-router.put('/room/:id',/* authorize(), */ RoomController.updateRoom)
-router.patch('/room/:id/:status',/* authorize(), */ RoomController.updateRoomStatus)
-router.delete('/room/:id',/* authorize(), */ RoomController.deleteRoomById)
+router.post("/room", /* authorize(), */ RoomController.addRoom);
+router.get("/room", /* authorize(), */ RoomController.getAllRoom);
+router.get("/room/:id", /* authorize(), */ RoomController.getRoomById);
+router.put("/room/:id", /* authorize(), */ RoomController.updateRoom);
+router.patch(
+  "/room/:id/:status",
+  /* authorize(), */ RoomController.updateRoomStatus
+);
+router.delete("/room/:id", /* authorize(), */ RoomController.deleteRoomById);
 
-module.exports = router;  
+module.exports = router;

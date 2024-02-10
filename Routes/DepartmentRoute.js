@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const DepartmentController = require('../Controllers/DepartmentController')
+const DepartmentController = require("../Controllers/DepartmentController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -134,11 +134,29 @@ const DepartmentController = require('../Controllers/DepartmentController')
  *         description: The Department was not found
  */
 
-router.post('/department',/* authorize(), */  DepartmentController.addDepartment)
-router.get('/department',/* authorize(), */ DepartmentController.getAllDepartment)
-router.get('/department/:id',/* authorize(), */ DepartmentController.getDepartmentById)
-router.put('/department/:id',/* authorize(), */ DepartmentController.updateDepartment)
-router.patch('/department/:id/:status',/* authorize(), */ DepartmentController.updateDepartmentStatus)
-router.delete('/department/:id',/* authorize(), */ DepartmentController.deleteDepartmentById)
+router.post(
+  "/department",
+  /* authorize(), */ DepartmentController.addDepartment
+);
+router.get(
+  "/department",
+  /* authorize(), */ DepartmentController.getAllDepartment
+);
+router.get(
+  "/department/:id",
+  /* authorize(), */ DepartmentController.getDepartmentById
+);
+router.put(
+  "/department/:id",
+  /* authorize(), */ DepartmentController.updateDepartment
+);
+router.patch(
+  "/department/:id/:status",
+  /* authorize(), */ DepartmentController.updateDepartmentStatus
+);
+router.delete(
+  "/department/:id",
+  /* authorize(), */ DepartmentController.deleteDepartmentById
+);
 
-module.exports = router;  
+module.exports = router;

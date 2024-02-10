@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const AddressController = require('../Controllers/AddressController')
+const AddressController = require("../Controllers/AddressController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -146,12 +146,18 @@ const AddressController = require('../Controllers/AddressController')
  *         description: The Address was not found
  */
 
-router.post('/address',/* authorize(), */ AddressController.addAddress)
+router.post("/address", /* authorize(), */ AddressController.addAddress);
 // router.post('/address', authorize([Role.ADMIN, Role.SUPER_ADMIN]), AddressController.addAddress)
-router.get('/address',/* authorize(), */ AddressController.getAllAddress)
-router.get('/address/:id', /* authorize(), */AddressController.getAddressById)
-router.put('/address/:id', /* authorize(), */AddressController.updateAddress)
-router.patch('/address/:id/:status',/* authorize(), */ AddressController.updateAddressStatus)
-router.delete('/address/:id',/* authorize(), */ AddressController.deleteAddressById)
+router.get("/address", /* authorize(), */ AddressController.getAllAddress);
+router.get("/address/:id", /* authorize(), */ AddressController.getAddressById);
+router.put("/address/:id", /* authorize(), */ AddressController.updateAddress);
+router.patch(
+  "/address/:id/:status",
+  /* authorize(), */ AddressController.updateAddressStatus
+);
+router.delete(
+  "/address/:id",
+  /* authorize(), */ AddressController.deleteAddressById
+);
 
-module.exports = router;  
+module.exports = router;

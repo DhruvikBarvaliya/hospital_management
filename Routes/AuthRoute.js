@@ -148,12 +148,21 @@ const AuthController = require("../Controllers/AuthController");
  *         description: The User was not found
  */
 
-router.post("/register",/* authorize([Role.SUPER_ADMIN]), */ AuthController.register);
+router.post(
+  "/register",
+  /* authorize([Role.SUPER_ADMIN]), */ AuthController.register
+);
 router.post("/login", AuthController.login);
 router.get("/logout", AuthController.logout);
-router.post("/sendOtp",/* authorize(), */ AuthController.sendOtp);
-router.post("/verify",/* authorize(), */ AuthController.verify);
-router.post("/changePassword", /* authorize(), */AuthController.changePassword);
-router.post("/forgotPassword",/* authorize(), */ AuthController.forgotPassword);
+router.post("/sendOtp", /* authorize(), */ AuthController.sendOtp);
+router.post("/verify", /* authorize(), */ AuthController.verify);
+router.post(
+  "/changePassword",
+  /* authorize(), */ AuthController.changePassword
+);
+router.post(
+  "/forgotPassword",
+  /* authorize(), */ AuthController.forgotPassword
+);
 
 module.exports = router;

@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const InvoiceController = require('../Controllers/InvoiceController')
+const InvoiceController = require("../Controllers/InvoiceController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -140,11 +140,17 @@ const InvoiceController = require('../Controllers/InvoiceController')
  *         description: The Invoice was not found
  */
 
-router.post('/invoice',/* authorize(), */  InvoiceController.addInvoice)
-router.get('/invoice',/* authorize(), */ InvoiceController.getAllInvoice)
-router.get('/invoice/:id',/* authorize(), */ InvoiceController.getInvoiceById)
-router.put('/invoice/:id',/* authorize(), */ InvoiceController.updateInvoice)
-router.patch('/invoice/:id/:status',/* authorize(), */ InvoiceController.updateInvoiceStatus)
-router.delete('/invoice/:id',/* authorize(), */ InvoiceController.deleteInvoiceById)
+router.post("/invoice", /* authorize(), */ InvoiceController.addInvoice);
+router.get("/invoice", /* authorize(), */ InvoiceController.getAllInvoice);
+router.get("/invoice/:id", /* authorize(), */ InvoiceController.getInvoiceById);
+router.put("/invoice/:id", /* authorize(), */ InvoiceController.updateInvoice);
+router.patch(
+  "/invoice/:id/:status",
+  /* authorize(), */ InvoiceController.updateInvoiceStatus
+);
+router.delete(
+  "/invoice/:id",
+  /* authorize(), */ InvoiceController.deleteInvoiceById
+);
 
-module.exports = router;  
+module.exports = router;

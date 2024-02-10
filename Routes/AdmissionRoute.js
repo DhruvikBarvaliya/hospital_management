@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const AdmissionController = require('../Controllers/AdmissionController')
+const AdmissionController = require("../Controllers/AdmissionController");
 // const authorize = require('../Middleware/auth');
 // const Role = require("../Helpers/Role");
 
@@ -25,7 +25,7 @@ const AdmissionController = require('../Controllers/AdmissionController')
  *           format: date
  *           description: Give admission Date When Patient Admitted in Hospital
  *         discharge_date:
- *           type: string 
+ *           type: string
  *           format: date
  *           description: Give discharge Date When Patient discharge from Hospital
  *         reason:
@@ -146,11 +146,26 @@ const AdmissionController = require('../Controllers/AdmissionController')
  *         description: The Admission was not found
  */
 
-router.post('/admission',/* authorize(), */  AdmissionController.addAdmission)
-router.get('/admission',/* authorize(), */ AdmissionController.getAllAdmission)
-router.get('/admission/:id',/* authorize(), */ AdmissionController.getAdmissionById)
-router.put('/admission/:id',/* authorize(), */ AdmissionController.updateAdmission)
-router.patch('/admission/:id/:status',/* authorize(), */ AdmissionController.updateAdmissionStatus)
-router.delete('/admission/:id',/* authorize(), */ AdmissionController.deleteAdmissionById)
+router.post("/admission", /* authorize(), */ AdmissionController.addAdmission);
+router.get(
+  "/admission",
+  /* authorize(), */ AdmissionController.getAllAdmission
+);
+router.get(
+  "/admission/:id",
+  /* authorize(), */ AdmissionController.getAdmissionById
+);
+router.put(
+  "/admission/:id",
+  /* authorize(), */ AdmissionController.updateAdmission
+);
+router.patch(
+  "/admission/:id/:status",
+  /* authorize(), */ AdmissionController.updateAdmissionStatus
+);
+router.delete(
+  "/admission/:id",
+  /* authorize(), */ AdmissionController.deleteAdmissionById
+);
 
-module.exports = router;  
+module.exports = router;
