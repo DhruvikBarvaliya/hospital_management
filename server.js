@@ -11,7 +11,7 @@ db.sequelize
         email: "superadmin@gmail.com",
       },
     });
-    if (!user.role === "SUPER_ADMIN") {
+    if (user && !user.role === "SUPER_ADMIN") {
       await db.UserModel.create({
         role: "SUPER_ADMIN",
         first_name: "super",
