@@ -49,8 +49,8 @@ app.use(
 );
 
 app.get("/", function (req, res) {
-  console.log("Welcome To Hospital Management System");
-  res.send("Welcome To Hospital Management System");
+  console.log(`Welcome To ${process.env.ENV} Mode Of Hospital Management System`);
+  res.send(`Welcome To ${process.env.ENV} Mode Of Hospital Management System`);
 });
 
 app.use("/api", indexRouter);

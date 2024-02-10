@@ -1,6 +1,6 @@
 const app = require("./app");
 const db = require("./Config/Sequelize");
-const { PORT } = require("./Config/Config");
+const { PORT, ENV } = require("./Config/Config");
 
 db.sequelize
   .sync({ force: false })
@@ -26,7 +26,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log(">>> SUPER_ADMIN");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -46,7 +46,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log(">>> APOLLO ADMIN");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -62,7 +62,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("1> Role");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -83,7 +83,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("2> Address");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -101,7 +101,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("3> Hospital");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -118,7 +118,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("4> Department");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -143,7 +143,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("5> Doctor");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -161,7 +161,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("6> Pharmacy");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -185,7 +185,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("7> Patient");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -204,7 +204,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("8> Appointment");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -222,7 +222,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("9> Word");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -245,7 +245,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("10> Staff");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -263,7 +263,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("11> Staff");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -280,7 +280,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("12> Test");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -299,7 +299,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("13> Test");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -323,7 +323,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("14> MedicalRecord");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -344,7 +344,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("15> Prescription");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -363,7 +363,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("16> Invoice");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -382,7 +382,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("17> Inventory");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -402,7 +402,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("18> Admission");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -423,7 +423,7 @@ db.sequelize
         .then((res) => {
           setTimeout(function () {
             console.log("19> Billing");
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           console.error("Failed to create a new record : ", error);
@@ -434,7 +434,14 @@ db.sequelize
     console.error("Unable to create table : ", error);
   });
 
-app.listen(
-  PORT,
-  console.log(`Server is Running on Port No http://localhost:${PORT} `)
-);
+if (ENV == "production") {
+  app.listen(
+    PORT,
+    console.log(`Server is Running on https://hospital-dyev.onrender.com `)
+  );
+} else {
+  app.listen(
+    PORT,
+    console.log(`Server is Running on http://localhost:${PORT} `)
+  );
+}
