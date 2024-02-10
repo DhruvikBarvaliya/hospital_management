@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const StaffController = require('../Controllers/StaffController')
-const authorize = require('../Middleware/auth');
-const Role = require("../Helpers/Role");
+// const authorize = require('../Middleware/auth');
+// const Role = require("../Helpers/Role");
 
 /**
  * @swagger

@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const PharmacyController = require('../Controllers/PharmacyController')
-const authorize = require('../Middleware/auth');
-const Role = require("../Helpers/Role");
+// const authorize = require('../Middleware/auth');
+// const Role = require("../Helpers/Role");
 
 /**
  * @swagger
