@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const MedicalRecordController = require('../Controllers/MedicalRecordController')
-const authorize = require('../Middleware/auth');
-const Role = require("../Helpers/Role");
+// const authorize = require('../Middleware/auth');
+// const Role = require("../Helpers/Role");
 
 /**
  * @swagger
