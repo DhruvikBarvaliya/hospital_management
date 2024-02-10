@@ -11,9 +11,6 @@ const AuthController = require("../Controllers/AuthController");
  *       required:
  *         - first_name
  *       properties:
- *         role:
- *           type: string
- *           description: Enter Role Name of The User
  *         first_name:
  *           type: string
  *           description: Enter First Name of The User
@@ -45,28 +42,16 @@ const AuthController = require("../Controllers/AuthController");
  *         updated_by:
  *           type: integer
  *           description: This field is used to track the user that last updated a record in a database
- */
+*/
 
 /**
  * @swagger
  * tags:
  *   name: User
  *   description: The user managing API
- * /user:
- *   get:
- *     summary: Lists all the user
- *     tags: [User]
- *     responses:
- *       200:
- *         description: The list of the user
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/User'
+ * /register:
  *   post:
- *     summary: Create a new User
+ *     summary: Register User
  *     tags: [User]
  *     requestBody:
  *       required: true
@@ -76,6 +61,38 @@ const AuthController = require("../Controllers/AuthController");
  *             $ref: '#/components/schemas/User'
  *     responses:
  *       200:
+ *         description: The User response by id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       404:
+ *         description: The User was not found
+ * /login:
+ *   post:
+ *     summary: Login User
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - email
+ *              - password
+ *            properties:
+ *              email:
+ *                type: string
+ *                default: johndoe@mail.com
+ *              password:
+ *                type: string
+ *                default: johnDoe20!@
+ *              model:
+ *                type: string
+ *                default: Doctor
+ *     responses:
+ *       200:
  *         description: The created User.
  *         content:
  *           application/json:
@@ -83,17 +100,51 @@ const AuthController = require("../Controllers/AuthController");
  *               $ref: '#/components/schemas/User'
  *       500:
  *         description: Some server error
- * /user/{id}:
+ * /logout:
  *   get:
- *     summary: Get the User by id
+ *     summary: Logout User
  *     tags: [User]
- *     parameters:
- *       - in: path
- *         name: id
- *         schema:
- *           type: string
- *         required: true
- *         description: The User id
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - email
+ *            properties:
+ *              email:
+ *                type: string
+ *                default: johndoe@mail.com
+ *     responses:
+ *       200:
+ *         description: The created User.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       500:
+ *         description: Some server error
+ * /sendOtp:
+ *   post:
+ *     summary: Send OTP API
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - email
+ *              - for_forgot
+ *            properties:
+ *              email:
+ *                type: string
+ *                default: johndoe@mail.com
+ *              for_forgot:
+ *                type: boolean
+ *                default: true
  *     responses:
  *       200:
  *         description: The User response by id
@@ -103,35 +154,101 @@ const AuthController = require("../Controllers/AuthController");
  *               $ref: '#/components/schemas/User'
  *       404:
  *         description: The User was not found
- *   put:
- *    summary: Update the User by the id
- *    tags: [User]
- *    parameters:
- *      - in: path
- *        name: id
- *        schema:
- *          type: string
- *        required: true
- *        description: The User id
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            $ref: '#/components/schemas/User'
- *    responses:
- *      200:
- *        description: The User was updated
- *        content:
- *          application/json:
- *            schema:
- *              $ref: '#/components/schemas/User'
- *      404:
- *        description: The User was not found
- *      500:
- *        description: Some error happened
+ * /verify:
+ *   post:
+ *     summary: Verifi OTP API
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - email
+ *            properties:
+ *              email:
+ *                type: string
+ *                default: johndoe@mail.com
+ *              otp:
+ *                type: integer
+ *                default: 852
+ *     responses:
+ *       200:
+ *         description: The User response by id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       404:
+ *         description: The User was not found
+ * /changePassword:
+ *   post:
+ *     summary: Change Password API
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - email
+ *              - password
+ *            properties:
+ *              email:
+ *                type: string
+ *                default: johndoe@mail.com
+ *              password:
+ *                type: string
+ *                default: Doctor
+ *              newPassword:
+ *                type: string
+ *                default: Doctor
+ *     responses:
+ *       200:
+ *         description: The User response by id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       404:
+ *         description: The User was not found
+ * /forgotPassword:
+ *   post:
+ *     summary: Forgot Password API
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - email
+ *              - password
+ *            properties:
+ *              email:
+ *                type: string
+ *                default: johndoe@mail.com
+ *              otp:
+ *                type: integer
+ *                default: 753
+ *              newPassword:
+ *                type: string
+ *                default: Doctor
+ *     responses:
+ *       200:
+ *         description: The User response by id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       404:
+ *         description: The User was not found
+ * /drop:
  *   delete:
- *     summary: Remove the User by id
+ *     summary: Remove All Tables API
  *     tags: [User]
  *     parameters:
  *       - in: path
@@ -163,6 +280,11 @@ router.post(
 router.post(
   "/forgotPassword",
   /* authorize(), */ AuthController.forgotPassword
+);
+
+router.delete(
+  "/drop/:drop",
+  /* authorize(), */ AuthController.drop
 );
 
 module.exports = router;

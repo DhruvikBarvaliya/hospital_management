@@ -22,12 +22,10 @@ module.exports = {
     });
 
     if (user.length) {
-      return res
-        .status(400)
-        .json({
-          status: false,
-          message: "User already registered with this Email",
-        });
+      return res.status(400).json({
+        status: false,
+        message: "User already registered with this Email",
+      });
     } else {
       const salt = await bcrypt.genSalt(10);
       const password = await bcrypt.hash(data.password, salt);
@@ -88,22 +86,18 @@ module.exports = {
         );
         return res.status(200).json({ email, token });
       } else {
-        return res
-          .status(401)
-          .json({
-            status: false,
-            message: "Please Provide Valid Email And Password",
-          });
+        return res.status(401).json({
+          status: false,
+          message: "Please Provide Valid Email And Password",
+        });
       }
     } catch (err) {
       console.log(err);
-      return res
-        .status(500)
-        .json({
-          status: false,
-          message: "Server Error",
-          error: err.message || err.toString(),
-        });
+      return res.status(500).json({
+        status: false,
+        message: "Server Error",
+        error: err.message || err.toString(),
+      });
     }
   },
   logout: async (req, res) => {
@@ -118,12 +112,10 @@ module.exports = {
       console.log(otp, email);
       const user = await User.findOne({ where: { email: email } });
       if (user == null) {
-        return res
-          .status(404)
-          .json({
-            status: false,
-            message: `Employee Not Found With Email :- ${email} `,
-          });
+        return res.status(404).json({
+          status: false,
+          message: `Employee Not Found With Email :- ${email} `,
+        });
       } else {
         let purpose = "";
         if (for_forgot) {
@@ -148,21 +140,17 @@ module.exports = {
           purpose = "Verify Email";
         }
         sendMail(email, otp);
-        return res
-          .status(401)
-          .json({
-            status: true,
-            message: `Otp Sent Successfully on ${email} for ${purpose}, Please Check and Verify ✔`,
-          });
+        return res.status(401).json({
+          status: true,
+          message: `Otp Sent Successfully on ${email} for ${purpose}, Please Check and Verify ✔`,
+        });
       }
     } catch (err) {
-      return res
-        .status(500)
-        .json({
-          status: false,
-          message: "Server Error",
-          error: err.message || err.toString(),
-        });
+      return res.status(500).json({
+        status: false,
+        message: "Server Error",
+        error: err.message || err.toString(),
+      });
     }
   },
   verify: async (req, res) => {
@@ -170,12 +158,10 @@ module.exports = {
       const { email, otp } = req.body;
       const user = await User.findOne({ where: { email: email } });
       if (user == null) {
-        return res
-          .status(404)
-          .json({
-            status: false,
-            message: `Employee Not Found With Email :- ${email} `,
-          });
+        return res.status(404).json({
+          status: false,
+          message: `Employee Not Found With Email :- ${email} `,
+        });
       } else {
         if (user.otp == otp) {
           const user = await User.update(
@@ -187,12 +173,10 @@ module.exports = {
             }
           );
 
-          return res
-            .status(200)
-            .json({
-              status: true,
-              message: `Varification SuccessFully For Email :- ${email} `,
-            });
+          return res.status(200).json({
+            status: true,
+            message: `Varification SuccessFully For Email :- ${email} `,
+          });
         } else {
           return res
             .status(404)
@@ -200,13 +184,11 @@ module.exports = {
         }
       }
     } catch (err) {
-      return res
-        .status(500)
-        .json({
-          status: false,
-          message: "Server Error",
-          error: err.message || err.toString(),
-        });
+      return res.status(500).json({
+        status: false,
+        message: "Server Error",
+        error: err.message || err.toString(),
+      });
     }
   },
   changePassword: async (req, res) => {
@@ -225,28 +207,22 @@ module.exports = {
             },
           }
         );
-        return res
-          .status(200)
-          .json({
-            status: true,
-            message: `Password Updated Successfully For Email :- ${email} `,
-          });
+        return res.status(200).json({
+          status: true,
+          message: `Password Updated Successfully For Email :- ${email} `,
+        });
       } else {
-        return res
-          .status(401)
-          .json({
-            status: false,
-            message: "Please Provide Valid Email And Password",
-          });
+        return res.status(401).json({
+          status: false,
+          message: "Please Provide Valid Email And Password",
+        });
       }
     } catch (err) {
-      return res
-        .status(500)
-        .json({
-          status: false,
-          message: "Server Error",
-          error: err.message || err.toString(),
-        });
+      return res.status(500).json({
+        status: false,
+        message: "Server Error",
+        error: err.message || err.toString(),
+      });
     }
   },
   forgotPassword: async (req, res) => {
@@ -256,12 +232,10 @@ module.exports = {
       const updatedPassword = await bcrypt.hash(newPassword, salt);
       const user = await User.findOne({ where: { email: email } });
       if (user == null) {
-        return res
-          .status(404)
-          .json({
-            status: false,
-            message: `Employee Not Found With Email :- ${email} `,
-          });
+        return res.status(404).json({
+          status: false,
+          message: `Employee Not Found With Email :- ${email} `,
+        });
       }
       if (user.email == email && user.forgot_otp == otp) {
         const user = await User.update(
@@ -273,28 +247,38 @@ module.exports = {
           }
         );
 
-        return res
-          .status(200)
-          .json({
-            status: true,
-            message: `Password Updated Successfully For Email :- ${email} `,
-          });
+        return res.status(200).json({
+          status: true,
+          message: `Password Updated Successfully For Email :- ${email} `,
+        });
       } else {
-        return res
-          .status(401)
-          .json({
-            status: false,
-            message: "Please Provide Valid Email And Otp",
-          });
+        return res.status(401).json({
+          status: false,
+          message: "Please Provide Valid Email And Otp",
+        });
       }
     } catch (err) {
-      return res
-        .status(500)
-        .json({
-          status: false,
-          message: "Server Error",
-          error: err.message || err.toString(),
-        });
+      return res.status(500).json({
+        status: false,
+        message: "Server Error",
+        error: err.message || err.toString(),
+      });
+    }
+  },
+  drop: async (req, res) => {
+    try {
+      let drop = req.params.drop;
+      await db.sequelize.sync({ force: drop });
+      return res.status(200).json({
+        status: true,
+        message: `Drop and re-sync db`,
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: false,
+        message: "Server Error",
+        error: err.message || err.toString(),
+      });
     }
   },
 };
