@@ -1,7 +1,7 @@
 const { JWT_SECRET_KEY } = require("../Config/Config");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const { sendMail } = require('../Helpers/email')
+// const { sendMail } = require('../Helpers/email')
 const db = require('../Config/Sequelize');
 const User = db.UserModel
 const Doctor = db.DoctorModel
