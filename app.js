@@ -32,13 +32,13 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000/api/v1",
+        url: process.env.BASE_URL,
       },
     ],
   },
   apis: ["./routes/*.js"],
 };
-
+console.log(URL);
 const specs = swaggerJsDoc(options);
 app.use(
   "/api-docs",
@@ -49,7 +49,9 @@ app.use(
 );
 
 app.get("/", function (req, res) {
-  console.log(`Welcome To ${process.env.ENV} Mode Of Hospital Management System`);
+  console.log(
+    `Welcome To ${process.env.ENV} Mode Of Hospital Management System`
+  );
   res.send(`Welcome To ${process.env.ENV} Mode Of Hospital Management System`);
 });
 
