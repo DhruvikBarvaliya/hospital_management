@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const AddressController = require("../Controllers/AddressController");
-const authorize = require('../Middleware/auth');
+const authorize = require('../Middleware/Auth');
 const Role = require("../Helpers/Role");
 
 /**
