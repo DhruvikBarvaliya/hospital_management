@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const InvoiceController = require("../Controllers/InvoiceController");
-// const authorize = require('../Middleware/auth');
-// const Role = require("../Helpers/Role");
+const authorize = require('../Middleware/Auth');
+const Role = require("../Helpers/Role");
 
 /**
  * @swagger
