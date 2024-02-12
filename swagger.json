@@ -2,11 +2,15 @@
     "swagger": "2.0",
     "info": {
         "version": "1.0.0",
-        "title": "Parveen App API",
-        "description": "Find out how your APIs work",
+        "title": "Your API Title",
+        "description": "Your API Description",
         "license": {
             "name": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
+            "url": "https://spdx.org/licenses/MIT.html"
+        },
+        "contact": {
+            "name": "Dhruvik",
+            "email": "dhruvik.barvaliya.blackwolve@gmail.com"
         }
     },
     "host": "localhost:5000",
