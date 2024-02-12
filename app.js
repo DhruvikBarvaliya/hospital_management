@@ -10,7 +10,8 @@ app.use(cors());
 
 // Swagger
 const swaggerUi = require("swagger-ui-express");
-const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerDocument = require('./swagger.json');
+// const swaggerJsDoc = require("swagger-jsdoc");
 
 const options = {
   definition: {
@@ -39,14 +40,17 @@ const options = {
   apis: ["./routes/*.js"],
 };
 console.log(URL);
-const specs = swaggerJsDoc(options);
-app.use(
-  "/api-docs",
-  swaggerUi.serve,
-  swaggerUi.setup(specs, {
-    explorer: true,
-  })
-);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// const specs = swaggerJsDoc(options);
+// app.use(
+//   "/api-docs",
+//   swaggerUi.serve,
+//   swaggerUi.setup(specs, {
+//     explorer: true,
+//   })
+// );
 
 app.get("/", function (req, res) {
   console.log(
