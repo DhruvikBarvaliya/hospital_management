@@ -16,11 +16,11 @@
     "servers": [
         {
             "url": "http://localhost:3000/api/v1",
-            "description": "Local"
+            "description": "Local Server"
         },
         {
             "url": "https://hospital-dyev.onrender.com/api/v1",
-            "description": "Server"
+            "description": "Live server"
         }
     ],
     "paths": {
@@ -34,8 +34,23 @@
                     "200": {
                         "description": "The created Address."
                     },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -56,6 +71,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the address"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -80,6 +113,24 @@
                 "responses": {
                     "200": {
                         "description": "The Address response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -102,6 +153,24 @@
                 "responses": {
                     "200": {
                         "description": "The Address was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -141,6 +210,24 @@
                 "responses": {
                     "200": {
                         "description": "The Address was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -174,6 +261,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -191,8 +296,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -213,6 +330,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the admission"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -237,6 +372,24 @@
                 "responses": {
                     "200": {
                         "description": "The Admission response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -259,6 +412,24 @@
                 "responses": {
                     "200": {
                         "description": "The Admission was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -290,6 +461,24 @@
                 "responses": {
                     "200": {
                         "description": "The Admission was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -323,6 +512,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -340,8 +547,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -362,6 +581,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the appointment"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -386,6 +623,24 @@
                 "responses": {
                     "200": {
                         "description": "The Appointment response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -408,6 +663,24 @@
                 "responses": {
                     "200": {
                         "description": "The Appointment was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -439,6 +712,24 @@
                 "responses": {
                     "200": {
                         "description": "The Appointment was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -472,6 +763,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -489,8 +798,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -514,14 +835,23 @@
                     "200": {
                         "description": "Login Successfuly"
                     },
+                    "400": {
+                        "description": "Bad Request"
+                    },
                     "401": {
                         "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
                     },
                     "404": {
                         "description": "Not Found"
                     },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -569,14 +899,23 @@
                     "200": {
                         "description": "OTP Sent Successfuly"
                     },
+                    "400": {
+                        "description": "Bad Request"
+                    },
                     "401": {
                         "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
                     },
                     "404": {
                         "description": "Not Found"
                     },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -608,11 +947,23 @@
                     "200": {
                         "description": "Verifi OTP Successfuly"
                     },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
                     "404": {
                         "description": "Not Found"
                     },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -644,11 +995,23 @@
                     "200": {
                         "description": "Password Successfuly Changed"
                     },
+                    "400": {
+                        "description": "Bad Request"
+                    },
                     "401": {
                         "description": "Unauthorized"
                     },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -683,14 +1046,23 @@
                     "200": {
                         "description": "Password Forgoted Successfuly"
                     },
+                    "400": {
+                        "description": "Bad Request"
+                    },
                     "401": {
                         "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
                     },
                     "404": {
                         "description": "Not Found"
                     },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -735,8 +1107,23 @@
                     "200": {
                         "description": "Successfuly Drop All tabel"
                     },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -754,8 +1141,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -776,6 +1175,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the billing"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -800,6 +1217,24 @@
                 "responses": {
                     "200": {
                         "description": "The Billing response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -822,6 +1257,24 @@
                 "responses": {
                     "200": {
                         "description": "The Billing was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -853,6 +1306,24 @@
                 "responses": {
                     "200": {
                         "description": "The Billing was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -886,6 +1357,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -903,8 +1392,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -925,6 +1426,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the department"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -949,6 +1468,24 @@
                 "responses": {
                     "200": {
                         "description": "The Department response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -971,6 +1508,24 @@
                 "responses": {
                     "200": {
                         "description": "The Department was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1002,6 +1557,24 @@
                 "responses": {
                     "200": {
                         "description": "The Department was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1035,6 +1608,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1052,8 +1643,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1074,6 +1677,24 @@
                 "responses": {
                     "200": {
                         "description": "Create a new Doctor"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1098,6 +1719,24 @@
                 "responses": {
                     "200": {
                         "description": " The Doctor response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -1120,6 +1759,24 @@
                 "responses": {
                     "200": {
                         "description": "The Doctor was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1151,6 +1808,24 @@
                 "responses": {
                     "200": {
                         "description": "The Doctor was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1184,6 +1859,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1201,8 +1894,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1223,6 +1928,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the hospital"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1247,6 +1970,24 @@
                 "responses": {
                     "200": {
                         "description": "The Hospital response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -1269,6 +2010,24 @@
                 "responses": {
                     "200": {
                         "description": "The Hospital was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1300,6 +2059,24 @@
                 "responses": {
                     "200": {
                         "description": "The Hospital was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1333,6 +2110,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1350,8 +2145,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1372,6 +2179,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the inventory"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1396,6 +2221,24 @@
                 "responses": {
                     "200": {
                         "description": "The Inventory response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -1418,6 +2261,24 @@
                 "responses": {
                     "200": {
                         "description": "The Inventory was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1449,6 +2310,24 @@
                 "responses": {
                     "200": {
                         "description": "The Inventory was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1482,6 +2361,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1499,8 +2396,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1521,6 +2430,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the invoice"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1545,6 +2472,24 @@
                 "responses": {
                     "200": {
                         "description": "The Invoice response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -1567,6 +2512,24 @@
                 "responses": {
                     "200": {
                         "description": "The Invoice was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1598,6 +2561,24 @@
                 "responses": {
                     "200": {
                         "description": "The Invoice was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1631,6 +2612,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1648,8 +2647,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1670,6 +2681,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the medical-record"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1694,6 +2723,24 @@
                 "responses": {
                     "200": {
                         "description": "The MedicalRecord response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -1716,6 +2763,24 @@
                 "responses": {
                     "200": {
                         "description": "The MedicalRecord was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1747,6 +2812,24 @@
                 "responses": {
                     "200": {
                         "description": "The MedicalRecord was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1780,6 +2863,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1797,8 +2898,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1819,6 +2932,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the patient"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1843,6 +2974,24 @@
                 "responses": {
                     "200": {
                         "description": "The Patient response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -1865,6 +3014,24 @@
                 "responses": {
                     "200": {
                         "description": "The Patient was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1896,6 +3063,24 @@
                 "responses": {
                     "200": {
                         "description": "The Patient was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1929,6 +3114,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1946,8 +3149,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -1968,6 +3183,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the billings"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -1992,6 +3225,24 @@
                 "responses": {
                     "200": {
                         "description": "The Pharmacy response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -2006,7 +3257,6 @@
                         "in": "path",
                         "required": true,
                         "description": "The Pharmacy id",
-                        "description": "The Pharmacy id",
                         "schema": {
                             "type": "string"
                         }
@@ -2015,6 +3265,24 @@
                 "responses": {
                     "200": {
                         "description": "The Pharmacy was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2046,6 +3314,24 @@
                 "responses": {
                     "200": {
                         "description": "The Pharmacy was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2079,6 +3365,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2096,8 +3400,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2118,6 +3434,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the prescription"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2142,6 +3476,24 @@
                 "responses": {
                     "200": {
                         "description": "The Prescription response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -2164,6 +3516,24 @@
                 "responses": {
                     "200": {
                         "description": "The Prescription was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2195,6 +3565,24 @@
                 "responses": {
                     "200": {
                         "description": "The Prescription was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2228,6 +3616,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2245,8 +3651,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2267,6 +3685,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the role"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2291,6 +3727,24 @@
                 "responses": {
                     "200": {
                         "description": "The Role response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -2313,6 +3767,24 @@
                 "responses": {
                     "200": {
                         "description": "The Role was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2344,6 +3816,24 @@
                 "responses": {
                     "200": {
                         "description": "The Role was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2377,6 +3867,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2394,8 +3902,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2416,6 +3936,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the room"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2440,6 +3978,24 @@
                 "responses": {
                     "200": {
                         "description": "The Room response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -2462,6 +4018,24 @@
                 "responses": {
                     "200": {
                         "description": "The Room was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2493,6 +4067,24 @@
                 "responses": {
                     "200": {
                         "description": "The Room was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2526,6 +4118,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2543,8 +4153,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2565,6 +4187,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the staff"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2589,6 +4229,24 @@
                 "responses": {
                     "200": {
                         "description": "The Staff response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -2611,6 +4269,24 @@
                 "responses": {
                     "200": {
                         "description": "he Staff was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2642,6 +4318,24 @@
                 "responses": {
                     "200": {
                         "description": "The Staff was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2675,6 +4369,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2692,8 +4404,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2714,6 +4438,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the test-result"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2738,6 +4480,24 @@
                 "responses": {
                     "200": {
                         "description": "The TestResult response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -2760,6 +4520,24 @@
                 "responses": {
                     "200": {
                         "description": "The TestResult was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2791,6 +4569,24 @@
                 "responses": {
                     "200": {
                         "description": "The TestResult was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2824,6 +4620,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2841,8 +4655,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2863,6 +4689,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the test"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2887,6 +4731,24 @@
                 "responses": {
                     "200": {
                         "description": "The Test response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -2909,6 +4771,24 @@
                 "responses": {
                     "200": {
                         "description": "The Test was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -2940,6 +4820,24 @@
                 "responses": {
                     "200": {
                         "description": "The Test was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2973,6 +4871,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -2990,8 +4906,20 @@
                     "400": {
                         "description": "Bad Request"
                     },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
                     "500": {
                         "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -3012,6 +4940,24 @@
                 "responses": {
                     "200": {
                         "description": "The list of the word"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -3036,6 +4982,24 @@
                 "responses": {
                     "200": {
                         "description": "The Word response by id"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             },
@@ -3058,6 +5022,24 @@
                 "responses": {
                     "200": {
                         "description": "The Word was updated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 },
                 "requestBody": {
@@ -3089,6 +5071,24 @@
                 "responses": {
                     "200": {
                         "description": "The Word was deleted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
@@ -3122,6 +5122,24 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
                     }
                 }
             }
