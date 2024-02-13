@@ -1,9 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
 const indexRouter = require("./Routes/index");
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
@@ -54,10 +52,15 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // );
 
 app.get("/", function (req, res) {
-  console.log(
-    `Welcome To ${process.env.ENV} Mode Of Hospital Management System`
-  );
-  res.send(`Welcome To ${process.env.ENV} Mode Of Hospital Management System`);
+  const protocol = req.protocol;
+  const host = req.hostname;
+  const url = req.originalUrl;
+  const port = process.env.PORT
+
+  const fullUrl = `${protocol}://${host}:${port}${url}`
+
+  console.log({ Message: `Welcome To ${process.env.ENV} Mode Of Hospital Management System`, Swagger: `${fullUrl}api-docs` });
+  res.json({ Message: `Welcome To ${process.env.ENV} Mode Of Hospital Management System`, Swagger: `${fullUrl}api-docs` })
 });
 
 app.use("/api", indexRouter);
