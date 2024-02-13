@@ -16,7 +16,11 @@
     "servers": [
         {
             "url": "http://localhost:3000/api/v1",
-            "description": ""
+            "description": "Local"
+        },
+        {
+            "url": "https://hospital-dyev.onrender.com/api-docs/",
+            "description": "Server"
         }
     ],
     "paths": {
