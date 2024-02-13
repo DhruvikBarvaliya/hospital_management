@@ -78,7 +78,7 @@ module.exports = {
       // }
       if (user.email == email && pass) {
         let token = jsonwebtoken.sign(
-          { id: user._id, email: email, role: user.role },
+          { id: user.id, email: email, role: user.role },
           JWT_SECRET_KEY,
           {
             expiresIn: "12h",
