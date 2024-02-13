@@ -1,0 +1,3956 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Hospital Management System Express API with Swagger",
+        "description": "This is a Demo app Using JavaScript,NodeJS,ExpressJS,Sequlize with Postgres with Swagger",
+        "license": {
+            "name": "MIT",
+            "url": "https://spdx.org/licenses/MIT.html"
+        },
+        "contact": {
+            "name": "Dhruvik",
+            "email": "dhruvik.barvaliya.blackwolve@gmail.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api/v1",
+            "description": ""
+        }
+    ],
+    "paths": {
+        "/address": {
+            "post": {
+                "description": "Create a new Address",
+                "tags": [
+                    "Address"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Address."
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Address"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the address",
+                "tags": [
+                    "Address"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the address"
+                    }
+                }
+            }
+        },
+        "/address/{id}": {
+            "get": {
+                "description": "Get the Address by id",
+                "tags": [
+                    "Address"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Address id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Address response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Address by the id",
+                "tags": [
+                    "Address"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Address id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Address was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Address"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Address by id",
+                "tags": [
+                    "Address"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Address id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The Address id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Address was deleted"
+                    }
+                }
+            }
+        },
+        "/address/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Address"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Address id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Address",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/admission": {
+            "post": {
+                "description": "Create a new Admission",
+                "tags": [
+                    "Admission"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Admission."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Admission"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the admission",
+                "tags": [
+                    "Admission"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the admission"
+                    }
+                }
+            }
+        },
+        "/admission/{id}": {
+            "get": {
+                "description": "Get the Admission by id",
+                "tags": [
+                    "Admission"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Admission id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Admission response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Admission by the id",
+                "tags": [
+                    "Admission"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Admission id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Admission was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Admission"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Admission by id",
+                "tags": [
+                    "Admission"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Admission id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Admission was deleted"
+                    }
+                }
+            }
+        },
+        "/admission/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Admission"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Admission id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Admission",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/appointment": {
+            "post": {
+                "description": "Create a new Appointment",
+                "tags": [
+                    "Appointment"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Appointment."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Appointment"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the appointment",
+                "tags": [
+                    "Appointment"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the appointment"
+                    }
+                }
+            }
+        },
+        "/appointment/{id}": {
+            "get": {
+                "description": "Get the Appointment by id",
+                "tags": [
+                    "Appointment"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Appointment id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Appointment response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Appointment by the id",
+                "tags": [
+                    "Appointment"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Appointment id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Appointment was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Appointment"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Appointment by id",
+                "tags": [
+                    "Appointment"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Appointment id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Appointment was deleted"
+                    }
+                }
+            }
+        },
+        "/appointment/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Appointment"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Appointment id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Appointment",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "description": "Register User",
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The User Register Successfuly"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/User"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "description": "Login User",
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login Successfuly"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "example": "any"
+                                    },
+                                    "password": {
+                                        "example": "any"
+                                    },
+                                    "model": {
+                                        "example": "any"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "get": {
+                "description": "Logout User",
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Logout Successfuly"
+                    }
+                }
+            }
+        },
+        "/sendOtp": {
+            "post": {
+                "description": "Send OTP API",
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OTP Sent Successfuly"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "example": "any"
+                                    },
+                                    "for_forgot": {
+                                        "example": "any"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/verify": {
+            "post": {
+                "description": "Verifi OTP API",
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Verifi OTP Successfuly"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "example": "any"
+                                    },
+                                    "otp": {
+                                        "example": "any"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/changePassword": {
+            "post": {
+                "description": "Change Password API",
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Password Successfuly Changed"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "example": "any"
+                                    },
+                                    "password": {
+                                        "example": "any"
+                                    },
+                                    "newPassword": {
+                                        "example": "any"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/forgotPassword": {
+            "post": {
+                "description": "Forgot Password API",
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Password Forgoted Successfuly"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "example": "any"
+                                    },
+                                    "otp": {
+                                        "example": "any"
+                                    },
+                                    "newPassword": {
+                                        "example": "any"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/drop/{drop}": {
+            "delete": {
+                "description": "Drop Table and Scema API",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "drop",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfuly Drop All tabel"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/billing": {
+            "post": {
+                "description": "Create a new Billing",
+                "tags": [
+                    "Billing"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Billing."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Billing"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the billing",
+                "tags": [
+                    "Billing"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the billing"
+                    }
+                }
+            }
+        },
+        "/billing/{id}": {
+            "get": {
+                "description": "Get the Billing by id",
+                "tags": [
+                    "Billing"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Billing id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Billing response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Billing by the id",
+                "tags": [
+                    "Billing"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Billing id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Billing was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Billing"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Billing by id",
+                "tags": [
+                    "Billing"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Billing id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Billing was deleted"
+                    }
+                }
+            }
+        },
+        "/billing/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Billing"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Billing id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Billing",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/department": {
+            "post": {
+                "description": "Create a new Department",
+                "tags": [
+                    "Department"
+                ],
+                "responses": {
+                    "200": {
+                        "description": " The created Department"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Department"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the department",
+                "tags": [
+                    "Department"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the department"
+                    }
+                }
+            }
+        },
+        "/department/{id}": {
+            "get": {
+                "description": "Get the Department by id",
+                "tags": [
+                    "Department"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Department id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Department response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Department by the id",
+                "tags": [
+                    "Department"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Department id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Department was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Department"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Department by id",
+                "tags": [
+                    "Department"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Department id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Department was deleted"
+                    }
+                }
+            }
+        },
+        "/department/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Department"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Department id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Department",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/doctor": {
+            "post": {
+                "description": "Create a new Doctor",
+                "tags": [
+                    "Doctor"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Doctor."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Doctor"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the doctor",
+                "tags": [
+                    "Doctor"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Create a new Doctor"
+                    }
+                }
+            }
+        },
+        "/doctor/{id}": {
+            "get": {
+                "description": "Get the Doctor by id",
+                "tags": [
+                    "Doctor"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Doctor id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": " The Doctor response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Doctor by the id",
+                "tags": [
+                    "Doctor"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Doctor id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Doctor was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Doctor"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Doctor by id",
+                "tags": [
+                    "Doctor"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Doctor id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Doctor was deleted"
+                    }
+                }
+            }
+        },
+        "/doctor/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Doctor"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Doctor id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Doctor",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/hospital": {
+            "post": {
+                "description": "Create a new Hospital",
+                "tags": [
+                    "Hospital"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Hospital"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Hospital"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the hospital",
+                "tags": [
+                    "Hospital"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the hospital"
+                    }
+                }
+            }
+        },
+        "/hospital/{id}": {
+            "get": {
+                "description": "Get the Hospital by id",
+                "tags": [
+                    "Hospital"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Hospital id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Hospital response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Hospital by the id",
+                "tags": [
+                    "Hospital"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Hospital id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Hospital was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Hospital"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Hospital by id",
+                "tags": [
+                    "Hospital"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Hospital id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Hospital was deleted"
+                    }
+                }
+            }
+        },
+        "/hospital/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Hospital"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Hospital id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Hospital",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/inventory": {
+            "post": {
+                "description": "Create a new Inventory",
+                "tags": [
+                    "Inventory"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Inventory"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Inventory"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the inventory",
+                "tags": [
+                    "Inventory"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the inventory"
+                    }
+                }
+            }
+        },
+        "/inventory/{id}": {
+            "get": {
+                "description": "Get the Inventory by id",
+                "tags": [
+                    "Inventory"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Inventory id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Inventory response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Inventory by the id",
+                "tags": [
+                    "Inventory"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Inventory id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Inventory was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Inventory"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Inventory by id",
+                "tags": [
+                    "Inventory"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Inventory id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Inventory was deleted"
+                    }
+                }
+            }
+        },
+        "/inventory/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Inventory"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Inventory id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Inventory",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/invoice": {
+            "post": {
+                "description": "Create a new Invoice",
+                "tags": [
+                    "Invoice"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Invoice."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Invoice"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the invoice",
+                "tags": [
+                    "Invoice"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the invoice"
+                    }
+                }
+            }
+        },
+        "/invoice/{id}": {
+            "get": {
+                "description": "Get the Invoice by id",
+                "tags": [
+                    "Invoice"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Invoice id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Invoice response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Invoice by the id",
+                "tags": [
+                    "Invoice"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Invoice id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Invoice was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Invoice"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Invoice by id",
+                "tags": [
+                    "Invoice"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Invoice id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Invoice was deleted"
+                    }
+                }
+            }
+        },
+        "/invoice/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Invoice"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Invoice id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Invoice",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/medical-record": {
+            "post": {
+                "description": "Create a new MedicalRecord",
+                "tags": [
+                    "Medical-Record"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created MedicalRecord."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/MedicalRecord"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the medical-record",
+                "tags": [
+                    "Medical-Record"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the medical-record"
+                    }
+                }
+            }
+        },
+        "/medical-record/{id}": {
+            "get": {
+                "description": "Get the MedicalRecord by id",
+                "tags": [
+                    "Medical-Record"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Medical Record id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The MedicalRecord response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the MedicalRecord by the id",
+                "tags": [
+                    "Medical-Record"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Medical Record id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The MedicalRecord was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/MedicalRecord"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the MedicalRecord by id",
+                "tags": [
+                    "Medical-Record"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Medical Record id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The MedicalRecord was deleted"
+                    }
+                }
+            }
+        },
+        "/medical-record/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Medical-Record"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Medical Record id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Medical Record",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/patient": {
+            "post": {
+                "description": "Create a new Patient",
+                "tags": [
+                    "Patient"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Patient."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Patient"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the patient",
+                "tags": [
+                    "Patient"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the patient"
+                    }
+                }
+            }
+        },
+        "/patient/{id}": {
+            "get": {
+                "description": "Get the Patient by id",
+                "tags": [
+                    "Patient"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Patient id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Patient response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Patient by the id",
+                "tags": [
+                    "Patient"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Patient id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Patient was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Patient"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Patient by id",
+                "tags": [
+                    "Patient"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Patient id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Patient was deleted"
+                    }
+                }
+            }
+        },
+        "/patient/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Patient"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Patient id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Patient",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/pharmacy": {
+            "post": {
+                "description": "Create a new Pharmacy",
+                "tags": [
+                    "Pharmacy"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Pharmacy."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Pharmacy"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the billings",
+                "tags": [
+                    "Pharmacy"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the billings"
+                    }
+                }
+            }
+        },
+        "/pharmacy/{id}": {
+            "get": {
+                "description": "Get the Pharmacy by id",
+                "tags": [
+                    "Pharmacy"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Pharmacy id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Pharmacy response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Pharmacy by the id",
+                "tags": [
+                    "Pharmacy"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Pharmacy id",
+                        "description": "The Pharmacy id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Pharmacy was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Pharmacy"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Pharmacy by id",
+                "tags": [
+                    "Pharmacy"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Pharmacy id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Pharmacy was deleted"
+                    }
+                }
+            }
+        },
+        "/pharmacy/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Pharmacy"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Pharmacy id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Pharmacy",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/prescription": {
+            "post": {
+                "description": "Create a new Prescription",
+                "tags": [
+                    "Prescription"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Prescription"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Prescription"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the prescription",
+                "tags": [
+                    "Prescription"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the prescription"
+                    }
+                }
+            }
+        },
+        "/prescription/{id}": {
+            "get": {
+                "description": "Get the Prescription by id",
+                "tags": [
+                    "Prescription"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Prescription id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Prescription response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Prescription by the id",
+                "tags": [
+                    "Prescription"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Prescription id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Prescription was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Prescription"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Prescription by id",
+                "tags": [
+                    "Prescription"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Prescription id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Prescription was deleted"
+                    }
+                }
+            }
+        },
+        "/prescription/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Prescription"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Prescription id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Prescription",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/role": {
+            "post": {
+                "description": " Create a new Role",
+                "tags": [
+                    "Role"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Role."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Role"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the role",
+                "tags": [
+                    "Role"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the role"
+                    }
+                }
+            }
+        },
+        "/role/{id}": {
+            "get": {
+                "description": " Get the Role by id",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Role id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Role response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Role by the id",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Role id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Role was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Role"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Role by id",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Role id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Role was deleted"
+                    }
+                }
+            }
+        },
+        "/role/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Role id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Role",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/room": {
+            "post": {
+                "description": "Create a new Room",
+                "tags": [
+                    "Room"
+                ],
+                "responses": {
+                    "200": {
+                        "description": " The created Room."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Room"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the room",
+                "tags": [
+                    "Room"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the room"
+                    }
+                }
+            }
+        },
+        "/room/{id}": {
+            "get": {
+                "description": "Get the Room by id",
+                "tags": [
+                    "Room"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Room id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Room response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Room by the id",
+                "tags": [
+                    "Room"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Room id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Room was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Room"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Room by id",
+                "tags": [
+                    "Room"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Room id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Room was deleted"
+                    }
+                }
+            }
+        },
+        "/room/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Room"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Room id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Room",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/staff": {
+            "post": {
+                "description": "Create a new Staff",
+                "tags": [
+                    "Staff"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Staff."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Staff"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the staff",
+                "tags": [
+                    "Staff"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the staff"
+                    }
+                }
+            }
+        },
+        "/staff/{id}": {
+            "get": {
+                "description": "Get the Staff by id",
+                "tags": [
+                    "Staff"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Staff id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Staff response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Staff by the id",
+                "tags": [
+                    "Staff"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Staff id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "he Staff was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Staff"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Staff by id",
+                "tags": [
+                    "Staff"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Staff id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Staff was deleted"
+                    }
+                }
+            }
+        },
+        "/staff/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Staff"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Staff id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Staff",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/test-result": {
+            "post": {
+                "description": "Create a new TestResult",
+                "tags": [
+                    "Test-Result"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created TestResult."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/TestResult"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the test-result",
+                "tags": [
+                    "Test-Result"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the test-result"
+                    }
+                }
+            }
+        },
+        "/test-result/{id}": {
+            "get": {
+                "description": "Get the TestResult by id",
+                "tags": [
+                    "Test-Result"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Test Result id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The TestResult response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the TestResult by the id",
+                "tags": [
+                    "Test-Result"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Test Result id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The TestResult was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/TestResult"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the TestResult by id",
+                "tags": [
+                    "Test-Result"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Test Result id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The TestResult was deleted"
+                    }
+                }
+            }
+        },
+        "/test-result/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Test-Result"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Test Result id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Test Result",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/test": {
+            "post": {
+                "description": "Create a new Test",
+                "tags": [
+                    "Test"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Test."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Test"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "The test managing API",
+                "tags": [
+                    "Test"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the test"
+                    }
+                }
+            }
+        },
+        "/test/{id}": {
+            "get": {
+                "description": "Get the Test by id",
+                "tags": [
+                    "Test"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Test id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Test response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Test by the id",
+                "tags": [
+                    "Test"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Test id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Test was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Test"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Test by id",
+                "tags": [
+                    "Test"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Test id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Test was deleted"
+                    }
+                }
+            }
+        },
+        "/test/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Test"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Test id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Test",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/word": {
+            "post": {
+                "description": "Create a new Word",
+                "tags": [
+                    "Word"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created Word."
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Word"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Lists all the word",
+                "tags": [
+                    "Word"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of the word"
+                    }
+                }
+            }
+        },
+        "/word/{id}": {
+            "get": {
+                "description": "Get the Word by id",
+                "tags": [
+                    "Word"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Word id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Word response by id"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update the Word by the id",
+                "tags": [
+                    "Word"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Word id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Word was updated"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/schemas/Word"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove the Word by id",
+                "tags": [
+                    "Word"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Word id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The Word was deleted"
+                    }
+                }
+            }
+        },
+        "/word/{id}/{status}": {
+            "patch": {
+                "description": "",
+                "tags": [
+                    "Word"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Word id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "description": "Status Of Word",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "schemas": {
+        "Address": {
+            "properties": {
+                "streetAddress1": {
+                    "type": "string",
+                    "description": "Enter Your Street Address 1 Here"
+                },
+                "streetAddress2": {
+                    "type": "string",
+                    "description": "Enter Your Street Address 2  Here"
+                },
+                "country": {
+                    "type": "string",
+                    "description": "Give Your Country Name Here"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Give Your State Name Here"
+                },
+                "city": {
+                    "type": "string",
+                    "description": "Give Your City Name Here"
+                },
+                "zip_code": {
+                    "type": "integer",
+                    "description": "Give Your Zip Code Here"
+                },
+                "is_active": {
+                    "type": "boolean",
+                    "description": "This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": "boolean",
+                    "description": "This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": "integer",
+                    "description": "This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": "integer",
+                    "description": "This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Admission": {
+            "properties": {
+                "patient_id": {
+                    "type": "integer",
+                    "description": "The Patient Id From Patient Table"
+                },
+                "word_id": {
+                    "type": "integer",
+                    "description": "The Word Id From Word Table"
+                },
+                "admission_date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Give admission Date When Patient Admitted in Hospital"
+                },
+                "discharge_date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Give discharge Date When Patient discharge from Hospital"
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "Give Reason Why Patient Admitted in Hospital"
+                },
+                "is_active": {
+                    "type": "boolean",
+                    "description": "This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": "boolean",
+                    "description": "This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": "integer",
+                    "description": "This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": "integer",
+                    "description": "This field is used to track the user that last updated a record in a database}"
+                }
+            }
+        },
+        "Appointment": {
+            "properties": {
+                "patient_id": {
+                    "type": "integer",
+                    "description": " The Patient Id From Patient Table"
+                },
+                "doctor_id": {
+                    "type": "integer",
+                    "description": " The Doctor Id From Doctor Table"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "  Give Date When Patiant Want Appointment"
+                },
+                "time": {
+                    "type": "string",
+                    "format": "date",
+                    "description": " Give Time When Patiant Want Appointment"
+                },
+                "is_active": {
+                    "type": "boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": "boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": "integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": "integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "User": {
+            "properties": {
+                "first_name": {
+                    "type": " string",
+                    "description": " Enter First Name of The User"
+                },
+                "last_name": {
+                    "type": " string",
+                    "description": " Enter Last Name of The User"
+                },
+                "phone_number": {
+                    "type": " string",
+                    "description": " Enter Phone Number of The User"
+                },
+                "email": {
+                    "type": " string",
+                    "description": " Enter Email of The User"
+                },
+                "password": {
+                    "type": " string",
+                    "description": " Enter Password of The User"
+                },
+                "date_of_birth": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Enter Date Of Birth of The User"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Billing": {
+            "properties": {
+                "patient_id": {
+                    "type": " integer",
+                    "description": " The Patient Id From Patient Table"
+                },
+                "doctore_id": {
+                    "type": " integer",
+                    "description": " The Doctor Id From Doctor Table"
+                },
+                "admission_id": {
+                    "type": " integer",
+                    "description": " The Admission Id From Admission Table"
+                },
+                "bill_date": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Give Bill Date When Bill is Generate for User"
+                },
+                "total_amount": {
+                    "type": " integer",
+                    "description": " Give Total Amount When Bill is Generate for User"
+                },
+                "payment_status": {
+                    "type": " string",
+                    "description": " Give Payment Status for Particular this bill for User"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " The date the Billing was added"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " The date the Billing was added"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " The date the Billing was added"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " The date the Billing was added"
+                }
+            }
+        },
+        "Department": {
+            "properties": {
+                "department_name": {
+                    "type": " string",
+                    "description": " Enter Department Name"
+                },
+                "hospital_id": {
+                    "type": " integer",
+                    "description": " Give Hospital Id from Hospital Table"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Doctor": {
+            "properties": {
+                "doctor_first_name": {
+                    "type": " string",
+                    "description": " Enter First Name of The Doctor"
+                },
+                "doctore_last_name": {
+                    "type": " string",
+                    "description": " Enter Last Name of The Doctor"
+                },
+                "department_id": {
+                    "type": " integer",
+                    "description": " Enter Department Id From where Doctor belongs to"
+                },
+                "doctore_phone_number": {
+                    "type": " string",
+                    "description": " Enter Doctore Phone Number of Doctor"
+                },
+                "specialization": {
+                    "type": " string",
+                    "description": " Enter Specialization of Doctor"
+                },
+                "email": {
+                    "type": " string",
+                    "description": " Enter Email of Doctor"
+                },
+                "password": {
+                    "type": " string",
+                    "description": " Enter Password for Doctor Login"
+                },
+                "doctor_address": {
+                    "type": " integer",
+                    "description": " Enter Address for Doctor"
+                },
+                "salary": {
+                    "type": " integer",
+                    "description": " Enter Salary for Doctor"
+                },
+                "hospital_id": {
+                    "type": " integer",
+                    "description": " Give Hospital Id from Hospital Table"
+                },
+                "date_of_birth": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Enter Date Of Birth of The Doctor"
+                },
+                "qualification": {
+                    "type": " string",
+                    "description": " Enter Qualification of Doctor"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Hospital": {
+            "properties": {
+                "hospital_name": {
+                    "type": " string",
+                    "description": " Give Hospital Name"
+                },
+                "hospital_address": {
+                    "type": " integer",
+                    "description": " Give Hospital Address"
+                },
+                "hospital_phone_number": {
+                    "type": " string",
+                    "description": " Give Hospital Phone Number"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Inventory": {
+            "properties": {
+                "item_id": {
+                    "type": " string",
+                    "description": " Give Unique Item Id"
+                },
+                "item_name": {
+                    "type": " string",
+                    "description": " Give Unique Item Name"
+                },
+                "quantity_available": {
+                    "type": " integer",
+                    "description": " Give How many Quantity Available for Item"
+                },
+                "unit_price": {
+                    "type": " integer",
+                    "description": " Give How many Price Available for Item"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Invoice": {
+            "properties": {
+                "patient_id": {
+                    "type": " integer",
+                    "description": "The Patient Id From Patient Table"
+                },
+                "service_description": {
+                    "type": " string",
+                    "description": " Give Service Description for Invoice"
+                },
+                "cost": {
+                    "type": " integer",
+                    "description": " Give Cost for particuler this for Invoice"
+                },
+                "total": {
+                    "type": " string",
+                    "description": " Give total for particuler this for Invoice"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "MedicalRecord": {
+            "properties": {
+                "patient_id": {
+                    "type": " integer",
+                    "description": " The Patient Id From Patient Table"
+                },
+                "doctore_id": {
+                    "type": " integer",
+                    "description": " The Doctore Id From Doctore Table"
+                },
+                "record_date": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Give Record Date Whene MedicalRecord Added"
+                },
+                "diagnosis": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Give diagnosis Description for MedicalRecord"
+                },
+                "prescription": {
+                    "type": " string",
+                    "description": " Give Prescription for MedicalRecord"
+                },
+                "test_result": {
+                    "type": " integer",
+                    "description": " Give Test Result Id From Test Result Table"
+                },
+                "notes": {
+                    "type": " string",
+                    "description": " Give Notes for MedicalRecord"
+                },
+                "problem": {
+                    "type": " string",
+                    "description": " Give Problem for MedicalRecord"
+                },
+                "date_of_examination": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Give Examination Date Whene MedicalRecord Added"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Patient": {
+            "properties": {
+                "patient_first_name": {
+                    "type": " string",
+                    "description": " Enter First Name of The Patient"
+                },
+                "patient_last_name": {
+                    "type": " string",
+                    "description": " Enter Last Name of The Patient"
+                },
+                "patient_address": {
+                    "type": " integer",
+                    "description": " Enter Address of The Patient"
+                },
+                "patient_phone_number": {
+                    "type": " string",
+                    "description": " Enter Patient Phone Number of The Patient"
+                },
+                "pharmacy_id": {
+                    "type": " integer",
+                    "description": " Give Pharmacy Id From Pharmacy Table"
+                },
+                "date_of_birth": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Enter Date Of Birth of The Patient"
+                },
+                "gender": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Enter Patient Gender"
+                },
+                "hospital_id": {
+                    "type": " integer",
+                    "description": " Give Hospital Id From Hospital Table"
+                },
+                "email": {
+                    "type": " string",
+                    "description": " Enter Email of The Patient"
+                },
+                "password": {
+                    "type": " string",
+                    "description": " Enter Password of The Patient"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Pharmacy": {
+            "properties": {
+                "pharmacy_name": {
+                    "type": " string",
+                    "description": " Enter Pharmacy Name"
+                },
+                "pharmacy_address": {
+                    "type": " integer",
+                    "description": " Enter Pharmacy Address"
+                },
+                "pharmacy_phone_number": {
+                    "type": " string",
+                    "description": " Enter Pharmacy Phone Number"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Prescription": {
+            "properties": {
+                "patient_id": {
+                    "type": " integer",
+                    "description": " The Patient Id From Patient Table"
+                },
+                "medication_name": {
+                    "type": " string",
+                    "description": " Enter Medication Name"
+                },
+                "prescription_date": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Give Prescription Date"
+                },
+                "prescription_cost": {
+                    "type": " integer",
+                    "description": " Give Prescription Cost"
+                },
+                "doctor_id": {
+                    "type": " integer",
+                    "description": " The Doctor Id From Doctor Table"
+                },
+                "medication_id": {
+                    "type": " integer",
+                    "description": " The Medication Id From Medication Table"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Role": {
+            "properties": {
+                "role_name": {
+                    "type": " string",
+                    "description": " Enter Role Name"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Room": {
+            "properties": {
+                "patient_id": {
+                    "type": " integer",
+                    "description": " The Patient Id From Patient Table"
+                },
+                "staff_id": {
+                    "type": " integer",
+                    "description": " The Staff Id From Staff Table"
+                },
+                "admission_date": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Give Admission Date When Patient Admitted"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Staff": {
+            "properties": {
+                "department_id": {
+                    "type": " integer",
+                    "description": " The Department Id From Department Table"
+                },
+                "staff_first_name": {
+                    "type": " string",
+                    "description": " Enter First Name of The Staff"
+                },
+                "staff_last_name": {
+                    "type": " string",
+                    "description": " Enter First Last of The Staff"
+                },
+                "staff_address": {
+                    "type": " integer",
+                    "description": " Enter Address of The Staff"
+                },
+                "staff_phone_number": {
+                    "type": " string",
+                    "description": " Enter Phone Number of The Staff"
+                },
+                "email": {
+                    "type": " string",
+                    "description": " Enter Email of The Staff"
+                },
+                "password": {
+                    "type": " string",
+                    "description": " Enter Password of The Staff"
+                },
+                "position": {
+                    "type": " string",
+                    "description": " Enter Position of The Staff"
+                },
+                "role": {
+                    "type": " integer",
+                    "description": " Enter Role of The Staff"
+                },
+                "date_of_birth": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Enter Date Of Birth of The Staff"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "TestResult": {
+            "properties": {
+                "patient_id": {
+                    "type": " integer",
+                    "description": " The Patient Id From Patient Table"
+                },
+                "test_id": {
+                    "type": " integer",
+                    "description": " The Test Id From Test Table"
+                },
+                "result_details": {
+                    "type": " string",
+                    "description": " Give Result Details for TestResult"
+                },
+                "test_date": {
+                    "type": " string",
+                    "format": "date",
+                    "description": " Enter Test Date for Test Result"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Test": {
+            "properties": {
+                "test_name": {
+                    "type": " string",
+                    "description": "Give Test Name"
+                },
+                "description": {
+                    "type": " string",
+                    "description": " Give Test Description"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        },
+        "Word": {
+            "properties": {
+                "word_name": {
+                    "type": " string",
+                    "description": " Enter Word Name"
+                },
+                "capacity": {
+                    "type": " integer",
+                    "description": " Give Word Capacity"
+                },
+                "departmnet_id": {
+                    "type": " integer",
+                    "description": " The Departmnet Id From Departmnet Table"
+                },
+                "is_active": {
+                    "type": " boolean",
+                    "description": " This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive"
+                },
+                "status": {
+                    "type": " boolean",
+                    "description": " This field is used to indicate the current state of a record"
+                },
+                "created_by": {
+                    "type": " integer",
+                    "description": " This field typically stores the user responsible for creating a record in a database"
+                },
+                "updated_by": {
+                    "type": " integer",
+                    "description": " This field is used to track the user that last updated a record in a database"
+                }
+            }
+        }
+    }
+}

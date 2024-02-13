@@ -61,7 +61,7 @@ const AuthController = require("../Controllers/AuthController");
  *             $ref: '#/components/schemas/User'
  *     responses:
  *       200:
- *         description: The User response by id
+ *         description: The User Register Successfuly
  *         contens:
  *           application/json:
  *             schema:
@@ -93,7 +93,7 @@ const AuthController = require("../Controllers/AuthController");
  *                default: Doctor
  *     responses:
  *       200:
- *         description: The created User.
+ *         description: Login Successfuly.
  *         content:
  *           application/json:
  *             schema:
@@ -118,7 +118,7 @@ const AuthController = require("../Controllers/AuthController");
  *                default: johndoe@mail.com
  *     responses:
  *       200:
- *         description: The created User.
+ *         description: Logout Successfuly.
  *         content:
  *           application/json:
  *             schema:
@@ -147,7 +147,7 @@ const AuthController = require("../Controllers/AuthController");
  *                default: true
  *     responses:
  *       200:
- *         description: The User response by id
+ *         description: OTP Sent Successfuly
  *         contens:
  *           application/json:
  *             schema:
@@ -175,7 +175,7 @@ const AuthController = require("../Controllers/AuthController");
  *                default: 852
  *     responses:
  *       200:
- *         description: The User response by id
+ *         description: Verifi OTP Successfuly
  *         contens:
  *           application/json:
  *             schema:
@@ -207,7 +207,7 @@ const AuthController = require("../Controllers/AuthController");
  *                default: Doctor
  *     responses:
  *       200:
- *         description: The User response by id
+ *         description: Password Successfuly Changed
  *         contens:
  *           application/json:
  *             schema:

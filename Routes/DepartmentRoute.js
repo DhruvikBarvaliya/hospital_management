@@ -62,7 +62,7 @@ const Role = require("../Helpers/Role");
  *             $ref: '#/components/schemas/Department'
  *     responses:
  *       200:
- *         description: The created Department.
+ *         description: The created Department
  *         content:
  *           application/json:
  *             schema:
