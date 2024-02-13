@@ -56,9 +56,7 @@ app.get("/", function (req, res) {
   const host = req.hostname;
   const url = req.originalUrl;
   const port = process.env.PORT
-
-  const fullUrl = `${protocol}://${host}:${port}${url}`
-
+  const fullUrl = process.env.ENV == "development" ? `${protocol}://${host}:${port}${url}` : `${protocol}://${host}:${url}`
   console.log({ Message: `Welcome To ${process.env.ENV} Mode Of Hospital Management System`, Swagger: `${fullUrl}api-docs` });
   res.json({ Message: `Welcome To ${process.env.ENV} Mode Of Hospital Management System`, Swagger: `${fullUrl}api-docs` })
 });
