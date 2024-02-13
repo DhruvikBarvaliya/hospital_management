@@ -19,7 +19,7 @@
             "description": "Local"
         },
         {
-            "url": "https://hospital-dyev.onrender.com/api-docs/",
+            "url": "https://hospital-dyev.onrender.com/api/v1",
             "description": "Server"
         }
     ],
