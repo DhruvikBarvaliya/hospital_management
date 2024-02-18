@@ -93,7 +93,8 @@ module.exports = {
     });
   },
   deleteAddressById: async (req, res) => {
-    let id = req.query.id;
+    // let id = req.query.id;
+    let id = req.params.id;
     Address.destroy({ where: { id: id } }).then((result) => {
       if (result) {
         res.json({

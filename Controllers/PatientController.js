@@ -14,7 +14,7 @@ module.exports = {
         email: data.email,
       },
     });
-    if (patient.length) {
+    if (patient!= null) {
       return res
         .status(400)
         .json({

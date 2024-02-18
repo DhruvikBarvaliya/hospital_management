@@ -51,7 +51,8 @@ db.TestResultModel = require("../Models/TestResultModel")(sequelize, Sequelize);
 db.UserModel = require("../Models/UserModel")(sequelize, Sequelize);
 db.WordModel = require("../Models/WordModel")(sequelize, Sequelize);
 
-db.DoctorModel.hasOne(db.AddressModel, { foreignKey: "id" });
+// db.DoctorModel.hasOne(db.AddressModel, { foreignKey: "id",onDelete: 'cascade', hooks: true });
+db.AddressModel.hasOne(db.DoctorModel, { onDelete: 'cascade', hooks:true });
 // Foo.hasOne(Bar, { foreignKey: 'myFooId' });
 // Bar.belongsTo(Foo);
 

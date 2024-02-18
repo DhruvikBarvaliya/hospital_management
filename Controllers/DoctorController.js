@@ -14,8 +14,8 @@ module.exports = {
         email: data.email,
       },
     });
-
-    if (doctor.length) {
+console.log(doctor);
+    if (doctor!= null) {
       return res
         .status(400)
         .json({
