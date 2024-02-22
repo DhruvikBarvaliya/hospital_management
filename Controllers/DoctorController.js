@@ -15,7 +15,7 @@ module.exports = {
       },
     });
 
-    if (doctor.length) {
+    if (doctor!=null) {
       return res
         .status(400)
         .json({
@@ -118,6 +118,7 @@ module.exports = {
   deleteDoctorById: async (req, res) => {
     let id = req.params.id;
     Doctor.destroy({ where: { id: id } }).then((result) => {
+      console.log(result);
       if (result) {
         res.json({
           success: 1,
