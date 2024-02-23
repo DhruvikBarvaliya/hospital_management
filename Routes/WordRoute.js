@@ -19,9 +19,9 @@ const Role = require("../Helpers/Role");
  *         capacity:
  *           type: integer
  *           description: Give Word Capacity
- *         departmnet_id:
+ *         department_id:
  *           type: integer
- *           description: The Departmnet Id From Departmnet Table
+ *           description: The Department Id From Department Table
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive

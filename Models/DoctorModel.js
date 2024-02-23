@@ -6,13 +6,6 @@ module.exports = (sequelize, Sequelize) => {
       role: { type: Sequelize.STRING, defaultValue: "DOCTOR" },
       doctor_first_name: { type: Sequelize.STRING },
       doctore_last_name: { type: Sequelize.STRING },
-      department_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Department",
-          key: "id",
-        },
-      },
       doctore_phone_number: { type: Sequelize.STRING },
       specialization: {
         type: Sequelize.ENUM("Dermatology", "Diabetology", "Emergency"),
@@ -23,13 +16,6 @@ module.exports = (sequelize, Sequelize) => {
       otp: { type: Sequelize.INTEGER },
       forgot_otp: { type: Sequelize.INTEGER },
       salary: { type: Sequelize.BIGINT },
-      hospital_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Hospital",
-          key: "id",
-        },
-      },
       qualification: { type: Sequelize.STRING },
       last_login: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
       date_of_hire: {

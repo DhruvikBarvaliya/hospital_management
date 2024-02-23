@@ -3,20 +3,6 @@ module.exports = (sequelize, Sequelize) => {
     "Room",
     {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      patient_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Patient",
-          key: "id",
-        },
-      },
-      staff_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Staff",
-          key: "id",
-        },
-      },
       admission_date: { type: Sequelize.DATEONLY },
       is_active: { type: Sequelize.BOOLEAN },
       status: { type: Sequelize.BOOLEAN },

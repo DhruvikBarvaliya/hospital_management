@@ -5,13 +5,6 @@ module.exports = (sequelize, Sequelize) => {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       word_name: { type: Sequelize.STRING },
       capacity: { type: Sequelize.INTEGER },
-      departmnet_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Department",
-          key: "id",
-        },
-      },
       is_active: { type: Sequelize.BOOLEAN },
       status: { type: Sequelize.BOOLEAN },
       created_by: {

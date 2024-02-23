@@ -3,27 +3,6 @@ module.exports = (sequelize, Sequelize) => {
     "Billing",
     {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      patient_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Patient",
-          key: "id",
-        },
-      },
-      doctore_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
-      admission_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Admission",
-          key: "id",
-        },
-      },
       bill_date: { type: Sequelize.DATEONLY },
       total_amount: { type: Sequelize.BIGINT },
       payment_status: {

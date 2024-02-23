@@ -4,13 +4,6 @@ module.exports = (sequelize, Sequelize) => {
     {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       pharmacy_name: { type: Sequelize.STRING },
-      pharmacy_address: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Address",
-          key: "id",
-        },
-      },
       pharmacy_phone_number: { type: Sequelize.STRING },
       is_active: { type: Sequelize.BOOLEAN },
       status: { type: Sequelize.BOOLEAN },

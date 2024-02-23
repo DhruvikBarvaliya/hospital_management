@@ -3,20 +3,6 @@ module.exports = (sequelize, Sequelize) => {
     "Admission",
     {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      patient_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Patient",
-          key: "id",
-        },
-      },
-      word_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Word",
-          key: "id",
-        },
-      },
       admission_date: { type: Sequelize.DATEONLY },
       discharge_date: { type: Sequelize.DATEONLY },
       reason: { type: Sequelize.STRING },
