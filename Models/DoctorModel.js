@@ -22,13 +22,6 @@ module.exports = (sequelize, Sequelize) => {
       password: { type: Sequelize.STRING },
       otp: { type: Sequelize.INTEGER },
       forgot_otp: { type: Sequelize.INTEGER },
-      doctor_address: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Address",
-          key: "id",
-        },
-      },
       salary: { type: Sequelize.BIGINT },
       hospital_id: {
         type: Sequelize.INTEGER,

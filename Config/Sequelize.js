@@ -51,20 +51,7 @@ db.TestResultModel = require("../Models/TestResultModel")(sequelize, Sequelize);
 db.UserModel = require("../Models/UserModel")(sequelize, Sequelize);
 db.WordModel = require("../Models/WordModel")(sequelize, Sequelize);
 
-// db.DoctorModel.belongsTo(db.AddressModel, { onDelete: 'cascade' });
-// db.AddressModel.hasOne(db.DoctorModel, { onDelete: 'cascade' });
-
-
-
-db.DoctorModel.belongsTo(db.AddressModel, {
-  foreignKey: 'doctor_address',
-  targetKey: 'id',
-  onDelete: "CASCADE"
-});
-
-db.AddressModel.hasOne(db.DoctorModel, {
-  foreignKey: 'doctor_address',
-  sourceKey: 'id',
-});
+db.DoctorModel.hasOne(db.AddressModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
+db.AddressModel.belongsTo(db.DoctorModel, { onDelete: "CASCADE" });
 
 module.exports = db;
