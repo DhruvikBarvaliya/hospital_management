@@ -56,7 +56,7 @@ db.WordModel = require("../Models/WordModel")(sequelize, Sequelize);
 db.DoctorModel.hasOne(db.AddressModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 db.AddressModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 
-db.DoctorModel.hasOne(db.HospitalModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
+db.DoctorModel.hasMany(db.HospitalModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 db.HospitalModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 
 db.DoctorModel.hasOne(db.DepartmentModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
@@ -98,11 +98,11 @@ db.AppointmentModel.hasOne(db.DoctorModel, { foreignKey: 'appointment_id', onDel
 db.DoctorModel.belongsTo(db.AppointmentModel, { foreignKey: 'appointment_id', onDelete: "CASCADE" });
 
 // Word
-db.WordModel.hasMany(db.DepartmentModel, { foreignKey: 'word_id', onDelete: "CASCADE" });
-db.DepartmentModel.belongsTo(db.WordModel, { foreignKey: 'word_id', onDelete: "CASCADE" });
+db.WordModel.hasMany(db.DepartmentModel, { foreignKey: 'word_id' });
+db.DepartmentModel.belongsTo(db.WordModel, { foreignKey: 'word_id' });
 
 // Staff
-db.StaffModel.hasMany(db.DepartmentModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
+db.StaffModel.hasOne(db.DepartmentModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
 db.DepartmentModel.belongsTo(db.StaffModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
 
 db.StaffModel.hasOne(db.AddressModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
@@ -112,11 +112,11 @@ db.StaffModel.hasOne(db.RoleModel, { foreignKey: 'staff_id', onDelete: "CASCADE"
 db.RoleModel.belongsTo(db.StaffModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
 
 // Room
-db.RoomModel.hasOne(db.PatientModel, { foreignKey: 'room_id', onDelete: "CASCADE" });
-db.PatientModel.belongsTo(db.RoomModel, { foreignKey: 'room_id', onDelete: "CASCADE" });
+db.RoomModel.hasMany(db.PatientModel, { foreignKey: 'room_id' });
+db.PatientModel.belongsTo(db.RoomModel, { foreignKey: 'room_id' });
 
-db.RoomModel.hasOne(db.StaffModel, { foreignKey: 'room_id', onDelete: "CASCADE" });
-db.StaffModel.belongsTo(db.RoomModel, { foreignKey: 'room_id', onDelete: "CASCADE" });
+db.RoomModel.hasMany(db.StaffModel, { foreignKey: 'room_id' });
+db.StaffModel.belongsTo(db.RoomModel, { foreignKey: 'room_id' });
 
 // TestResult
 db.TestResultModel.hasOne(db.PatientModel, { foreignKey: 'test_result_id', onDelete: "CASCADE" });
