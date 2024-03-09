@@ -3,20 +3,6 @@ module.exports = (sequelize, Sequelize) => {
     "Appointment",
     {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      patient_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Patient",
-          key: "id",
-        },
-      },
-      doctor_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
       date: { type: Sequelize.DATEONLY },
       time: { type: Sequelize.DATE },
       is_active: { type: Sequelize.BOOLEAN },

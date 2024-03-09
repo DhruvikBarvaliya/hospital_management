@@ -56,18 +56,21 @@ db.WordModel = require("../Models/WordModel")(sequelize, Sequelize);
 db.DoctorModel.hasOne(db.AddressModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 db.AddressModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 
-db.DoctorModel.hasMany(db.HospitalModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
-db.HospitalModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
+db.DoctorModel.hasMany(db.AppointmentModel, { foreignKey: 'appointment_id', onDelete: "CASCADE" });
+db.AppointmentModel.belongsTo(db.DoctorModel, { foreignKey: 'appointment_id', onDelete: "CASCADE" });
 
-db.DoctorModel.hasOne(db.DepartmentModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
-db.DepartmentModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
+db.DoctorModel.hasOne(db.MedicalRecordModel, { foreignKey: 'medical_record_id', onDelete: "CASCADE" });
+db.MedicalRecordModel.belongsTo(db.DoctorModel, { foreignKey: 'medical_record_id', onDelete: "CASCADE" });
 
-// AdmissionModel
-db.AdmissionModel.hasOne(db.PatientModel, { foreignKey: 'admission_id', onDelete: "CASCADE" });
-db.PatientModel.belongsTo(db.AdmissionModel, { foreignKey: 'admission_id', onDelete: "CASCADE" });
+db.DoctorModel.hasMany(db.PrescriptionModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
+db.PrescriptionModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 
-db.AdmissionModel.hasOne(db.WordModel, { foreignKey: 'admission_id', onDelete: "CASCADE" });
-db.WordModel.belongsTo(db.AdmissionModel, { foreignKey: 'admission_id', onDelete: "CASCADE" });
+db.DoctorModel.hasMany(db.BillingModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
+db.BillingModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
+
+//Department
+db.DepartmentModel.hasMany(db.DoctorModel, { foreignKey: 'department_id', onDelete: "CASCADE" });
+db.DoctorModel.belongsTo(db.DepartmentModel, { foreignKey: 'department_id', onDelete: "CASCADE" });
 
 // Hospital
 db.HospitalModel.hasOne(db.AddressModel, { foreignKey: 'hospital_id', onDelete: "CASCADE" });
@@ -76,39 +79,59 @@ db.AddressModel.belongsTo(db.HospitalModel, { foreignKey: 'hospital_id', onDelet
 db.HospitalModel.hasMany(db.DepartmentModel, { foreignKey: 'hospital_id', onDelete: "CASCADE" });
 db.DepartmentModel.belongsTo(db.HospitalModel, { foreignKey: 'hospital_id', onDelete: "CASCADE" });
 
+db.HospitalModel.hasMany(db.DoctorModel, { foreignKey: 'hospital_id', onDelete: "CASCADE" });
+db.DoctorModel.belongsTo(db.HospitalModel, { foreignKey: 'hospital_id', onDelete: "CASCADE" });
+
+db.HospitalModel.hasMany(db.PatientModel, { foreignKey: 'hospital_id', onDelete: "CASCADE" });
+db.PatientModel.belongsTo(db.HospitalModel, { foreignKey: 'hospital_id', onDelete: "CASCADE" });
+
 // Pharmacy
 db.PharmacyModel.hasOne(db.AddressModel, { foreignKey: 'pharmacy_id', onDelete: "CASCADE" });
 db.AddressModel.belongsTo(db.PharmacyModel, { foreignKey: 'pharmacy_id', onDelete: "CASCADE" });
 
 // Patient
+db.PatientModel.hasOne(db.AdmissionModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+db.AdmissionModel.belongsTo(db.PatientModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+
 db.PatientModel.hasOne(db.AddressModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
 db.AddressModel.belongsTo(db.PatientModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
 
-db.PatientModel.hasOne(db.PharmacyModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+db.PatientModel.hasOne(db.PharmacyModel, { foreignKey: 'patient_id' });
 db.PharmacyModel.belongsTo(db.PatientModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
 
-db.PatientModel.hasOne(db.HospitalModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
-db.HospitalModel.belongsTo(db.PatientModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+db.PatientModel.hasOne(db.AppointmentModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+db.AppointmentModel.belongsTo(db.PatientModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
 
-// Appointment
-db.AppointmentModel.hasOne(db.PatientModel, { foreignKey: 'appointment_id', onDelete: "CASCADE" });
-db.PatientModel.belongsTo(db.AppointmentModel, { foreignKey: 'appointment_id', onDelete: "CASCADE" });
+db.PatientModel.hasOne(db.TestResultModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+db.TestResultModel.belongsTo(db.PatientModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
 
-db.AppointmentModel.hasOne(db.DoctorModel, { foreignKey: 'appointment_id', onDelete: "CASCADE" });
-db.DoctorModel.belongsTo(db.AppointmentModel, { foreignKey: 'appointment_id', onDelete: "CASCADE" });
+db.PatientModel.hasOne(db.MedicalRecordModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+db.MedicalRecordModel.belongsTo(db.PatientModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+
+db.PatientModel.hasOne(db.PrescriptionModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+db.PrescriptionModel.belongsTo(db.PatientModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+
+db.PatientModel.hasOne(db.InvoiceModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+db.InvoiceModel.belongsTo(db.PatientModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+
+db.PatientModel.hasOne(db.BillingModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
+db.BillingModel.belongsTo(db.PatientModel, { foreignKey: 'patient_id', onDelete: "CASCADE" });
 
 // Word
 db.WordModel.hasMany(db.DepartmentModel, { foreignKey: 'word_id' });
 db.DepartmentModel.belongsTo(db.WordModel, { foreignKey: 'word_id' });
 
+db.WordModel.hasOne(db.AdmissionModel, { foreignKey: 'word_id', onDelete: "CASCADE" });
+db.AdmissionModel.belongsTo(db.WordModel, { foreignKey: 'word_id', onDelete: "CASCADE" });
+
 // Staff
-db.StaffModel.hasOne(db.DepartmentModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
+db.StaffModel.hasOne(db.DepartmentModel, { foreignKey: 'staff_id' });
 db.DepartmentModel.belongsTo(db.StaffModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
 
 db.StaffModel.hasOne(db.AddressModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
 db.AddressModel.belongsTo(db.StaffModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
 
-db.StaffModel.hasOne(db.RoleModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
+db.StaffModel.hasOne(db.RoleModel, { foreignKey: 'staff_id' });
 db.RoleModel.belongsTo(db.StaffModel, { foreignKey: 'staff_id', onDelete: "CASCADE" });
 
 // Room
@@ -118,45 +141,19 @@ db.PatientModel.belongsTo(db.RoomModel, { foreignKey: 'room_id' });
 db.RoomModel.hasMany(db.StaffModel, { foreignKey: 'room_id' });
 db.StaffModel.belongsTo(db.RoomModel, { foreignKey: 'room_id' });
 
-// TestResult
-db.TestResultModel.hasOne(db.PatientModel, { foreignKey: 'test_result_id', onDelete: "CASCADE" });
-db.PatientModel.belongsTo(db.TestResultModel, { foreignKey: 'test_result_id', onDelete: "CASCADE" });
-
-db.TestResultModel.hasOne(db.TestModel, { foreignKey: 'test_result_id', onDelete: "CASCADE" });
-db.TestModel.belongsTo(db.TestResultModel, { foreignKey: 'test_result_id', onDelete: "CASCADE" });
+// TestResult 
+db.TestModel.hasOne(db.TestResultModel, { foreignKey: 'test_id', onDelete: "CASCADE" });
+db.TestResultModel.belongsTo(db.TestModel, { foreignKey: 'test_id', onDelete: "CASCADE" });
 
 // MedicalRecord
-db.MedicalRecordModel.hasOne(db.PatientModel, { foreignKey: 'medical_record_id', onDelete: "CASCADE" });
-db.PatientModel.belongsTo(db.MedicalRecordModel, { foreignKey: 'medical_record_id', onDelete: "CASCADE" });
+db.MedicalRecordModel.hasMany(db.TestResultModel, { foreignKey: 'medical_record_id' });
+db.TestResultModel.belongsTo(db.MedicalRecordModel, { foreignKey: 'medical_record_id' });
 
-db.MedicalRecordModel.hasOne(db.DoctorModel, { foreignKey: 'medical_record_id', onDelete: "CASCADE" });
-db.DoctorModel.belongsTo(db.MedicalRecordModel, { foreignKey: 'medical_record_id', onDelete: "CASCADE" });
+db.MedicalRecordModel.hasOne(db.PrescriptionModel, { foreignKey: 'medical_record_id' });
+db.PrescriptionModel.belongsTo(db.MedicalRecordModel, { foreignKey: 'medical_record_id' });
 
-db.MedicalRecordModel.hasOne(db.TestResultModel, { foreignKey: 'medical_record_id', onDelete: "CASCADE" });
-db.TestResultModel.belongsTo(db.MedicalRecordModel, { foreignKey: 'medical_record_id', onDelete: "CASCADE" });
-
-// Prescription
-db.PrescriptionModel.hasOne(db.PatientModel, { foreignKey: 'prescription_id', onDelete: "CASCADE" });
-db.PatientModel.belongsTo(db.PrescriptionModel, { foreignKey: 'prescription_id', onDelete: "CASCADE" });
-
-db.PrescriptionModel.hasOne(db.DoctorModel, { foreignKey: 'prescription_id', onDelete: "CASCADE" });
-db.DoctorModel.belongsTo(db.PrescriptionModel, { foreignKey: 'prescription_id', onDelete: "CASCADE" });
-
-db.PrescriptionModel.hasOne(db.MedicalRecordModel, { foreignKey: 'prescription_id', onDelete: "CASCADE" });
-db.MedicalRecordModel.belongsTo(db.PrescriptionModel, { foreignKey: 'prescription_id', onDelete: "CASCADE" });
-
-// Invoice
-db.InvoiceModel.hasOne(db.PatientModel, { foreignKey: 'invoice_id', onDelete: "CASCADE" });
-db.PatientModel.belongsTo(db.InvoiceModel, { foreignKey: 'invoice_id', onDelete: "CASCADE" });
-
-// Billing
-db.BillingModel.hasOne(db.PatientModel, { foreignKey: 'billing_id', onDelete: "CASCADE" });
-db.PatientModel.belongsTo(db.BillingModel, { foreignKey: 'billing_id', onDelete: "CASCADE" });
-
-db.BillingModel.hasOne(db.DoctorModel, { foreignKey: 'billing_id', onDelete: "CASCADE" });
-db.DoctorModel.belongsTo(db.BillingModel, { foreignKey: 'billing_id', onDelete: "CASCADE" });
-
-db.BillingModel.hasOne(db.AdmissionModel, { foreignKey: 'billing_id', onDelete: "CASCADE" });
-db.AdmissionModel.belongsTo(db.BillingModel, { foreignKey: 'billing_id', onDelete: "CASCADE" });
+// Admission
+db.AdmissionModel.hasOne(db.BillingModel, { foreignKey: 'admission_id', onDelete: "CASCADE" });
+db.BillingModel.belongsTo(db.AdmissionModel, { foreignKey: 'admission_id', onDelete: "CASCADE" });
 
 module.exports = db;
