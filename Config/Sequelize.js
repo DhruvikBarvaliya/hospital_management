@@ -56,11 +56,11 @@ db.WordModel = require("../Models/WordModel")(sequelize, Sequelize);
 db.DoctorModel.hasOne(db.AddressModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 db.AddressModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 
-db.DoctorModel.hasMany(db.AppointmentModel, { foreignKey: 'appointment_id', onDelete: "CASCADE" });
-db.AppointmentModel.belongsTo(db.DoctorModel, { foreignKey: 'appointment_id', onDelete: "CASCADE" });
+db.DoctorModel.hasMany(db.AppointmentModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
+db.AppointmentModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 
-db.DoctorModel.hasOne(db.MedicalRecordModel, { foreignKey: 'medical_record_id', onDelete: "CASCADE" });
-db.MedicalRecordModel.belongsTo(db.DoctorModel, { foreignKey: 'medical_record_id', onDelete: "CASCADE" });
+db.DoctorModel.hasOne(db.MedicalRecordModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
+db.MedicalRecordModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 
 db.DoctorModel.hasMany(db.PrescriptionModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
 db.PrescriptionModel.belongsTo(db.DoctorModel, { foreignKey: 'doctor_id', onDelete: "CASCADE" });
