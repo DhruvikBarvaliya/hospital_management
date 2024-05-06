@@ -4,7 +4,7 @@ const { PORT, ENV } = require("./Config/Config");
 const bcrypt = require("bcryptjs");
 
 db.sequelize
-  .sync({ force: false, alter: true })
+  .sync({ force: true, alter: true })
   .then(async () => {
     console.log("Drop and re-sync db.");
     const user = await db.UserModel.findOne({
