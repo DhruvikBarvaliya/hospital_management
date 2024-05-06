@@ -18,6 +18,10 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.ENUM("Dermatology", "Diabetology", "Emergency"),
         defaultValue: "Dermatology",
       },
+      availability: {
+        type: Sequelize.ENUM("Available", "Not Available", "On Leave"),
+        defaultValue: "Available",
+      },
       email: { type: Sequelize.STRING },
       password: { type: Sequelize.STRING },
       otp: { type: Sequelize.INTEGER },

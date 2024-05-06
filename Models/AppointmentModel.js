@@ -21,6 +21,10 @@ module.exports = (sequelize, Sequelize) => {
       time: { type: Sequelize.DATE },
       is_active: { type: Sequelize.BOOLEAN },
       status: { type: Sequelize.BOOLEAN },
+      appointment_status: {
+        type: Sequelize.ENUM("Complete", "Pending", "Canceled"),
+        defaultValue: "Pending",
+      },
       created_by: {
         type: Sequelize.INTEGER,
         references: {
