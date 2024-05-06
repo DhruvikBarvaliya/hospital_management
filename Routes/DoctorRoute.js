@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const DoctorController = require("../Controllers/DoctorController");
-const authorize = require('../Middleware/Auth');
+const authorize = require("../Middleware/Auth");
 const Role = require("../Helpers/Role");
 
 /**
@@ -29,6 +29,9 @@ const Role = require("../Helpers/Role");
  *         specialization:
  *           type: string
  *           description: Enter Specialization of Doctor
+ *         availability:
+ *           type: string
+ *           description: Enter Availability of Doctor
  *         email:
  *           type: string
  *           description: Enter Email of Doctor

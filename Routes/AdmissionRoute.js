@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const AdmissionController = require("../Controllers/AdmissionController");
-const authorize = require('../Middleware/Auth');
+const authorize = require("../Middleware/Auth");
 const Role = require("../Helpers/Role");
 
 /**
@@ -12,7 +12,7 @@ const Role = require("../Helpers/Role");
  *       type: object
  *       required:
  *         - patient_id
- *         - ward_id
+ *         - word_id
  *       properties:
  *         patient_id:
  *           type: integer

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const AppointmentController = require("../Controllers/AppointmentController");
-const authorize = require('../Middleware/Auth');
+const authorize = require("../Middleware/Auth");
 const Role = require("../Helpers/Role");
 
 /**
@@ -28,6 +28,9 @@ const Role = require("../Helpers/Role");
  *           type: string
  *           format: date
  *           description: Give Time When Patiant Want Appointment
+ *         appointment_status:
+ *           type: string
+ *           description: Enter Appointment Status of Doctor
  *         is_active:
  *           type: boolean
  *           description: This field is a boolean column in a database table that indicates whether a record or user is currently active or inactive
