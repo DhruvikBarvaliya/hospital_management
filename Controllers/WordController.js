@@ -3,61 +3,60 @@ const Word = db.WordModel;
 
 module.exports = {
   addWord: async (req, res) => {
-    if (!req.body.word_name) {
-      res.status(400).send({ message: "Word Name Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    Word.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Word.",
-        });
+    try {
+      const data = req.body;
+      const newWord = await Word.create(data);
+      res.send(newWord);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the Word.",
       });
+    }
   },
   getAllWord: async (req, res) => {
-    Word.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const result = await Word.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
   getWordById: async (req, res) => {
-    let id = req.params.id;
-    Word.findByPk(id).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await Word.findByPk(id);
       if (result) {
         res.json({
           success: 1,
-          message: "Data Recived",
+          message: "Data Received",
           data: result,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the Word.",
+      });
+    }
   },
   updateWord: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    Word.update(data, {
-      where: { id: id },
-    }).then((result) => {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const result = await Word.update(data, {
+        where: { id: id },
+      });
       if (result) {
         res.json({
           success: 1,
@@ -67,20 +66,25 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Word.",
+      });
+    }
   },
   updateWordStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Word.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const result = await Word.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
       if (result) {
         res.json({
           success: 1,
@@ -90,14 +94,19 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Word status.",
+      });
+    }
   },
   deleteWordById: async (req, res) => {
-    let id = req.params.id;
-    Word.destroy({ where: { id: id } }).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await Word.destroy({ where: { id: id } });
       if (result) {
         res.json({
           success: 1,
@@ -107,9 +116,13 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Deleted",
+          message: "Fail To Delete",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the Word.",
+      });
+    }
   },
 };

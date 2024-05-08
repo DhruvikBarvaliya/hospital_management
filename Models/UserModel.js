@@ -1,5 +1,3 @@
-// import { DataTypes } from '@sequelize/core';
-
 module.exports = (sequelize, Sequelize) => {
   const User = sequelize.define(
     "User",
@@ -25,9 +23,9 @@ module.exports = (sequelize, Sequelize) => {
         defaultValue: sequelize.fn("NOW"),
       },
       date_of_birth: { type: Sequelize.DATEONLY },
-      is_verified: { type: Sequelize.BOOLEAN, default: false },
-      is_active: { type: Sequelize.BOOLEAN, default: false },
-      status: { type: Sequelize.BOOLEAN, default: false },
+      is_verified: { type: Sequelize.BOOLEAN, defaultValue: false },
+      is_active: { type: Sequelize.BOOLEAN, defaultValue: false },
+      status: { type: Sequelize.BOOLEAN, defaultValue: false },
     },
     {
       freezeTableName: true,

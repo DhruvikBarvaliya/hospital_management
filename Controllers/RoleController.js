@@ -3,61 +3,60 @@ const Role = db.RoleModel;
 
 module.exports = {
   addRole: async (req, res) => {
-    if (!req.body.role_name) {
-      res.status(400).send({ message: "Role Name Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    Role.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Role.",
-        });
+    try {
+      const data = req.body;
+      const newRole = await Role.create(data);
+      res.send(newRole);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the Role.",
       });
+    }
   },
   getAllRole: async (req, res) => {
-    Role.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const result = await Role.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
   getRoleById: async (req, res) => {
-    let id = req.params.id;
-    Role.findByPk(id).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await Role.findByPk(id);
       if (result) {
         res.json({
           success: 1,
-          message: "Data Recived",
+          message: "Data Received",
           data: result,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the Role.",
+      });
+    }
   },
   updateRole: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    Role.update(data, {
-      where: { id: id },
-    }).then((result) => {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const result = await Role.update(data, {
+        where: { id: id },
+      });
       if (result) {
         res.json({
           success: 1,
@@ -67,20 +66,25 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Role.",
+      });
+    }
   },
   updateRoleStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Role.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const result = await Role.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
       if (result) {
         res.json({
           success: 1,
@@ -90,14 +94,19 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Role status.",
+      });
+    }
   },
   deleteRoleById: async (req, res) => {
-    let id = req.params.id;
-    Role.destroy({ where: { id: id } }).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await Role.destroy({ where: { id: id } });
       if (result) {
         res.json({
           success: 1,
@@ -107,9 +116,13 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Deleted",
+          message: "Fail To Delete",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the Role.",
+      });
+    }
   },
 };

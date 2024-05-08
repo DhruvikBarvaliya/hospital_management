@@ -146,29 +146,14 @@ const Role = require("../Helpers/Role");
  *         description: The Appointment was not found
  */
 
-router.post(
-  "/appointment",
-  /* authorize(), */ AppointmentController.addAppointment
-);
-router.get(
-  "/appointment",
-  /* authorize(), */ AppointmentController.getAllAppointment
-);
-router.get(
-  "/appointment/:id",
-  /* authorize(), */ AppointmentController.getAppointmentById
-);
-router.put(
-  "/appointment/:id",
-  /* authorize(), */ AppointmentController.updateAppointment
-);
-router.patch(
-  "/appointment/:id/:status",
-  /* authorize(), */ AppointmentController.updateAppointmentStatus
-);
-router.delete(
-  "/appointment/:id",
-  /* authorize(), */ AppointmentController.deleteAppointmentById
-);
+router.route("/appointment")
+  .post(/* authorize(), */ AppointmentController.addAppointment)
+  .get(/* authorize(), */ AppointmentController.getAllAppointment);
+
+router.route("/appointment/:id")
+  .get(/* authorize(), */ AppointmentController.getAppointmentById)
+  .put(/* authorize(), */ AppointmentController.updateAppointment)
+  .patch(/* authorize(), */ AppointmentController.updateAppointmentStatus)
+  .delete(/* authorize(), */ AppointmentController.deleteAppointmentById);
 
 module.exports = router;

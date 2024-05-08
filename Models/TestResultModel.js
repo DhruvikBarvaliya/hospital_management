@@ -3,38 +3,14 @@ module.exports = (sequelize, Sequelize) => {
     "TestResult",
     {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      patient_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Patient",
-          key: "id",
-        },
-      },
-      test_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Test",
-          key: "id",
-        },
-      },
-      result_details: { type: Sequelize.STRING },
-      test_date: { type: Sequelize.DATEONLY },
-      is_active: { type: Sequelize.BOOLEAN },
-      status: { type: Sequelize.BOOLEAN },
-      created_by: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
-      updated_by: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
+      patient_id: Sequelize.INTEGER,
+      test_id: Sequelize.INTEGER,
+      result_details: Sequelize.STRING,
+      test_date: Sequelize.DATEONLY,
+      is_active: Sequelize.BOOLEAN,
+      status: Sequelize.BOOLEAN,
+      created_by: Sequelize.INTEGER,
+      updated_by: Sequelize.INTEGER,
     },
     {
       freezeTableName: true,

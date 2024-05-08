@@ -3,61 +3,60 @@ const Test = db.TestModel;
 
 module.exports = {
   addTest: async (req, res) => {
-    if (!req.body.test_name) {
-      res.status(400).send({ message: "Test Name Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    Test.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Test.",
-        });
+    try {
+      const data = req.body;
+      const createdTest = await Test.create(data);
+      res.send(createdTest);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the Test.",
       });
+    }
   },
   getAllTest: async (req, res) => {
-    Test.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const result = await Test.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
   getTestById: async (req, res) => {
-    let id = req.params.id;
-    Test.findByPk(id).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await Test.findByPk(id);
       if (result) {
         res.json({
           success: 1,
-          message: "Data Recived",
+          message: "Data Received",
           data: result,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the Test.",
+      });
+    }
   },
   updateTest: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    Test.update(data, {
-      where: { id: id },
-    }).then((result) => {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const result = await Test.update(data, {
+        where: { id: id },
+      });
       if (result) {
         res.json({
           success: 1,
@@ -67,20 +66,25 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Test.",
+      });
+    }
   },
   updateTestStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Test.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const result = await Test.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
       if (result) {
         res.json({
           success: 1,
@@ -90,14 +94,19 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Test status.",
+      });
+    }
   },
   deleteTestById: async (req, res) => {
-    let id = req.params.id;
-    Test.destroy({ where: { id: id } }).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await Test.destroy({ where: { id: id } });
       if (result) {
         res.json({
           success: 1,
@@ -107,9 +116,13 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Deleted",
+          message: "Fail To Delete",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the Test.",
+      });
+    }
   },
 };

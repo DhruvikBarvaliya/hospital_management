@@ -3,85 +3,66 @@ const MedicalRecord = db.MedicalRecordModel;
 
 module.exports = {
   addMedicalRecord: async (req, res) => {
-    if (!req.body.patient_id) {
-      res.status(400).send({ message: "Patient Id Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    MedicalRecord.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message ||
-            "Some error occurred while creating the MedicalRecord.",
-        });
+    try {
+      if (!req.body.patient_id) {
+        return res.status(400).send({ message: "Patient Id Can not be Empty" });
+      }
+      const data = req.body;
+      const createdRecord = await MedicalRecord.create(data);
+      res.send(createdRecord);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the MedicalRecord.",
       });
+    }
   },
+
   getAllMedicalRecord: async (req, res) => {
-    MedicalRecord.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const result = await MedicalRecord.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
+
   getMedicalRecordById: async (req, res) => {
-    let id = req.params.id;
-    MedicalRecord.findByPk(id).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await MedicalRecord.findByPk(id);
       if (result) {
         res.json({
           success: 1,
-          message: "Data Recived",
+          message: "Data Received",
           data: result,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the MedicalRecord.",
+      });
+    }
   },
+
   updateMedicalRecord: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    MedicalRecord.update(data, {
-      where: { id: id },
-    }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
-  },
-  updateMedicalRecordStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    MedicalRecord.update(
-      { status: status },
-      {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const result = await MedicalRecord.update(data, {
         where: { id: id },
-      }
-    ).then((result) => {
+      });
       if (result) {
         res.json({
           success: 1,
@@ -91,14 +72,49 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the MedicalRecord.",
+      });
+    }
   },
+
+  updateMedicalRecordStatus: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const result = await MedicalRecord.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
+      if (result) {
+        res.json({
+          success: 1,
+          message: "Data Updated",
+          data: result,
+        });
+      } else {
+        res.json({
+          success: 0,
+          message: "Fail To Update",
+        });
+      }
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the status of the MedicalRecord.",
+      });
+    }
+  },
+
   deleteMedicalRecordById: async (req, res) => {
-    let id = req.params.id;
-    MedicalRecord.destroy({ where: { id: id } }).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await MedicalRecord.destroy({ where: { id: id } });
       if (result) {
         res.json({
           success: 1,
@@ -108,9 +124,13 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Deleted",
+          message: "Fail To Delete",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the MedicalRecord.",
+      });
+    }
   },
 };

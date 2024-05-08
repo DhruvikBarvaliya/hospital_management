@@ -3,28 +3,16 @@ module.exports = (sequelize, Sequelize) => {
     "Address",
     {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      streetAddress1: { type: Sequelize.STRING },
-      streetAddress2: { type: Sequelize.STRING },
-      country: { type: Sequelize.STRING },
-      state: { type: Sequelize.STRING },
-      city: { type: Sequelize.STRING },
-      zip_code: { type: Sequelize.INTEGER },
-      is_active: { type: Sequelize.BOOLEAN },
-      status: { type: Sequelize.BOOLEAN },
-      created_by: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
-      updated_by: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
+      streetAddress1: Sequelize.STRING,
+      streetAddress2: Sequelize.STRING,
+      country: Sequelize.STRING,
+      state: Sequelize.STRING,
+      city: Sequelize.STRING,
+      zip_code: Sequelize.INTEGER,
+      is_active: Sequelize.BOOLEAN,
+      status: Sequelize.BOOLEAN,
+      created_by: Sequelize.INTEGER,
+      updated_by: Sequelize.INTEGER,
     },
     {
       freezeTableName: true,

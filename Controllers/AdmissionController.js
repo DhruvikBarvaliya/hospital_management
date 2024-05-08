@@ -3,113 +3,110 @@ const Admission = db.AdmissionModel;
 
 module.exports = {
   addAdmission: async (req, res) => {
-    if (!req.body.patient_id) {
-      res.status(400).send({ message: "Patient Id Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    Admission.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Admission.",
-        });
+    try {
+      if (!req.body.patient_id) {
+        return res.status(400).send({ message: "Patient Id Can not be Empty" });
+      }
+      const data = req.body;
+      const createdData = await Admission.create(data);
+      res.send(createdData);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the Admission.",
       });
+    }
   },
+
   getAllAdmission: async (req, res) => {
-    Admission.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const result = await Admission.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
+
   getAdmissionById: async (req, res) => {
-    let id = req.params.id;
-    Admission.findByPk(id).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const result = await Admission.findByPk(id);
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
+
   updateAdmission: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    Admission.update(data, {
-      where: { id: id },
-    }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
-  },
-  updateAdmissionStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Admission.update(
-      { status: status },
-      {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const result = await Admission.update(data, {
         where: { id: id },
-      }
-    ).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+      });
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail To Update",
+      });
+    }
   },
+
+  updateAdmissionStatus: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const result = await Admission.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail To Update",
+      });
+    }
+  },
+
   deleteAdmissionById: async (req, res) => {
-    let id = req.params.id;
-    Admission.destroy({ where: { id: id } }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Deleted",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Deleted",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const result = await Admission.destroy({ where: { id: id } });
+      res.json({
+        success: 1,
+        message: "Data Deleted",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail To Delete",
+      });
+    }
   },
 };

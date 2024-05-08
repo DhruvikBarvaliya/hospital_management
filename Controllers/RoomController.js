@@ -3,61 +3,63 @@ const Room = db.RoomModel;
 
 module.exports = {
   addRoom: async (req, res) => {
-    if (!req.body.staff_id) {
-      res.status(400).send({ message: "Staff Id Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    Room.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Room.",
-        });
+    try {
+      if (!req.body.staff_id) {
+        return res.status(400).send({ message: "Staff Id Can not be Empty" });
+      }
+      const data = req.body;
+      const createdRoom = await Room.create(data);
+      res.send(createdRoom);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the Room.",
       });
+    }
   },
   getAllRoom: async (req, res) => {
-    Room.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const result = await Room.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
   getRoomById: async (req, res) => {
-    let id = req.params.id;
-    Room.findByPk(id).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await Room.findByPk(id);
       if (result) {
         res.json({
           success: 1,
-          message: "Data Recived",
+          message: "Data Received",
           data: result,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the Room.",
+      });
+    }
   },
   updateRoom: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    Room.update(data, {
-      where: { id: id },
-    }).then((result) => {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const result = await Room.update(data, {
+        where: { id: id },
+      });
       if (result) {
         res.json({
           success: 1,
@@ -67,20 +69,25 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Room.",
+      });
+    }
   },
   updateRoomStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Room.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const result = await Room.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
       if (result) {
         res.json({
           success: 1,
@@ -90,14 +97,19 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Room status.",
+      });
+    }
   },
   deleteRoomById: async (req, res) => {
-    let id = req.params.id;
-    Room.destroy({ where: { id: id } }).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await Room.destroy({ where: { id: id } });
       if (result) {
         res.json({
           success: 1,
@@ -107,9 +119,13 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Deleted",
+          message: "Fail To Delete",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the Room.",
+      });
+    }
   },
 };

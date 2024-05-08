@@ -3,113 +3,105 @@ const Pharmacy = db.PharmacyModel;
 
 module.exports = {
   addPharmacy: async (req, res) => {
-    if (!req.body.pharmacy_name) {
-      res.status(400).send({ message: "Pharmacy Name Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    Pharmacy.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Pharmacy.",
-        });
+    try {
+      const data = req.body;
+      const newPharmacy = await Pharmacy.create(data);
+      res.send(newPharmacy);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the Pharmacy.",
       });
+    }
   },
   getAllPharmacy: async (req, res) => {
-    Pharmacy.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const allPharmacies = await Pharmacy.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: allPharmacies,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
   getPharmacyById: async (req, res) => {
-    let id = req.params.id;
-    Pharmacy.findByPk(id).then((result) => {
-      if (result) {
+    try {
+      const id = req.params.id;
+      const pharmacy = await Pharmacy.findByPk(id);
+      if (pharmacy) {
         res.json({
           success: 1,
-          message: "Data Recived",
-          data: result,
+          message: "Data Received",
+          data: pharmacy,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the Pharmacy.",
+      });
+    }
   },
   updatePharmacy: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    Pharmacy.update(data, {
-      where: { id: id },
-    }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const updatedPharmacy = await Pharmacy.update(data, {
+        where: { id: id },
+      });
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedPharmacy,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Pharmacy.",
+      });
+    }
   },
   updatePharmacyStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Pharmacy.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const updatedPharmacy = await Pharmacy.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedPharmacy,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Pharmacy status.",
+      });
+    }
   },
   deletePharmacyById: async (req, res) => {
-    let id = req.params.id;
-    Pharmacy.destroy({ where: { id: id } }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Deleted",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Deleted",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const deletedPharmacy = await Pharmacy.destroy({ where: { id: id } });
+      res.json({
+        success: 1,
+        message: "Data Deleted",
+        data: deletedPharmacy,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the Pharmacy.",
+      });
+    }
   },
 };

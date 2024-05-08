@@ -4,131 +4,82 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
   addPatient: async (req, res) => {
-    if (!req.body.patient_first_name) {
-      res.status(400).send({ message: "Patient Name Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    const patient = await Patient.findOne({
-      where: {
-        email: data.email,
-      },
-    });
-    if (patient!= null) {
-      return res
-        .status(400)
-        .json({
-          status: false,
-          message: "Patient already registered with this Email",
-        });
-    } else {
+    try {
+      const { patient_first_name, email, password } = req.body;
+
+      if (!patient_first_name) {
+        return res.status(400).send({ message: "Patient Name Can not be Empty" });
+      }
+
+      const existingPatient = await Patient.findOne({ where: { email } });
+
+      if (existingPatient) {
+        return res.status(400).json({ status: false, message: "Patient already registered with this Email" });
+      }
+
       const salt = await bcrypt.genSalt(10);
-      const password = await bcrypt.hash(data.password, salt);
-      data.password = password;
-      Patient.create(data)
-        .then((data) => {
-          res.send(data);
-        })
-        .catch((err) => {
-          res.status(500).send({
-            message:
-              err.message || "Some error occurred while creating the Patient.",
-          });
-        });
+      const hashedPassword = await bcrypt.hash(password, salt);
+
+      const createdPatient = await Patient.create({ patient_first_name, email, password: hashedPassword });
+      res.send(createdPatient);
+    } catch (error) {
+      res.status(500).send({ message: error.message || "Some error occurred while creating the Patient." });
     }
   },
+
   getAllPatient: async (req, res) => {
-    Patient.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const allPatients = await Patient.findAll();
+      res.json({ success: 1, message: "Data Received", data: allPatients });
+    } catch (error) {
+      res.json({ success: 0, message: "Fail Received" });
+    }
   },
+
   getPatientById: async (req, res) => {
-    let id = req.params.id;
-    Patient.findByPk(id).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
+    try {
+      const id = req.params.id;
+      const patient = await Patient.findByPk(id);
+      if (patient) {
+        res.json({ success: 1, message: "Data Received", data: patient });
       } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
+        res.json({ success: 0, message: "Fail Received" });
       }
-    });
+    } catch (error) {
+      res.status(500).send({ message: error.message || "Some error occurred while fetching the Patient." });
+    }
   },
+
   updatePatient: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    delete data.password;
-    Patient.update(data, {
-      where: { id: id },
-    }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      delete data.password;
+      const updatedPatient = await Patient.update(data, { where: { id } });
+      res.json({ success: 1, message: "Data Updated", data: updatedPatient });
+    } catch (error) {
+      res.json({ success: 0, message: "Fail To Update" });
+    }
   },
+
   updatePatientStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Patient.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const { status } = req.body;
+      const updatedStatus = await Patient.update({ status }, { where: { id } });
+      res.json({ success: 1, message: "Data Updated", data: updatedStatus });
+    } catch (error) {
+      res.json({ success: 0, message: "Fail To Update Status" });
+    }
   },
+
   deletePatientById: async (req, res) => {
-    let id = req.params.id;
-    Patient.destroy({ where: { id: id } }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Deleted",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Deleted",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const deletedPatient = await Patient.destroy({ where: { id } });
+      res.json({ success: 1, message: "Data Deleted", data: deletedPatient });
+    } catch (error) {
+      res.json({ success: 0, message: "Fail To Delete" });
+    }
   },
 };

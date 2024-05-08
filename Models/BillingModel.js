@@ -3,49 +3,19 @@ module.exports = (sequelize, Sequelize) => {
     "Billing",
     {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      patient_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Patient",
-          key: "id",
-        },
-      },
-      doctore_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
-      admission_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Admission",
-          key: "id",
-        },
-      },
-      bill_date: { type: Sequelize.DATEONLY },
-      total_amount: { type: Sequelize.BIGINT },
+      patient_id: Sequelize.INTEGER,
+      doctore_id: Sequelize.INTEGER,
+      admission_id: Sequelize.INTEGER,
+      bill_date: Sequelize.DATEONLY,
+      total_amount: Sequelize.BIGINT,
       payment_status: {
         type: Sequelize.ENUM("pending", "cancelled", "paid"),
         defaultValue: "pending",
       },
-      is_active: { type: Sequelize.BOOLEAN },
-      status: { type: Sequelize.BOOLEAN },
-      created_by: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
-      updated_by: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
+      is_active: Sequelize.BOOLEAN,
+      status: Sequelize.BOOLEAN,
+      created_by: Sequelize.INTEGER,
+      updated_by: Sequelize.INTEGER,
     },
     {
       freezeTableName: true,

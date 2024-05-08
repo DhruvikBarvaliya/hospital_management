@@ -6,32 +6,24 @@ let sendMail = async (to, otp) => {
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: user,
+        user,
         pass: password,
       },
     });
 
     var mailOptions = {
       from: user,
-      to: to,
+      to,
       subject: "Verification From HRMS ✔",
       text: "For Verify Email",
       html: `<P>This is OTP For Verify Email</p><b>${otp}</b> `,
     };
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log("Email sent: " + info.response);
-        console.log("Email MessageId: " + info.messageId);
-      }
-    });
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent: " + info.response);
+    console.log("Email MessageId: " + info.messageId);
   } catch (err) {
-    return res.status(500).json({
-      status: false,
-      message: "Server Error",
-      error: err.message || err.toString(),
-    });
+    console.error(err);
+    throw new Error("Server Error");
   }
 };
 

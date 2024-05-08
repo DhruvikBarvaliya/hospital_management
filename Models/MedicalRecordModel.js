@@ -3,49 +3,19 @@ module.exports = (sequelize, Sequelize) => {
     "MedicalRecord",
     {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      patient_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Patient",
-          key: "id",
-        },
-      },
-      doctor_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
-      record_date: { type: Sequelize.DATEONLY },
-      diagnosis: { type: Sequelize.STRING },
-      prescription: { type: Sequelize.STRING },
-      test_result: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "TestResult",
-          key: "id",
-        },
-      },
-      notes: { type: Sequelize.STRING },
-      problem: { type: Sequelize.STRING },
-      date_of_examination: { type: Sequelize.DATEONLY },
-      is_active: { type: Sequelize.BOOLEAN },
-      status: { type: Sequelize.BOOLEAN },
-      created_by: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
-      updated_by: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctor",
-          key: "id",
-        },
-      },
+      patient_id: Sequelize.INTEGER,
+      doctor_id: Sequelize.INTEGER,
+      record_date: Sequelize.DATEONLY,
+      diagnosis: Sequelize.STRING,
+      prescription: Sequelize.STRING,
+      test_result: Sequelize.INTEGER,
+      notes: Sequelize.STRING,
+      problem: Sequelize.STRING,
+      date_of_examination: Sequelize.DATEONLY,
+      is_active: Sequelize.BOOLEAN,
+      status: Sequelize.BOOLEAN,
+      created_by: Sequelize.INTEGER,
+      updated_by: Sequelize.INTEGER,
     },
     {
       freezeTableName: true,

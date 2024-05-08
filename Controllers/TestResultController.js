@@ -3,113 +3,105 @@ const TestResult = db.TestResultModel;
 
 module.exports = {
   addTestResult: async (req, res) => {
-    if (!req.body.test_id) {
-      res.status(400).send({ message: "Test Id Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    TestResult.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the TestResult.",
-        });
+    try {
+      const data = req.body;
+      const newTestResult = await TestResult.create(data);
+      res.send(newTestResult);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the TestResult.",
       });
+    }
   },
   getAllTestResult: async (req, res) => {
-    TestResult.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const result = await TestResult.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
   getTestResultById: async (req, res) => {
-    let id = req.params.id;
-    TestResult.findByPk(id).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await TestResult.findByPk(id);
       if (result) {
         res.json({
           success: 1,
-          message: "Data Recived",
+          message: "Data Received",
           data: result,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the TestResult.",
+      });
+    }
   },
   updateTestResult: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    TestResult.update(data, {
-      where: { id: id },
-    }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const updatedTestResult = await TestResult.update(data, {
+        where: { id: id },
+      });
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedTestResult,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the TestResult.",
+      });
+    }
   },
   updateTestResultStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    TestResult.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const updatedTestResult = await TestResult.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedTestResult,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the TestResult status.",
+      });
+    }
   },
   deleteTestResultById: async (req, res) => {
-    let id = req.params.id;
-    TestResult.destroy({ where: { id: id } }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Deleted",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Deleted",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const deletedTestResult = await TestResult.destroy({ where: { id: id } });
+      res.json({
+        success: 1,
+        message: "Data Deleted",
+        data: deletedTestResult,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the TestResult.",
+      });
+    }
   },
 };

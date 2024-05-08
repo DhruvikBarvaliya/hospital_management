@@ -4,131 +4,131 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
   addStaff: async (req, res) => {
-    if (!req.body.staff_first_name) {
-      res.status(400).send({ message: "Staff Name Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    const staff = await Staff.findOne({
-      where: {
-        email: data.email,
-      },
-    });
-    if (staff!= null) {
-      return res
-        .status(400)
-        .json({
+    try {
+      const { staff_first_name, email, password } = req.body;
+
+      if (!staff_first_name) {
+        return res.status(400).send({ message: "Staff Name Can not be Empty" });
+      }
+
+      const existingStaff = await Staff.findOne({ where: { email } });
+
+      if (existingStaff) {
+        return res.status(400).json({
           status: false,
           message: "Staff already registered with this Email",
         });
-    } else {
+      }
+
       const salt = await bcrypt.genSalt(10);
-      const password = await bcrypt.hash(data.password, salt);
-      data.password = password;
-      Staff.create(data)
-        .then((data) => {
-          res.send(data);
-        })
-        .catch((err) => {
-          res.status(500).send({
-            message:
-              err.message || "Some error occurred while creating the Staff.",
-          });
-        });
+      const hashedPassword = await bcrypt.hash(password, salt);
+
+      const newStaff = await Staff.create({ staff_first_name, email, password: hashedPassword });
+      res.send(newStaff);
+    } catch (error) {
+      res.status(500).send({
+        message: error.message || "Some error occurred while creating the Staff.",
+      });
     }
   },
+
   getAllStaff: async (req, res) => {
-    Staff.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const allStaff = await Staff.findAll();
+
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: allStaff,
+      });
+    } catch (error) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
+
   getStaffById: async (req, res) => {
-    let id = req.params.id;
-    Staff.findByPk(id).then((result) => {
-      if (result) {
+    try {
+      const id = req.params.id;
+      const staffById = await Staff.findByPk(id);
+
+      if (staffById) {
         res.json({
           success: 1,
-          message: "Data Recived",
-          data: result,
+          message: "Data Received",
+          data: staffById,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (error) {
+      res.status(500).send({
+        message: error.message || "Some error occurred while retrieving the Staff.",
+      });
+    }
   },
+
   updateStaff: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    delete data.password;
-    Staff.update(data, {
-      where: { id: id },
-    }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      delete data.password;
+
+      const updatedStaff = await Staff.update(data, { where: { id } });
+
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedStaff,
+      });
+    } catch (error) {
+      res.json({
+        success: 0,
+        message: "Fail To Update",
+      });
+    }
   },
+
   updateStaffStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Staff.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const { status } = req.body;
+
+      const updatedStatus = await Staff.update({ status }, { where: { id } });
+
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedStatus,
+      });
+    } catch (error) {
+      res.json({
+        success: 0,
+        message: "Fail To Update",
+      });
+    }
   },
+
   deleteStaffById: async (req, res) => {
-    let id = req.params.id;
-    Staff.destroy({ where: { id: id } }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Deleted",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Deleted",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const deletedStaff = await Staff.destroy({ where: { id } });
+
+      res.json({
+        success: 1,
+        message: "Data Deleted",
+        data: deletedStaff,
+      });
+    } catch (error) {
+      res.json({
+        success: 0,
+        message: "Fail To Delete",
+      });
+    }
   },
 };

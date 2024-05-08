@@ -3,113 +3,105 @@ const Department = db.DepartmentModel;
 
 module.exports = {
   addDepartment: async (req, res) => {
-    if (!req.body.department_name) {
-      res.status(400).send({ message: "Department Name Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    Department.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Department.",
-        });
+    try {
+      const data = req.body;
+      const newDepartment = await Department.create(data);
+      res.send(newDepartment);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the Department.",
       });
+    }
   },
   getAllDepartment: async (req, res) => {
-    Department.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const departments = await Department.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: departments,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
   getDepartmentById: async (req, res) => {
-    let id = req.params.id;
-    Department.findByPk(id).then((result) => {
-      if (result) {
+    try {
+      const id = req.params.id;
+      const department = await Department.findByPk(id);
+      if (department) {
         res.json({
           success: 1,
-          message: "Data Recived",
-          data: result,
+          message: "Data Received",
+          data: department,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the Department.",
+      });
+    }
   },
   updateDepartment: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    Department.update(data, {
-      where: { id: id },
-    }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const updatedDepartment = await Department.update(data, {
+        where: { id: id },
+      });
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedDepartment,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Department.",
+      });
+    }
   },
   updateDepartmentStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Department.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const updatedDepartment = await Department.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedDepartment,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Department status.",
+      });
+    }
   },
   deleteDepartmentById: async (req, res) => {
-    let id = req.params.id;
-    Department.destroy({ where: { id: id } }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Deleted",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Deleted",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const deletedDepartment = await Department.destroy({ where: { id: id } });
+      res.json({
+        success: 1,
+        message: "Data Deleted",
+        data: deletedDepartment,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the Department.",
+      });
+    }
   },
 };

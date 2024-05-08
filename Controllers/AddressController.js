@@ -3,58 +3,60 @@ const Address = db.AddressModel;
 
 module.exports = {
   addAddress: async (req, res) => {
-    const data = req.body;
-    Address.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Address.",
-        });
+    try {
+      const data = req.body;
+      const createdAddress = await Address.create(data);
+      res.send(createdAddress);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the Address.",
       });
+    }
   },
   getAllAddress: async (req, res) => {
-    Address.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const result = await Address.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: result,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
   getAddressById: async (req, res) => {
-    let id = req.params.id;
-    console.log(id);
-    Address.findByPk(id).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await Address.findByPk(id);
       if (result) {
         res.json({
           success: 1,
-          message: "Data Recived",
+          message: "Data Received",
           data: result,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the Address.",
+      });
+    }
   },
   updateAddress: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    Address.update(data, {
-      where: { id: id },
-    }).then((result) => {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const result = await Address.update(data, {
+        where: { id: id },
+      });
       if (result) {
         res.json({
           success: 1,
@@ -64,20 +66,25 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Address.",
+      });
+    }
   },
   updateAddressStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params.status;
-    Address.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
+    try {
+      const id = req.params.id;
+      const status = req.params.status;
+      const result = await Address.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
       if (result) {
         res.json({
           success: 1,
@@ -87,15 +94,19 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Updated",
+          message: "Fail To Update",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Address status.",
+      });
+    }
   },
   deleteAddressById: async (req, res) => {
-    // let id = req.query.id;
-    let id = req.params.id;
-    Address.destroy({ where: { id: id } }).then((result) => {
+    try {
+      const id = req.params.id;
+      const result = await Address.destroy({ where: { id: id } });
       if (result) {
         res.json({
           success: 1,
@@ -105,9 +116,13 @@ module.exports = {
       } else {
         res.json({
           success: 0,
-          message: "Fail To Deleted",
+          message: "Fail To Delete",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the Address.",
+      });
+    }
   },
 };

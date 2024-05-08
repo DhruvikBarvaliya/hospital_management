@@ -2,42 +2,46 @@ module.exports = (sequelize, Sequelize) => {
   const Room = sequelize.define(
     "Room",
     {
-      id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+      id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+      },
       patient_id: {
         type: Sequelize.INTEGER,
         references: {
           model: "Patient",
-          key: "id",
-        },
+          key: "id"
+        }
       },
       staff_id: {
         type: Sequelize.INTEGER,
         references: {
           model: "Staff",
-          key: "id",
-        },
+          key: "id"
+        }
       },
-      admission_date: { type: Sequelize.DATEONLY },
-      is_active: { type: Sequelize.BOOLEAN },
-      status: { type: Sequelize.BOOLEAN },
+      admission_date: Sequelize.DATEONLY,
+      is_active: Sequelize.BOOLEAN,
+      status: Sequelize.BOOLEAN,
       created_by: {
         type: Sequelize.INTEGER,
         references: {
           model: "Doctor",
-          key: "id",
-        },
+          key: "id"
+        }
       },
       updated_by: {
         type: Sequelize.INTEGER,
         references: {
           model: "Doctor",
-          key: "id",
-        },
-      },
+          key: "id"
+        }
+      }
     },
     {
       freezeTableName: true,
-      timestamps: true,
+      timestamps: true
     }
   );
   return Room;

@@ -3,113 +3,113 @@ const Hospital = db.HospitalModel;
 
 module.exports = {
   addHospital: async (req, res) => {
-    if (!req.body.hospital_name) {
-      res.status(400).send({ message: "Hospital Name Can not be Emapty" });
-      return;
-    }
-    const data = req.body;
-    Hospital.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Hospital.",
-        });
+    try {
+      if (!req.body.hospital_name) {
+        return res.status(400).send({ message: "Hospital Name Can not be Empty" });
+      }
+      const data = req.body;
+      const createdHospital = await Hospital.create(data);
+      res.send(createdHospital);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the Hospital.",
       });
+    }
   },
+
   getAllHospital: async (req, res) => {
-    Hospital.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const hospitals = await Hospital.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: hospitals,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
+
   getHospitalById: async (req, res) => {
-    let id = req.params.id;
-    Hospital.findByPk(id).then((result) => {
-      if (result) {
+    try {
+      const id = req.params.id;
+      const hospital = await Hospital.findByPk(id);
+      if (hospital) {
         res.json({
           success: 1,
-          message: "Data Recived",
-          data: result,
+          message: "Data Received",
+          data: hospital,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the Hospital.",
+      });
+    }
   },
+
   updateHospital: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    Hospital.update(data, {
-      where: { id: id },
-    }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
-  },
-  updateHospitalStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Hospital.update(
-      { status: status },
-      {
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const updatedHospital = await Hospital.update(data, {
         where: { id: id },
-      }
-    ).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+      });
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedHospital,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Hospital.",
+      });
+    }
   },
+
+  updateHospitalStatus: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const updatedStatus = await Hospital.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedStatus,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Hospital status.",
+      });
+    }
+  },
+
   deleteHospitalById: async (req, res) => {
-    let id = req.params.id;
-    Hospital.destroy({ where: { id: id } }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Deleted",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Deleted",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const deletedHospital = await Hospital.destroy({ where: { id: id } });
+      res.json({
+        success: 1,
+        message: "Data Deleted",
+        data: deletedHospital,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the Hospital.",
+      });
+    }
   },
 };

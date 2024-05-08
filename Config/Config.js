@@ -1,17 +1,29 @@
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config();
+
+const {
+  PORT,
+  JWT_SECRET_KEY,
+  EMAIL_USER,
+  EMAIL_PASSWORD,
+  ENV,
+  DB_HOST,
+  DB_USER,
+  DB_PASSWORD,
+  DB_NAME,
+  DB_DIALECT
+} = process.env;
 
 module.exports = {
-  PORT: process.env.PORT,
-  JWT_SECRET_KEY: process.env.JWT_SECRET_KEY,
-  EMAIL_USER: process.env.EMAIL_USER,
-  EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
-  ENV: process.env.ENV,
-  HOST: process.env.DB_HOST,
-  USER: process.env.DB_USER,
-  PASSWORD: process.env.DB_PASSWORD,
-  DB: process.env.DB_NAME,
-  dialect: process.env.DB_DIALECT,
+  PORT,
+  JWT_SECRET_KEY,
+  EMAIL_USER,
+  EMAIL_PASSWORD,
+  ENV,
+  HOST: DB_HOST,
+  USER: DB_USER,
+  PASSWORD: DB_PASSWORD,
+  DB: DB_NAME,
+  dialect: DB_DIALECT,
   pool: {
     max: 5,
     min: 0,

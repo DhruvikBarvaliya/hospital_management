@@ -3,109 +3,105 @@ const Billing = db.BillingModel;
 
 module.exports = {
   addBilling: async (req, res) => {
-    const data = req.body;
-    Billing.create(data)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Billing.",
-        });
+    try {
+      const data = req.body;
+      const newBilling = await Billing.create(data);
+      res.send(newBilling);
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the Billing.",
       });
+    }
   },
   getAllBilling: async (req, res) => {
-    Billing.findAll().then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Recived",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail Recived",
-        });
-      }
-    });
+    try {
+      const allBilling = await Billing.findAll();
+      res.json({
+        success: 1,
+        message: "Data Received",
+        data: allBilling,
+      });
+    } catch (err) {
+      res.json({
+        success: 0,
+        message: "Fail Received",
+      });
+    }
   },
   getBillingById: async (req, res) => {
-    let id = req.params.id;
-    Billing.findByPk(id).then((result) => {
-      if (result) {
+    try {
+      const id = req.params.id;
+      const billing = await Billing.findByPk(id);
+      if (billing) {
         res.json({
           success: 1,
-          message: "Data Recived",
-          data: result,
+          message: "Data Received",
+          data: billing,
         });
       } else {
         res.json({
           success: 0,
-          message: "Fail Recived",
+          message: "Fail Received",
         });
       }
-    });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving the Billing.",
+      });
+    }
   },
   updateBilling: async (req, res) => {
-    let id = req.params.id;
-    let data = req.body;
-    Billing.update(data, {
-      where: { id: id },
-    }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const data = req.body;
+      const updatedBilling = await Billing.update(data, {
+        where: { id: id },
+      });
+      res.json({
+        success: 1,
+        message: "Data Updated",
+        data: updatedBilling,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the Billing.",
+      });
+    }
   },
   updateBillingStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
-    Billing.update(
-      { status: status },
-      {
-        where: { id: id },
-      }
-    ).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Updated",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Updated",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const status = req.body.status;
+      const updatedStatus = await Billing.update(
+        { status: status },
+        {
+          where: { id: id },
+        }
+      );
+      res.json({
+        success: 1,
+        message: "Status Updated",
+        data: updatedStatus,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while updating the status of Billing.",
+      });
+    }
   },
   deleteBillingById: async (req, res) => {
-    let id = req.params.id;
-    Billing.destroy({ where: { id: id } }).then((result) => {
-      if (result) {
-        res.json({
-          success: 1,
-          message: "Data Deleted",
-          data: result,
-        });
-      } else {
-        res.json({
-          success: 0,
-          message: "Fail To Deleted",
-        });
-      }
-    });
+    try {
+      const id = req.params.id;
+      const deletedBilling = await Billing.destroy({ where: { id: id } });
+      res.json({
+        success: 1,
+        message: "Data Deleted",
+        data: deletedBilling,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while deleting the Billing.",
+      });
+    }
   },
 };
