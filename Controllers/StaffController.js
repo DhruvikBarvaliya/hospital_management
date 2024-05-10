@@ -11,8 +11,9 @@ module.exports = {
         return res.status(400).send({ message: "Staff Name Can not be Empty" });
       }
 
-      const existingStaff = await Staff.findOne({ email: data["email"] });
-
+      const existingStaff = await Staff.findOne({
+        where: { email: data["email"] },
+      });
       if (existingStaff) {
         return res.status(400).json({
           status: false,
