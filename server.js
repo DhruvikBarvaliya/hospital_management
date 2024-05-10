@@ -21,7 +21,7 @@ const createDefaultUser = async (userData) => {
 };
 
 db.sequelize
-  .sync({ force: false, alter: true })
+  .sync({ force: true, alter: true })
   .then(async () => {
     console.log("Drop and re-sync db.");
     const superAdmin = {

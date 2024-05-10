@@ -70,8 +70,7 @@ module.exports = {
   },
   updateInventoryStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const status = req.body.status;
+      const { id, status } = req.params;
       const updatedStatus = await Inventory.update(
         { status: status },
         {

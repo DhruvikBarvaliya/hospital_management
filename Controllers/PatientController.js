@@ -5,25 +5,38 @@ const bcrypt = require("bcryptjs");
 module.exports = {
   addPatient: async (req, res) => {
     try {
-      const { patient_first_name, email, password } = req.body;
+      const data = req.body;
 
-      if (!patient_first_name) {
-        return res.status(400).send({ message: "Patient Name Can not be Empty" });
+      if (!data.patient_first_name) {
+        return res
+          .status(400)
+          .send({ message: "Patient Name Can not be Empty" });
       }
 
-      const existingPatient = await Patient.findOne({ where: { email } });
+      const existingPatient = await Patient.findOne({
+        where: { email: data["email"] },
+      });
 
       if (existingPatient) {
-        return res.status(400).json({ status: false, message: "Patient already registered with this Email" });
+        return res.status(400).json({
+          status: false,
+          message: "Patient already registered with this Email",
+        });
       }
 
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
 
-      const createdPatient = await Patient.create({ patient_first_name, email, password: hashedPassword });
+      const createdPatient = await Patient.create({
+        ...data,
+        password: hashedPassword,
+      });
       res.send(createdPatient);
     } catch (error) {
-      res.status(500).send({ message: error.message || "Some error occurred while creating the Patient." });
+      res.status(500).send({
+        message:
+          error.message || "Some error occurred while creating the Patient.",
+      });
     }
   },
 
@@ -46,7 +59,10 @@ module.exports = {
         res.json({ success: 0, message: "Fail Received" });
       }
     } catch (error) {
-      res.status(500).send({ message: error.message || "Some error occurred while fetching the Patient." });
+      res.status(500).send({
+        message:
+          error.message || "Some error occurred while fetching the Patient.",
+      });
     }
   },
 
@@ -64,8 +80,7 @@ module.exports = {
 
   updatePatientStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const { status } = req.body;
+      const { id, status } = req.params;
       const updatedStatus = await Patient.update({ status }, { where: { id } });
       res.json({ success: 1, message: "Data Updated", data: updatedStatus });
     } catch (error) {

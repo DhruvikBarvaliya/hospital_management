@@ -70,8 +70,7 @@ module.exports = {
   },
   updatePharmacyStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const status = req.body.status;
+      const { id, status } = req.params;
       const updatedPharmacy = await Pharmacy.update(
         { status: status },
         {

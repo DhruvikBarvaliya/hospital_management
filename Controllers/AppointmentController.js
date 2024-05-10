@@ -73,8 +73,7 @@ module.exports = {
   },
   updateAppointmentStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const status = req.body.status;
+      const { id, status } = req.params;
       const updatedStatus = await Appointment.update(
         { status: status },
         {

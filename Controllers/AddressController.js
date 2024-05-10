@@ -77,8 +77,7 @@ module.exports = {
   },
   updateAddressStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const status = req.params.status;
+      const { id, status } = req.params;
       const result = await Address.update(
         { status: status },
         {

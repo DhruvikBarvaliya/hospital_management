@@ -96,8 +96,7 @@ module.exports = {
 
   updateStaffStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const { status } = req.body;
+      const { id, status } = req.params;
 
       const updatedStatus = await Staff.update({ status }, { where: { id } });
 

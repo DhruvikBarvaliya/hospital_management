@@ -153,8 +153,14 @@ router.route("/address")
 router.route("/address/:id")
   .get(/* authorize(), */ AddressController.getAddressById)
   .put(/* authorize(), */ AddressController.updateAddress)
-  .patch(/* authorize(), */ AddressController.updateAddressStatus)
   .delete(/* authorize(), */ AddressController.deleteAddressById);
+  // .patch(/* authorize(), */ AddressController.updateAddressStatus)
+
+  
+router.patch(
+  "/address/:id/:status",
+  /* authorize(), */ AddressController.updateAddressStatus
+);  
 
 module.exports = router;
 

@@ -70,8 +70,7 @@ module.exports = {
   },
   updateTestResultStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const status = req.body.status;
+      const { id, status } = req.params;
       const updatedTestResult = await TestResult.update(
         { status: status },
         {

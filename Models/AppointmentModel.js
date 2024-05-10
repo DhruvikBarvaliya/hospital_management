@@ -10,7 +10,7 @@ module.exports = (sequelize, Sequelize) => {
       is_active: Sequelize.BOOLEAN,
       status: Sequelize.BOOLEAN,
       appointment_status: {
-        type: Sequelize.ENUM("Complete", "Pending", "Canceled"),
+        type: Sequelize.ENUM("Completed", "Pending", "Canceled"),
         defaultValue: "Pending",
       },
       created_by: Sequelize.INTEGER,

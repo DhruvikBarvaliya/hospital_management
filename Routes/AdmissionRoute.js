@@ -153,7 +153,12 @@ router.route("/admission")
 router.route("/admission/:id")
   .get(/* authorize(), */ AdmissionController.getAdmissionById)
   .put(/* authorize(), */ AdmissionController.updateAdmission)
-  .patch(/* authorize(), */ AdmissionController.updateAdmissionStatus)
   .delete(/* authorize(), */ AdmissionController.deleteAdmissionById);
+  // .patch(/* authorize(), */ AdmissionController.updateAdmissionStatus)
+
+router.patch(
+    "/admission/:id/:status",
+    /* authorize(), */ AdmissionController.updateAdmissionStatus
+  );  
 
 module.exports = router;

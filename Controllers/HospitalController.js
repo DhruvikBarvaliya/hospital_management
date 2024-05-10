@@ -5,14 +5,17 @@ module.exports = {
   addHospital: async (req, res) => {
     try {
       if (!req.body.hospital_name) {
-        return res.status(400).send({ message: "Hospital Name Can not be Empty" });
+        return res
+          .status(400)
+          .send({ message: "Hospital Name Can not be Empty" });
       }
       const data = req.body;
       const createdHospital = await Hospital.create(data);
       res.send(createdHospital);
     } catch (err) {
       res.status(500).send({
-        message: err.message || "Some error occurred while creating the Hospital.",
+        message:
+          err.message || "Some error occurred while creating the Hospital.",
       });
     }
   },
@@ -51,7 +54,8 @@ module.exports = {
       }
     } catch (err) {
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving the Hospital.",
+        message:
+          err.message || "Some error occurred while retrieving the Hospital.",
       });
     }
   },
@@ -70,15 +74,15 @@ module.exports = {
       });
     } catch (err) {
       res.status(500).send({
-        message: err.message || "Some error occurred while updating the Hospital.",
+        message:
+          err.message || "Some error occurred while updating the Hospital.",
       });
     }
   },
 
   updateHospitalStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const status = req.body.status;
+      const { id, status } = req.params;
       const updatedStatus = await Hospital.update(
         { status: status },
         {
@@ -92,7 +96,9 @@ module.exports = {
       });
     } catch (err) {
       res.status(500).send({
-        message: err.message || "Some error occurred while updating the Hospital status.",
+        message:
+          err.message ||
+          "Some error occurred while updating the Hospital status.",
       });
     }
   },
@@ -108,7 +114,8 @@ module.exports = {
       });
     } catch (err) {
       res.status(500).send({
-        message: err.message || "Some error occurred while deleting the Hospital.",
+        message:
+          err.message || "Some error occurred while deleting the Hospital.",
       });
     }
   },

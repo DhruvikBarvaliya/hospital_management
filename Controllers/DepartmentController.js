@@ -70,8 +70,7 @@ module.exports = {
   },
   updateDepartmentStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const status = req.body.status;
+      const { id, status } = req.params;
       const updatedDepartment = await Department.update(
         { status: status },
         {

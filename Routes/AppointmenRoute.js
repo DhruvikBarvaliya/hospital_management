@@ -153,7 +153,12 @@ router.route("/appointment")
 router.route("/appointment/:id")
   .get(/* authorize(), */ AppointmentController.getAppointmentById)
   .put(/* authorize(), */ AppointmentController.updateAppointment)
-  .patch(/* authorize(), */ AppointmentController.updateAppointmentStatus)
   .delete(/* authorize(), */ AppointmentController.deleteAppointmentById);
+  // .patch(/* authorize(), */ AppointmentController.updateAppointmentStatus)
+
+router.patch(
+    "/appointment/:id/:status",
+    /* authorize(), */ AppointmentController.updateAppointmentStatus
+  );
 
 module.exports = router;

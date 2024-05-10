@@ -77,8 +77,7 @@ module.exports = {
   },
   updateWordStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const status = req.body.status;
+      const { id, status } = req.params;
       const result = await Word.update(
         { status: status },
         {

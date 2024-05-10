@@ -80,8 +80,7 @@ module.exports = {
   },
   updateRoomStatus: async (req, res) => {
     try {
-      const id = req.params.id;
-      const status = req.body.status;
+      const { id, status } = req.params;
       const result = await Room.update(
         { status: status },
         {
