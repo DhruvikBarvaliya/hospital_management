@@ -25,7 +25,7 @@ module.exports = {
       }
 
       const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, salt);
+      const hashedPassword = await bcrypt.hash(data.password, salt);
 
       const createdPatient = await Patient.create({
         ...data,
@@ -42,7 +42,19 @@ module.exports = {
 
   getAllPatient: async (req, res) => {
     try {
-      const allPatients = await Patient.findAll();
+      const allPatients = await Patient.findAll({
+        attributes: {
+          exclude: [
+            "role",
+            "password",
+            "otp",
+            "forgot_otp",
+            "is_verified",
+            "is_active",
+            "status",
+          ],
+        },
+      });
       res.json({ success: 1, message: "Data Received", data: allPatients });
     } catch (error) {
       res.json({ success: 0, message: "Fail Received" });
@@ -52,7 +64,19 @@ module.exports = {
   getPatientById: async (req, res) => {
     try {
       const id = req.params.id;
-      const patient = await Patient.findByPk(id);
+      const patient = await Patient.findByPk(id, {
+        attributes: {
+          exclude: [
+            "role",
+            "password",
+            "otp",
+            "forgot_otp",
+            "is_verified",
+            "is_active",
+            "status",
+          ],
+        },
+      });
       if (patient) {
         res.json({ success: 1, message: "Data Received", data: patient });
       } else {

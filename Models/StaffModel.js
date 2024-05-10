@@ -31,11 +31,11 @@ module.exports = (sequelize, Sequelize) => {
       timestamps: true,
     }
   );
-  Staff.belongsTo(sequelize.models.Department, { foreignKey: 'department_id' });
-  Staff.belongsTo(sequelize.models.Address, { foreignKey: 'staff_address' });
-  Staff.belongsTo(sequelize.models.Role, { foreignKey: 'role_id' });
-  Staff.belongsTo(sequelize.models.Doctor, { foreignKey: 'created_by' });
-  Staff.belongsTo(sequelize.models.Doctor, { foreignKey: 'updated_by' });
+  // Staff.belongsTo(sequelize.models.Department, { foreignKey: 'department_id' });
+  // Staff.belongsTo(sequelize.models.Address, { foreignKey: 'staff_address' });
+  // Staff.belongsTo(sequelize.models.Role, { foreignKey: 'role_id' });
+  // Staff.belongsTo(sequelize.models.Doctor, { foreignKey: 'created_by' });
+  // Staff.belongsTo(sequelize.models.Doctor, { foreignKey: 'updated_by' });
 
   return Staff;
 };

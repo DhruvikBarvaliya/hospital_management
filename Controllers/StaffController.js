@@ -5,13 +5,13 @@ const bcrypt = require("bcryptjs");
 module.exports = {
   addStaff: async (req, res) => {
     try {
-      const { staff_first_name, email, password } = req.body;
+      const data = req.body;
 
-      if (!staff_first_name) {
+      if (!data.staff_first_name) {
         return res.status(400).send({ message: "Staff Name Can not be Empty" });
       }
 
-      const existingStaff = await Staff.findOne({ where: { email } });
+      const existingStaff = await Staff.findOne({ email: data["email"] });
 
       if (existingStaff) {
         return res.status(400).json({
@@ -21,20 +21,36 @@ module.exports = {
       }
 
       const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, salt);
+      const hashedPassword = await bcrypt.hash(data.password, salt);
 
-      const newStaff = await Staff.create({ staff_first_name, email, password: hashedPassword });
+      const newStaff = await Staff.create({
+        ...data,
+        password: hashedPassword,
+      });
       res.send(newStaff);
     } catch (error) {
       res.status(500).send({
-        message: error.message || "Some error occurred while creating the Staff.",
+        message:
+          error.message || "Some error occurred while creating the Staff.",
       });
     }
   },
 
   getAllStaff: async (req, res) => {
     try {
-      const allStaff = await Staff.findAll();
+      const allStaff = await Staff.findAll({
+        attributes: {
+          exclude: [
+            "role",
+            "password",
+            "otp",
+            "forgot_otp",
+            "is_verified",
+            "is_active",
+            "status",
+          ],
+        },
+      });
 
       res.json({
         success: 1,
@@ -52,7 +68,19 @@ module.exports = {
   getStaffById: async (req, res) => {
     try {
       const id = req.params.id;
-      const staffById = await Staff.findByPk(id);
+      const staffById = await Staff.findByPk(id, {
+        attributes: {
+          exclude: [
+            "role",
+            "password",
+            "otp",
+            "forgot_otp",
+            "is_verified",
+            "is_active",
+            "status",
+          ],
+        },
+      });
 
       if (staffById) {
         res.json({
@@ -68,7 +96,8 @@ module.exports = {
       }
     } catch (error) {
       res.status(500).send({
-        message: error.message || "Some error occurred while retrieving the Staff.",
+        message:
+          error.message || "Some error occurred while retrieving the Staff.",
       });
     }
   },
