@@ -3,11 +3,11 @@ const Test = db.TestModel;
 
 module.exports = {
   addTest: async (req, res) => {
-    if (!req.body.test_name) {
+    const data = req.body;
+    if (!data.test_name) {
       res.status(400).send({ message: "Test Name Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Test.create(data)
       .then((data) => {
         res.send(data);
@@ -73,8 +73,7 @@ module.exports = {
     });
   },
   updateTestStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Test.update(
       { status: status },
       {

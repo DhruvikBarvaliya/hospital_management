@@ -3,11 +3,11 @@ const Inventory = db.InventoryModel;
 
 module.exports = {
   addInventory: async (req, res) => {
-    if (!req.body.item_name) {
+    const data = req.body;
+    if (!data.item_name) {
       res.status(400).send({ message: "Item Name Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Inventory.create(data)
       .then((data) => {
         res.send(data);
@@ -73,8 +73,7 @@ module.exports = {
     });
   },
   updateInventoryStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Inventory.update(
       { status: status },
       {

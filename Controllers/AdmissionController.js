@@ -3,11 +3,11 @@ const Admission = db.AdmissionModel;
 
 module.exports = {
   addAdmission: async (req, res) => {
-    if (!req.body.patient_id) {
+    const data = req.body;
+    if (!data.patient_id) {
       res.status(400).send({ message: "Patient Id Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Admission.create(data)
       .then((data) => {
         res.send(data);
@@ -73,8 +73,7 @@ module.exports = {
     });
   },
   updateAdmissionStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Admission.update(
       { status: status },
       {

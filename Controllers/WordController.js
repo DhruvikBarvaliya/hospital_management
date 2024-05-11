@@ -3,11 +3,11 @@ const Word = db.WordModel;
 
 module.exports = {
   addWord: async (req, res) => {
-    if (!req.body.word_name) {
+    const data = req.body;
+    if (!data.word_name) {
       res.status(400).send({ message: "Word Name Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Word.create(data)
       .then((data) => {
         res.send(data);
@@ -73,8 +73,7 @@ module.exports = {
     });
   },
   updateWordStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Word.update(
       { status: status },
       {

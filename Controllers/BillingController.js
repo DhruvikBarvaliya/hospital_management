@@ -69,8 +69,7 @@ module.exports = {
     });
   },
   updateBillingStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Billing.update(
       { status: status },
       {

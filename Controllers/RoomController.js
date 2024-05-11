@@ -3,11 +3,11 @@ const Room = db.RoomModel;
 
 module.exports = {
   addRoom: async (req, res) => {
-    if (!req.body.staff_id) {
+    const data = req.body;
+    if (!data.staff_id) {
       res.status(400).send({ message: "Staff Id Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Room.create(data)
       .then((data) => {
         res.send(data);
@@ -73,8 +73,7 @@ module.exports = {
     });
   },
   updateRoomStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Room.update(
       { status: status },
       {

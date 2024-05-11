@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const AddressRoute = require("./AddressRoute");
 const AdmissionRoute = require("./AdmissionRoute");
 const AppointmenRoute = require("./AppointmenRoute");
 const AuthRoute = require("./AuthRoute");
@@ -27,7 +26,6 @@ router.get("/", (req, res) => {
 
 router.use(
   "/v1",
-  AddressRoute,
   AdmissionRoute,
   AppointmenRoute,
   AuthRoute,

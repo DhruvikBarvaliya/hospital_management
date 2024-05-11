@@ -19,8 +19,8 @@ const Role = require("../Helpers/Role");
  *         patient_last_name:
  *           type: string
  *           description: Enter Last Name of The Patient
- *         patient_address:
- *           type: integer
+ *         address:
+ *           type: string
  *           description: Enter Address of The Patient
  *         patient_phone_number:
  *           type: string

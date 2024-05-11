@@ -10,11 +10,11 @@ const Patient = db.PatientModel;
 
 module.exports = {
   register: async (req, res) => {
-    if (!req.body.first_name) {
+    const data = req.body;
+    if (!data.first_name) {
       res.status(400).send({ message: "First Name Can not be Emapty" });
       return;
     }
-    const data = req.body;
     const user = await User.findOne({
       where: {
         email: data.email,

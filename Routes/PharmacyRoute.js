@@ -16,9 +16,6 @@ const Role = require("../Helpers/Role");
  *         pharmacy_name:
  *           type: string
  *           description: Enter Pharmacy Name
- *         pharmacy_address:
- *           type: integer
- *           description: Enter Pharmacy Address
  *         pharmacy_phone_number:
  *           type: string
  *           description: Enter Pharmacy Phone Number

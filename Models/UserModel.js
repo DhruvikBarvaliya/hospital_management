@@ -17,6 +17,14 @@ module.exports = (sequelize, Sequelize) => {
       phone_number: { type: Sequelize.STRING },
       email: { type: Sequelize.STRING },
       password: { type: Sequelize.STRING },
+      address: {
+        type: Sequelize.JSONB,
+        defaultValue: {},
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
       otp: { type: Sequelize.INTEGER },
       forgot_otp: { type: Sequelize.INTEGER },
       last_login: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },

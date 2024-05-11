@@ -7,6 +7,14 @@ module.exports = (sequelize, Sequelize) => {
       staff_first_name: { type: Sequelize.STRING },
       staff_last_name: { type: Sequelize.STRING },
       staff_phone_number: { type: Sequelize.STRING },
+      address: {
+        type: Sequelize.JSONB,
+        defaultValue: {},
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
       email: { type: Sequelize.STRING },
       password: { type: Sequelize.STRING },
       otp: { type: Sequelize.INTEGER },
@@ -29,14 +37,14 @@ module.exports = (sequelize, Sequelize) => {
       created_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Doctor",
+          model: "User",
           key: "id",
         },
       },
       updated_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Doctor",
+          model: "User",
           key: "id",
         },
       },

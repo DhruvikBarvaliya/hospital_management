@@ -5,19 +5,27 @@ module.exports = (sequelize, Sequelize) => {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       hospital_name: { type: Sequelize.STRING },
       hospital_phone_number: { type: Sequelize.STRING },
+      address: {
+        type: Sequelize.JSONB,
+        defaultValue: {},
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
       is_active: { type: Sequelize.BOOLEAN },
       status: { type: Sequelize.BOOLEAN },
       created_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Doctor",
+          model: "User",
           key: "id",
         },
       },
       updated_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Doctor",
+          model: "User",
           key: "id",
         },
       },

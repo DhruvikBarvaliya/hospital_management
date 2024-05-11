@@ -3,11 +3,11 @@ const MedicalRecord = db.MedicalRecordModel;
 
 module.exports = {
   addMedicalRecord: async (req, res) => {
-    if (!req.body.patient_id) {
+    const data = req.body;
+    if (!data.patient_id) {
       res.status(400).send({ message: "Patient Id Can not be Emapty" });
       return;
     }
-    const data = req.body;
     MedicalRecord.create(data)
       .then((data) => {
         res.send(data);
@@ -74,8 +74,7 @@ module.exports = {
     });
   },
   updateMedicalRecordStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     MedicalRecord.update(
       { status: status },
       {

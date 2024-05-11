@@ -3,11 +3,11 @@ const Role = db.RoleModel;
 
 module.exports = {
   addRole: async (req, res) => {
-    if (!req.body.role_name) {
+    const data = req.body;
+    if (!data.role_name) {
       res.status(400).send({ message: "Role Name Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Role.create(data)
       .then((data) => {
         res.send(data);
@@ -73,8 +73,7 @@ module.exports = {
     });
   },
   updateRoleStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Role.update(
       { status: status },
       {

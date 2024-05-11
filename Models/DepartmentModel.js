@@ -9,14 +9,14 @@ module.exports = (sequelize, Sequelize) => {
       created_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Doctor",
+          model: "User",
           key: "id",
         },
       },
       updated_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Doctor",
+          model: "User",
           key: "id",
         },
       },

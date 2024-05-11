@@ -35,8 +35,8 @@ const Role = require("../Helpers/Role");
  *         password:
  *           type: string
  *           description: Enter Password for Doctor Login
- *         doctor_address:
- *           type: integer
+ *         address:
+ *           type: string
  *           description: Enter Address for Doctor
  *         salary:
  *           type: integer

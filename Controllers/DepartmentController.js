@@ -3,11 +3,11 @@ const Department = db.DepartmentModel;
 
 module.exports = {
   addDepartment: async (req, res) => {
-    if (!req.body.department_name) {
+    const data = req.body;
+    if (!data.department_name) {
       res.status(400).send({ message: "Department Name Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Department.create(data)
       .then((data) => {
         res.send(data);
@@ -73,8 +73,7 @@ module.exports = {
     });
   },
   updateDepartmentStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Department.update(
       { status: status },
       {

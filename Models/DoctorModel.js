@@ -11,6 +11,14 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.ENUM("Dermatology", "Diabetology", "Emergency"),
         defaultValue: "Dermatology",
       },
+      address: {
+        type: Sequelize.JSONB,
+        defaultValue: {},
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
       email: { type: Sequelize.STRING },
       password: { type: Sequelize.STRING },
       otp: { type: Sequelize.INTEGER },
@@ -29,14 +37,14 @@ module.exports = (sequelize, Sequelize) => {
       created_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Doctor",
+          model: "User",
           key: "id",
         },
       },
       updated_by: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Doctor",
+          model: "User",
           key: "id",
         },
       },

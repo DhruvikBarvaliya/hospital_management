@@ -3,11 +3,11 @@ const Hospital = db.HospitalModel;
 
 module.exports = {
   addHospital: async (req, res) => {
-    if (!req.body.hospital_name) {
+    const data = req.body;
+    if (!data.hospital_name) {
       res.status(400).send({ message: "Hospital Name Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Hospital.create(data)
       .then((data) => {
         res.send(data);
@@ -73,8 +73,7 @@ module.exports = {
     });
   },
   updateHospitalStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Hospital.update(
       { status: status },
       {

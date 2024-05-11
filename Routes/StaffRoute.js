@@ -22,8 +22,8 @@ const Role = require("../Helpers/Role");
  *         staff_last_name:
  *           type: string
  *           description: Enter First Last of The Staff
- *         staff_address:
- *           type: integer
+ *         address:
+ *           type: string
  *           description: Enter Address of The Staff
  *         staff_phone_number:
  *           type: string

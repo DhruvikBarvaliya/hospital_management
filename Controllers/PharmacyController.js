@@ -3,11 +3,11 @@ const Pharmacy = db.PharmacyModel;
 
 module.exports = {
   addPharmacy: async (req, res) => {
-    if (!req.body.pharmacy_name) {
+    const data = req.body;
+    if (!data.pharmacy_name) {
       res.status(400).send({ message: "Pharmacy Name Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Pharmacy.create(data)
       .then((data) => {
         res.send(data);
@@ -73,8 +73,7 @@ module.exports = {
     });
   },
   updatePharmacyStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Pharmacy.update(
       { status: status },
       {

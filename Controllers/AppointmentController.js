@@ -3,11 +3,11 @@ const Appointment = db.AppointmentModel;
 
 module.exports = {
   addAppointment: async (req, res) => {
-    if (!req.body.doctor_id) {
+    const data = req.body;
+    if (!data.doctor_id) {
       res.status(400).send({ message: "Doctor Id Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Appointment.create(data)
       .then((data) => {
         res.send(data);
@@ -74,8 +74,7 @@ module.exports = {
     });
   },
   updateAppointmentStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Appointment.update(
       { status: status },
       {

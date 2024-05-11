@@ -4,11 +4,11 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
   addDoctor: async (req, res) => {
-    if (!req.body.doctor_first_name) {
+    const data = req.body;
+    if (!data.doctor_first_name) {
       res.status(400).send({ message: "Doctor First Name Can not be Emapty" });
       return;
     }
-    const data = req.body;
     const doctor = await Doctor.findOne({
       where: {
         email: data.email,
@@ -93,8 +93,7 @@ module.exports = {
     });
   },
   updateDoctorStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Doctor.update(
       { status: status },
       {

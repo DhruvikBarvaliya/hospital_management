@@ -3,11 +3,11 @@ const Prescription = db.PrescriptionModel;
 
 module.exports = {
   addPrescription: async (req, res) => {
-    if (!req.body.patient_id) {
+    const data = req.body;
+    if (!data.patient_id) {
       res.status(400).send({ message: "Patient Id Can not be Emapty" });
       return;
     }
-    const data = req.body;
     Prescription.create(data)
       .then((data) => {
         res.send(data);
@@ -74,8 +74,7 @@ module.exports = {
     });
   },
   updatePrescriptionStatus: async (req, res) => {
-    let id = req.params.id;
-    let status = req.params;
+    let {id,status} = req.params;
     Prescription.update(
       { status: status },
       {
