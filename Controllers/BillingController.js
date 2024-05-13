@@ -15,7 +15,9 @@ module.exports = {
   },
   getAllBilling: async (req, res) => {
     try {
-      const allBilling = await Billing.findAll();
+      const allBilling = await Billing.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -31,7 +33,9 @@ module.exports = {
   getBillingById: async (req, res) => {
     try {
       const id = req.params.id;
-      const billing = await Billing.findByPk(id);
+      const billing = await Billing.findByPk(id,{
+        where: {  is_active: true },
+      });
       if (billing) {
         res.json({
           success: 1,
@@ -91,7 +95,12 @@ module.exports = {
   deleteBillingById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedBilling = await Billing.destroy({ where: { id: id } });
+      const deletedBilling = await Billing.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       res.json({
         success: 1,
         message: "Data Deleted",

@@ -15,7 +15,9 @@ module.exports = {
   },
   getAllInvoice: async (req, res) => {
     try {
-      const allInvoices = await Invoice.findAll();
+      const allInvoices = await Invoice.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -31,7 +33,9 @@ module.exports = {
   getInvoiceById: async (req, res) => {
     try {
       const id = req.params.id;
-      const invoice = await Invoice.findByPk(id);
+      const invoice = await Invoice.findByPk(id,{
+        where: {  is_active: true },
+      });
       if (invoice) {
         res.json({
           success: 1,
@@ -91,7 +95,12 @@ module.exports = {
   deleteInvoiceById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedInvoice = await Invoice.destroy({ where: { id: id } });
+      const deletedInvoice = await Invoice.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       res.json({
         success: 1,
         message: "Data Deleted",

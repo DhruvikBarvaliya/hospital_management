@@ -1,5 +1,6 @@
 const db = require("../Config/Sequelize");
 const Department = db.DepartmentModel;
+const Hospital = db.HospitalModel;
 
 module.exports = {
   addDepartment: async (req, res) => {
@@ -15,7 +16,10 @@ module.exports = {
   },
   getAllDepartment: async (req, res) => {
     try {
-      const departments = await Department.findAll();
+      const departments = await Department.findAll({
+        where: {  is_active: true },
+        include: [{ model: Hospital }]
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -31,7 +35,10 @@ module.exports = {
   getDepartmentById: async (req, res) => {
     try {
       const id = req.params.id;
-      const department = await Department.findByPk(id);
+      const department = await Department.findByPk(id,{
+        where: {  is_active: true },
+        include: [{ model: Hospital }]
+      });
       if (department) {
         res.json({
           success: 1,
@@ -91,7 +98,12 @@ module.exports = {
   deleteDepartmentById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedDepartment = await Department.destroy({ where: { id: id } });
+      const deletedDepartment = await Department.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       res.json({
         success: 1,
         message: "Data Deleted",

@@ -43,15 +43,16 @@ module.exports = {
   getAllPatient: async (req, res) => {
     try {
       const allPatients = await Patient.findAll({
+        where: { is_active: true },
         attributes: {
           exclude: [
-            "role",
-            "password",
-            "otp",
-            "forgot_otp",
-            "is_verified",
-            "is_active",
-            "status",
+        "role",
+        "password",
+        "otp",
+        "forgot_otp",
+        "is_verified",
+        "is_active",
+        "status",
           ],
         },
       });
@@ -65,15 +66,16 @@ module.exports = {
     try {
       const id = req.params.id;
       const patient = await Patient.findByPk(id, {
+        where: { is_active: true },
         attributes: {
           exclude: [
-            "role",
-            "password",
-            "otp",
-            "forgot_otp",
-            "is_verified",
-            "is_active",
-            "status",
+        "role",
+        "password",
+        "otp",
+        "forgot_otp",
+        "is_verified",
+        "is_active",
+        "status",
           ],
         },
       });
@@ -115,7 +117,12 @@ module.exports = {
   deletePatientById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedPatient = await Patient.destroy({ where: { id } });
+      const deletedPatient = await Patient.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       res.json({ success: 1, message: "Data Deleted", data: deletedPatient });
     } catch (error) {
       res.json({ success: 0, message: "Fail To Delete" });

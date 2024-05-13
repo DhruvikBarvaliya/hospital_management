@@ -9,22 +9,10 @@ module.exports = (sequelize, Sequelize) => {
     item_name: Sequelize.STRING,
     quantity_available: Sequelize.INTEGER,
     unit_price: Sequelize.FLOAT,
-    is_active: Sequelize.BOOLEAN,
-    status: Sequelize.BOOLEAN,
-    created_by: {
-      type: Sequelize.INTEGER,
-      references: {
-        model: "Doctor",
-        key: "id"
-      }
-    },
-    updated_by: {
-      type: Sequelize.INTEGER,
-      references: {
-        model: "Doctor",
-        key: "id"
-      }
-    }
+    is_active: { type: Sequelize.BOOLEAN, defaultValue: true },
+    status: { type: Sequelize.BOOLEAN, defaultValue: true },
+    created_by: Sequelize.INTEGER,
+    updated_by: Sequelize.INTEGER,
   }, {
     freezeTableName: true,
     timestamps: true

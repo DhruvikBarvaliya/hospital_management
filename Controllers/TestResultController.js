@@ -15,7 +15,9 @@ module.exports = {
   },
   getAllTestResult: async (req, res) => {
     try {
-      const result = await TestResult.findAll();
+      const result = await TestResult.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -31,7 +33,9 @@ module.exports = {
   getTestResultById: async (req, res) => {
     try {
       const id = req.params.id;
-      const result = await TestResult.findByPk(id);
+      const result = await TestResult.findByPk(id,{
+        where: {  is_active: true },
+      });
       if (result) {
         res.json({
           success: 1,
@@ -91,7 +95,12 @@ module.exports = {
   deleteTestResultById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedTestResult = await TestResult.destroy({ where: { id: id } });
+      const deletedTestResult = await TestResult.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       res.json({
         success: 1,
         message: "Data Deleted",

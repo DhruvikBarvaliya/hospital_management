@@ -15,7 +15,9 @@ module.exports = {
   },
   getAllPharmacy: async (req, res) => {
     try {
-      const allPharmacies = await Pharmacy.findAll();
+      const allPharmacies = await Pharmacy.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -31,7 +33,9 @@ module.exports = {
   getPharmacyById: async (req, res) => {
     try {
       const id = req.params.id;
-      const pharmacy = await Pharmacy.findByPk(id);
+      const pharmacy = await Pharmacy.findByPk(id,{
+        where: {  is_active: true },
+      });
       if (pharmacy) {
         res.json({
           success: 1,
@@ -91,7 +95,12 @@ module.exports = {
   deletePharmacyById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedPharmacy = await Pharmacy.destroy({ where: { id: id } });
+      const deletedPharmacy = await Pharmacy.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       res.json({
         success: 1,
         message: "Data Deleted",

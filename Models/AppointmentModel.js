@@ -3,12 +3,10 @@ module.exports = (sequelize, Sequelize) => {
     "Appointment",
     {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      patient_id: Sequelize.INTEGER,
-      doctor_id: Sequelize.INTEGER,
       date: Sequelize.DATEONLY,
       time: Sequelize.DATE,
-      is_active: Sequelize.BOOLEAN,
-      status: Sequelize.BOOLEAN,
+      is_active: { type: Sequelize.BOOLEAN, defaultValue: true },
+      status: { type: Sequelize.BOOLEAN, defaultValue: true },
       appointment_status: {
         type: Sequelize.ENUM("Completed", "Pending", "Canceled"),
         defaultValue: "Pending",

@@ -1,5 +1,7 @@
 const db = require("../Config/Sequelize");
 const Doctor = db.DoctorModel;
+const Department = db.DepartmentModel;
+const Hospital = db.HospitalModel;
 const bcrypt = require("bcryptjs");
 
 module.exports = {
@@ -39,17 +41,21 @@ module.exports = {
   getAllDoctor: async (req, res) => {
     try {
       const doctors = await Doctor.findAll({
+        where: { is_active: true },
         attributes: {
           exclude: [
-            "role",
-            "password",
-            "otp",
-            "forgot_otp",
-            "is_verified",
-            "is_active",
-            "status",
+        "role",
+        "password",
+        "otp",
+        "forgot_otp",
+        "is_verified",
+        "is_active",
+        "status",
           ],
+          // model: Department,
+          // include: [{ model: Hospital }],
         },
+        
       });
       res.json({ success: 1, message: "Data Received", data: doctors });
     } catch (error) {
@@ -61,15 +67,16 @@ module.exports = {
     try {
       const id = req.params.id;
       const doctor = await Doctor.findByPk(id, {
+        where: { is_active: true },
         attributes: {
           exclude: [
-            "role",
-            "password",
-            "otp",
-            "forgot_otp",
-            "is_verified",
-            "is_active",
-            "status",
+        "role",
+        "password",
+        "otp",
+        "forgot_otp",
+        "is_verified",
+        "is_active",
+        "status",
           ],
         },
       });
@@ -127,7 +134,12 @@ module.exports = {
   deleteDoctorById: async (req, res) => {
     try {
       const id = req.params.id;
-      const rowsDeleted = await Doctor.destroy({ where: { id } });
+      const rowsDeleted = await Doctor.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       if (rowsDeleted) {
         res.json({ success: 1, message: "Data Deleted", data: rowsDeleted });
       } else {

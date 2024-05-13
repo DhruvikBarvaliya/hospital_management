@@ -19,7 +19,9 @@ module.exports = {
 
   getAllAdmission: async (req, res) => {
     try {
-      const result = await Admission.findAll();
+      const result = await Admission.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -36,7 +38,9 @@ module.exports = {
   getAdmissionById: async (req, res) => {
     try {
       const id = req.params.id;
-      const result = await Admission.findByPk(id);
+      const result = await Admission.findByPk(id,{
+        where: { is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -95,7 +99,13 @@ module.exports = {
   deleteAdmissionById: async (req, res) => {
     try {
       const id = req.params.id;
-      const result = await Admission.destroy({ where: { id: id } });
+      // const result = await Admission.destroy({ where: { id: id } });
+      const result = await Admission.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       res.json({
         success: 1,
         message: "Data Deleted",

@@ -19,7 +19,9 @@ module.exports = {
 
   getAllPrescription: async (req, res) => {
     try {
-      const allPrescriptions = await Prescription.findAll();
+      const allPrescriptions = await Prescription.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -36,7 +38,9 @@ module.exports = {
   getPrescriptionById: async (req, res) => {
     try {
       const id = req.params.id;
-      const prescription = await Prescription.findByPk(id);
+      const prescription = await Prescription.findByPk(id,{
+        where: {  is_active: true },
+      });
       if (prescription) {
         res.json({
           success: 1,
@@ -99,7 +103,12 @@ module.exports = {
   deletePrescriptionById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedPrescription = await Prescription.destroy({ where: { id: id } });
+      const deletedPrescription = await Prescription.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       res.json({
         success: 1,
         message: "Data Deleted",

@@ -1,28 +1,31 @@
 const { user, password } = require("../Config/Config");
 const nodemailer = require("nodemailer");
 
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: user,
+    pass: password,
+  },
+});
+
 let sendMail = async (to, otp) => {
   try {
-    var transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user,
-        pass: password,
-      },
-    });
-
-    var mailOptions = {
+    const mailOptions = {
       from: user,
-      to,
-      subject: "Verification From HRMS ✔",
+      to: to,
+      subject: "Verification From Property ✔",
       text: "For Verify Email",
-      html: `<P>This is OTP For Verify Email</p><b>${otp}</b> `,
+      html: `<p>This is OTP For Verify Email</p><b>${otp}</b>`,
     };
+
     const info = await transporter.sendMail(mailOptions);
     console.log("Email sent: " + info.response);
     console.log("Email MessageId: " + info.messageId);
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error("Failed to send email:", error);
     throw new Error("Server Error");
   }
 };

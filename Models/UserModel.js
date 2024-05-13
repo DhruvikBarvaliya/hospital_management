@@ -15,6 +15,14 @@ module.exports = (sequelize, Sequelize) => {
       phone_number: { type: Sequelize.STRING },
       email: { type: Sequelize.STRING },
       password: { type: Sequelize.STRING },
+      user_address: {
+        type: Sequelize.JSONB,
+        defaultValue: {},
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
       otp: { type: Sequelize.INTEGER },
       forgot_otp: { type: Sequelize.INTEGER },
       last_login: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
@@ -24,8 +32,8 @@ module.exports = (sequelize, Sequelize) => {
       },
       date_of_birth: { type: Sequelize.DATEONLY },
       is_verified: { type: Sequelize.BOOLEAN, defaultValue: false },
-      is_active: { type: Sequelize.BOOLEAN, defaultValue: false },
-      status: { type: Sequelize.BOOLEAN, defaultValue: false },
+      is_active: { type: Sequelize.BOOLEAN, defaultValue: true },
+      status: { type: Sequelize.BOOLEAN, defaultValue: true },
     },
     {
       freezeTableName: true,

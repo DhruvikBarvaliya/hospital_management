@@ -22,7 +22,9 @@ module.exports = {
 
   getAllHospital: async (req, res) => {
     try {
-      const hospitals = await Hospital.findAll();
+      const hospitals = await Hospital.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -39,7 +41,9 @@ module.exports = {
   getHospitalById: async (req, res) => {
     try {
       const id = req.params.id;
-      const hospital = await Hospital.findByPk(id);
+      const hospital = await Hospital.findByPk(id,{
+        where: {  is_active: true },
+      });
       if (hospital) {
         res.json({
           success: 1,
@@ -106,7 +110,12 @@ module.exports = {
   deleteHospitalById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedHospital = await Hospital.destroy({ where: { id: id } });
+      const deletedHospital = await Hospital.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       res.json({
         success: 1,
         message: "Data Deleted",

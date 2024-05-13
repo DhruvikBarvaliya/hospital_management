@@ -18,7 +18,9 @@ module.exports = {
   },
   getAllAppointment: async (req, res) => {
     try {
-      const appointments = await Appointment.findAll();
+      const appointments = await Appointment.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -34,7 +36,9 @@ module.exports = {
   getAppointmentById: async (req, res) => {
     try {
       const id = req.params.id;
-      const appointment = await Appointment.findByPk(id);
+      const appointment = await Appointment.findByPk(id,{
+        where: {  is_active: true },
+      });
       if (appointment) {
         res.json({
           success: 1,
@@ -94,7 +98,12 @@ module.exports = {
   deleteAppointmentById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedAppointment = await Appointment.destroy({ where: { id: id } });
+      const deletedAppointment = await Appointment.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       if (deletedAppointment) {
         res.json({
           success: 1,

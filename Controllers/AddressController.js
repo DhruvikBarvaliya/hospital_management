@@ -15,7 +15,9 @@ module.exports = {
   },
   getAllAddress: async (req, res) => {
     try {
-      const result = await Address.findAll();
+      const result = await Address.findAll({
+        where: { is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -31,7 +33,9 @@ module.exports = {
   getAddressById: async (req, res) => {
     try {
       const id = req.params.id;
-      const result = await Address.findByPk(id);
+      const result = await Address.findOne(id,{
+        where: {  is_active: true },
+      });
       if (result) {
         res.json({
           success: 1,
@@ -104,8 +108,12 @@ module.exports = {
   },
   deleteAddressById: async (req, res) => {
     try {
-      const id = req.params.id;
-      const result = await Address.destroy({ where: { id: id } });
+      const id = req.params.id;const result = await Address.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       if (result) {
         res.json({
           success: 1,

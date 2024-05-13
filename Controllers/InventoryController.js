@@ -15,7 +15,9 @@ module.exports = {
   },
   getAllInventory: async (req, res) => {
     try {
-      const allInventory = await Inventory.findAll();
+      const allInventory = await Inventory.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -31,7 +33,9 @@ module.exports = {
   getInventoryById: async (req, res) => {
     try {
       const id = req.params.id;
-      const inventory = await Inventory.findByPk(id);
+      const inventory = await Inventory.findByPk(id,{
+        where: {  is_active: true },
+      });
       if (inventory) {
         res.json({
           success: 1,
@@ -91,7 +95,12 @@ module.exports = {
   deleteInventoryById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedInventory = await Inventory.destroy({ where: { id: id } });
+      const deletedInventory = await Inventory.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       res.json({
         success: 1,
         message: "Data Deleted",

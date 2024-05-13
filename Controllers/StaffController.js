@@ -40,15 +40,16 @@ module.exports = {
   getAllStaff: async (req, res) => {
     try {
       const allStaff = await Staff.findAll({
+        where: { is_active: true },
         attributes: {
           exclude: [
-            "role",
-            "password",
-            "otp",
-            "forgot_otp",
-            "is_verified",
-            "is_active",
-            "status",
+        "role",
+        "password",
+        "otp",
+        "forgot_otp",
+        "is_verified",
+        "is_active",
+        "status",
           ],
         },
       });
@@ -70,15 +71,16 @@ module.exports = {
     try {
       const id = req.params.id;
       const staffById = await Staff.findByPk(id, {
+        where: { is_active: true },
         attributes: {
           exclude: [
-            "role",
-            "password",
-            "otp",
-            "forgot_otp",
-            "is_verified",
-            "is_active",
-            "status",
+        "role",
+        "password",
+        "otp",
+        "forgot_otp",
+        "is_verified",
+        "is_active",
+        "status",
           ],
         },
       });
@@ -146,7 +148,12 @@ module.exports = {
   deleteStaffById: async (req, res) => {
     try {
       const id = req.params.id;
-      const deletedStaff = await Staff.destroy({ where: { id } });
+      const deletedStaff = await Staff.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
 
       res.json({
         success: 1,

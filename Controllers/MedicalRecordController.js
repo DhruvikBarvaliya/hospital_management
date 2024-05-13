@@ -19,7 +19,9 @@ module.exports = {
 
   getAllMedicalRecord: async (req, res) => {
     try {
-      const result = await MedicalRecord.findAll();
+      const result = await MedicalRecord.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -36,7 +38,9 @@ module.exports = {
   getMedicalRecordById: async (req, res) => {
     try {
       const id = req.params.id;
-      const result = await MedicalRecord.findByPk(id);
+      const result = await MedicalRecord.findByPk(id,{
+        where: {  is_active: true },
+      });
       if (result) {
         res.json({
           success: 1,
@@ -113,7 +117,12 @@ module.exports = {
   deleteMedicalRecordById: async (req, res) => {
     try {
       const id = req.params.id;
-      const result = await MedicalRecord.destroy({ where: { id: id } });
+      const result = await MedicalRecord.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       if (result) {
         res.json({
           success: 1,

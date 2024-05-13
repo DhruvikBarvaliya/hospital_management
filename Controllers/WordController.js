@@ -15,7 +15,9 @@ module.exports = {
   },
   getAllWord: async (req, res) => {
     try {
-      const result = await Word.findAll();
+      const result = await Word.findAll({
+        where: {  is_active: true },
+      });
       res.json({
         success: 1,
         message: "Data Received",
@@ -31,7 +33,9 @@ module.exports = {
   getWordById: async (req, res) => {
     try {
       const id = req.params.id;
-      const result = await Word.findByPk(id);
+      const result = await Word.findByPk(id,{
+        where: { is_active: true },
+      });
       if (result) {
         res.json({
           success: 1,
@@ -105,7 +109,12 @@ module.exports = {
   deleteWordById: async (req, res) => {
     try {
       const id = req.params.id;
-      const result = await Word.destroy({ where: { id: id } });
+      const result = await Word.update(
+        { is_active: false },
+        {
+          where: { id: id },
+        }
+      );
       if (result) {
         res.json({
           success: 1,
