@@ -13,8 +13,7 @@ module.exports = (sequelize, Sequelize) => {
       password: { type: Sequelize.STRING },
       doctor_address: {
         type: Sequelize.JSONB,
-        defaultValue: {},
-        allowNull: false,
+        allowNull: true,
         validate: {
           notEmpty: true,
         },

@@ -8,8 +8,7 @@ module.exports = (sequelize, Sequelize) => {
       staff_last_name: { type: Sequelize.STRING },
       staff_address: {
         type: Sequelize.JSONB,
-        defaultValue: {},
-        allowNull: false,
+        allowNull: true,
         validate: {
           notEmpty: true,
         },
